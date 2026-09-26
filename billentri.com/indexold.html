@@ -1,0 +1,2322 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+  <!--====== USEFULL META ======-->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="App Landing Business Template" />
+  <meta name="keywords" content="Landing, Business, Onepage, Html, Business, Apps, Apps Landing" />
+
+  <!--====== TITLE TAG ======-->
+  <title>BillEntri - Billing Made Easy</title>
+
+  <!--====== FAVICON ICON =======-->
+  <link rel="shortcut icon" type="image/ico" href="assets/img/favicon.png" />
+
+  <!--====== STYLESHEETS ======-->
+  <link href="assets/css/plugins.css" rel="stylesheet" />
+  <link href="assets/css/icons.css" rel="stylesheet" />
+  <link href="assets/css/typography.css" rel="stylesheet" />
+  <link href="assets/css/header.css" rel="stylesheet" />
+  <link href="assets/css/blog-and-pages.css" rel="stylesheet" />
+  <link href="assets/css/footer.css" rel="stylesheet" />
+  <link href="assets/css/signup.css" rel="stylesheet" />
+
+  <!--====== MAIN STYLESHEETS ======-->
+  <link href="style.css" rel="stylesheet" />
+  <link href="assets/css/responsive.css" rel="stylesheet" />
+
+  <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+  <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="overflow-xhidden home-three" data-spy="scroll" data-target=".mainmenu-area" data-offset="90">
+  <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+  <!--- PRELOADER -->
+  <div class="preeloader">
+    <div class="preloader-spinner"></div>
+  </div>
+
+  <!--SCROLL TO TOP-->
+  <a href="#scroolup" class="scrolltotop"><i class="fa fa-long-arrow-up"></i></a>
+
+  <!--START TOP AREA-->
+  <header class="top-area" id="home">
+    <div class="header-top-area" id="scroolup">
+      <!-- MAIN MENU AREA -->
+      <div class="mainmenu-area" id="mainmenu-area">
+        <div class="mainmenu-area-bg"></div>
+
+        <nav class="navbar">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 flex-v-center">
+                <!-- LOGO -->
+                <div class="navbar-header">
+                  <a href="#home" class="custom-logo-link default-logo">
+                    <img src="assets/img/logo.png" alt="BillEntri Logo" />
+                  </a>
+                  <a href="#home" class="custom-logo-link sticky-logo">
+                    <img src="assets/img/sticky_logo.png" alt="BillEntri Logo" />
+                  </a>
+                </div>
+
+                <!-- MOBILE HAMBURGER -->
+                <svg class="ham hamRotate ham8" viewBox="0 0 100 100" width="50">
+                  <path class="line top" d="m 30,33 h 40"></path>
+                  <path class="line middle" d="m 30,50 h 40"></path>
+                  <path class="line bottom" d="m 30,67 h 40"></path>
+                </svg>
+
+                <!-- NAVIGATION -->
+                <div id="main-nav" class="stellarnav">
+                  <ul id="nav" class="nav navbar-nav pull-right">
+                    <li class="active"><a href="#home">Home</a></li>
+                    <li><a href="#about">Features</a></li>
+                    <li><a href="#screenshots">Screenshots</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#faqs">FAQs</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                  </ul>
+                </div>
+
+                <!-- NAVBAR BUTTONS -->
+                <div class="navbar-buttons">
+                  <a href="https://dashboard.billentri.com/login" class="navbar-btn btn-primary">Login</a>
+                  <a href="#" class="navbar-btn btn-secondary" id="signup-btn">Sign Up</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <!-- END MAIN MENU AREA -->
+    </div>
+  </header>
+  <!--END TOP AREA-->
+
+  <!-- SIGN UP MODAL -->
+  <div class="signup-overlay" id="signup-overlay">
+    <div class="signup-container">
+      <!-- Header -->
+      <div class="signup-header">
+        <button class="signup-back-btn" id="signup-back-btn">
+          <i class="fa fa-arrow-left"></i>
+        </button>
+        <h2 class="signup-header-title">Set Up My Business</h2>
+        <button class="signup-close-btn" id="signup-close-btn" title="Close">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+
+      <!-- Main Content -->
+      <div class="signup-content">
+        <!-- Icon -->
+        <div class="signup-icon-wrapper">
+          <div class="signup-icon-circle">
+            <i class="dripicons-briefcase"></i>
+          </div>
+        </div>
+
+        <!-- Title and Subtitle -->
+        <h1 class="signup-main-title">Choose Business Type</h1>
+        <p class="signup-subtitle">Select how you want to manage your business.</p>
+
+        <!-- Business Type Options -->
+        <div class="signup-options">
+          <!-- Personal Option -->
+          <div class="signup-option-card" data-type="personal">
+            <div class="signup-option-icon">
+              <i class="dripicons-user"></i>
+            </div>
+            <div class="signup-option-content">
+              <h3 class="signup-option-title">Personal</h3>
+              <p class="signup-option-description">Manage your personal finances and transactions.</p>
+            </div>
+            <div class="signup-option-check">
+              <div class="signup-check-circle"></div>
+            </div>
+          </div>
+
+          <!-- Managing Business Option -->
+          <div class="signup-option-card active" data-type="business">
+            <div class="signup-option-icon">
+              <i class="dripicons-store"></i>
+            </div>
+            <div class="signup-option-content">
+              <h3 class="signup-option-title">Managing Business</h3>
+              <p class="signup-option-description">Manage business operations, inventory, and sales.</p>
+            </div>
+            <div class="signup-option-check">
+              <div class="signup-check-circle active">
+                <i class="fa fa-check"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="signup-footer">
+        <button class="signup-continue-btn" id="signup-continue-btn">Continue</button>
+      </div>
+    </div>
+
+    <!-- Add Business Form (Hidden by default) -->
+    <div class="signup-container signup-form-container" id="add-business-form" style="display: none;">
+      <!-- Header -->
+      <div class="signup-header">
+        <button class="signup-back-btn" id="form-back-btn">
+          <i class="fa fa-arrow-left"></i>
+        </button>
+        <h2 class="signup-header-title">Add Business</h2>
+        <button class="signup-close-btn" id="form-close-btn" title="Close">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+
+      <!-- Form Content -->
+      <div class="signup-content signup-form-content">
+        <form id="business-form">
+          <input type="hidden" id="businessType" name="businessType">
+          <!-- Business Identity Section -->
+          <div class="form-section">
+            <div class="form-section-header">
+              <i class="dripicons-view-apps"></i>
+              <h3>Business Identity</h3>
+            </div>
+
+            <div class="form-group">
+              <label for="companyName">Business Name <span class="required">*</span></label>
+              <input type="text" id="companyName" name="companyName" placeholder="Enter business name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="country">Country <span class="optional">(Optional)</span></label>
+              <div class="country-dropdown" id="country-dropdown">
+                <input type="hidden" id="country" name="country" value="India">
+                <button type="button" class="country-dropdown-trigger form-select" id="country-trigger"
+                  aria-haspopup="listbox" aria-expanded="false" aria-label="Select country">
+                  <span class="country-dropdown-value">India</span>
+                  <span class="country-dropdown-arrow"><i class="fa fa-chevron-down"></i></span>
+                </button>
+                <div class="country-dropdown-list" id="country-list" role="listbox" aria-hidden="true">
+                  <div class="country-dropdown-option" data-value="" role="option">Select country</div>
+                  <div class="country-dropdown-option" data-value="India" role="option">India</div>
+                  <div class="country-dropdown-option" data-value="Afghanistan" role="option">Afghanistan</div>
+                  <div class="country-dropdown-option" data-value="Albania" role="option">Albania</div>
+                  <div class="country-dropdown-option" data-value="Algeria" role="option">Algeria</div>
+                  <div class="country-dropdown-option" data-value="Argentina" role="option">Argentina</div>
+                  <div class="country-dropdown-option" data-value="Australia" role="option">Australia</div>
+                  <div class="country-dropdown-option" data-value="Austria" role="option">Austria</div>
+                  <div class="country-dropdown-option" data-value="Bangladesh" role="option">Bangladesh</div>
+                  <div class="country-dropdown-option" data-value="Belgium" role="option">Belgium</div>
+                  <div class="country-dropdown-option" data-value="Brazil" role="option">Brazil</div>
+                  <div class="country-dropdown-option" data-value="Canada" role="option">Canada</div>
+                  <div class="country-dropdown-option" data-value="China" role="option">China</div>
+                  <div class="country-dropdown-option" data-value="Colombia" role="option">Colombia</div>
+                  <div class="country-dropdown-option" data-value="Egypt" role="option">Egypt</div>
+                  <div class="country-dropdown-option" data-value="France" role="option">France</div>
+                  <div class="country-dropdown-option" data-value="Germany" role="option">Germany</div>
+                  <div class="country-dropdown-option" data-value="Indonesia" role="option">Indonesia</div>
+                  <div class="country-dropdown-option" data-value="Iran" role="option">Iran</div>
+                  <div class="country-dropdown-option" data-value="Iraq" role="option">Iraq</div>
+                  <div class="country-dropdown-option" data-value="Italy" role="option">Italy</div>
+                  <div class="country-dropdown-option" data-value="Japan" role="option">Japan</div>
+                  <div class="country-dropdown-option" data-value="Kenya" role="option">Kenya</div>
+                  <div class="country-dropdown-option" data-value="Malaysia" role="option">Malaysia</div>
+                  <div class="country-dropdown-option" data-value="Mexico" role="option">Mexico</div>
+                  <div class="country-dropdown-option" data-value="Nepal" role="option">Nepal</div>
+                  <div class="country-dropdown-option" data-value="Netherlands" role="option">Netherlands</div>
+                  <div class="country-dropdown-option" data-value="Nigeria" role="option">Nigeria</div>
+                  <div class="country-dropdown-option" data-value="Pakistan" role="option">Pakistan</div>
+                  <div class="country-dropdown-option" data-value="Philippines" role="option">Philippines</div>
+                  <div class="country-dropdown-option" data-value="Poland" role="option">Poland</div>
+                  <div class="country-dropdown-option" data-value="Russia" role="option">Russia</div>
+                  <div class="country-dropdown-option" data-value="Saudi Arabia" role="option">Saudi Arabia</div>
+                  <div class="country-dropdown-option" data-value="South Africa" role="option">South Africa</div>
+                  <div class="country-dropdown-option" data-value="South Korea" role="option">South Korea</div>
+                  <div class="country-dropdown-option" data-value="Spain" role="option">Spain</div>
+                  <div class="country-dropdown-option" data-value="Sri Lanka" role="option">Sri Lanka</div>
+                  <div class="country-dropdown-option" data-value="Thailand" role="option">Thailand</div>
+                  <div class="country-dropdown-option" data-value="Turkey" role="option">Turkey</div>
+                  <div class="country-dropdown-option" data-value="United Arab Emirates" role="option">United Arab
+                    Emirates</div>
+                  <div class="country-dropdown-option" data-value="United Kingdom" role="option">United Kingdom</div>
+                  <div class="country-dropdown-option" data-value="United States" role="option">United States</div>
+                  <div class="country-dropdown-option" data-value="Vietnam" role="option">Vietnam</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="companyAddress">Address <span class="optional">(Optional)</span></label>
+              <textarea id="companyAddress" name="companyAddress" rows="3" placeholder="Enter address"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="mobile">Mobile <span class="required" id="mobile-req">*</span> <span class="optional">(At least one required)</span></label>
+              <div class="mobile-input-wrapper">
+                <div class="country-code">+91</div>
+                <input type="tel" id="mobile" name="mobile" placeholder="">
+              </div>
+              <div class="field-error" id="mobileError" style="display:none;"></div>
+            </div>
+
+            <div class="info-banner">
+              <i class="fa fa-info-circle"></i>
+              <span>At least one contact method (Mobile or Email) is required.</span>
+            </div>
+
+            <div class="form-separator">
+              <span>OR</span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email <span class="required" id="email-req">*</span> <span class="optional">(At least one required)</span></label>
+              <input type="email" id="email" name="email" placeholder="">
+              <div class="field-error" id="emailError" style="display:none;"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password <span class="required">*</span></label>
+              <input type="password" id="password" name="password" placeholder="Enter password" required>
+            </div>
+
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+              <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Enter confirm password"
+                required>
+              <div class="field-error" id="confirmPasswordError" style="display:none;">Passwords do not match.</div>
+            </div>
+          </div>
+
+          <!-- Tax Configuration Section -->
+          <div class="form-section form-section-compact">
+            <div class="form-section-header">
+              <i class="dripicons-document"></i>
+              <h3>Tax Configuration</h3>
+            </div>
+
+            <div class="form-group toggle-group">
+              <label for="taxApplicable">Tax Applicable?</label>
+              <label class="toggle-switch">
+                <input type="checkbox" id="taxApplicable" name="taxApplicable">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="form-group" id="taxRegNoGroup" style="display: none;">
+              <label for="taxRegNo">Tax Registration Number</label>
+              <input type="text" id="taxRegNo" name="taxRegNo" placeholder="Enter tax registration number">
+            </div>
+
+            <div class="form-group">
+              <label for="taxRule">Tax Rule <span class="optional">(Auto-filled from country)</span></label>
+              <input type="text" id="taxRule" name="taxRule" placeholder="Eg: GST, VAT" readonly>
+            </div>
+          </div>
+
+          <!-- Business Logo Section -->
+          <div class="form-section form-section-compact">
+            <div class="form-section-header">
+              <i class="dripicons-photo"></i>
+              <h3>Business Logo</h3>
+            </div>
+
+            <div class="form-group toggle-group">
+              <label for="enableLogo">Enable Logo Upload?</label>
+              <label class="toggle-switch">
+                <input type="checkbox" id="enableLogo" name="enableLogo">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="form-group" id="logoUploadGroup" style="display: none;">
+              <label for="logoUpload">Upload Logo</label>
+              <div class="file-upload-wrapper">
+                <input type="file" id="logoUpload" name="logoUpload" accept="image/*">
+                <label for="logoUpload" class="file-upload-label">
+                  <i class="fa fa-cloud-upload"></i>
+                  <span>Choose file</span>
+                </label>
+                <span class="file-name" id="fileName"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advanced Options Section -->
+          <div class="form-section form-section-compact collapsible-section">
+            <div class="form-section-header collapsible-header" id="advancedHeader">
+              <i class="dripicons-gear"></i>
+              <div>
+                <h3>Advanced Options</h3>
+                <p class="section-subtitle">(Optional) - Configure additional settings</p>
+              </div>
+              <i class="fa fa-chevron-down collapse-icon"></i>
+            </div>
+
+            <div class="collapsible-content" id="advancedContent">
+              <div class="form-group">
+                <label for="yearStartDate">Year Start Date <span class="optional">(Optional)</span></label>
+                <input type="date" id="yearStartDate" name="yearStartDate">
+              </div>
+
+              <div class="form-group">
+                <label for="state">Province <span class="optional">(Optional)</span></label>
+                <input type="text" id="state" name="state" placeholder="Enter province">
+              </div>
+
+              <div class="form-group">
+                <label for="district">District <span class="optional">(Optional)</span></label>
+                <input type="text" id="district" name="district" placeholder="Enter district">
+              </div>
+
+              <div class="form-group">
+                <label for="place">Place <span class="optional">(Optional)</span></label>
+                <input type="text" id="place" name="place" placeholder="Enter place">
+              </div>
+
+              <div class="form-group">
+                <label for="pincode">Pin Code <span class="optional">(Optional)</span></label>
+                <input type="text" id="pincode" name="pincode" placeholder="Enter pin code">
+              </div>
+
+              <div class="form-group">
+                <label for="currency">Currency Code <span class="optional">(Optional)</span></label>
+                <input type="text" id="currency" name="currency" value="INR">
+              </div>
+
+              <div class="form-group">
+                <label for="defAccount">Default Account <span class="optional">(Optional)</span></label>
+                <input type="text" id="defAccount" name="defAccount" value="CASH">
+              </div>
+
+              <div class="form-group toggle-group">
+                <label for="taxIncluded">Tax Included?</label>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="taxIncluded" name="taxIncluded" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+
+              <div class="form-group toggle-group">
+                <label for="autoRoundoff">Round off bill amounts?</label>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="autoRoundoff" name="autoRoundoff">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+
+              <div class="form-group toggle-group">
+                <label for="minuStockBilling">Enable negative stock billing?</label>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="minuStockBilling" name="minuStockBilling" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="form-submit-wrapper">
+            <div class="field-error" id="formError" style="display:none; margin-bottom:10px;"></div>
+          </div>
+          <div class="form-submit-wrapper">
+            <button type="submit" class="signup-continue-btn" id="submit-business-btn">
+              <i class="fa fa-plus"></i> Add Business
+            </button>
+          </div>
+        </form>
+
+        <!-- Discard Changes Confirmation (hidden by default) -->
+        <div class="discard-dialog-overlay" id="discard-dialog" style="display:none;">
+          <div class="discard-dialog">
+            <h3 class="discard-title">Discard changes?</h3>
+            <p class="discard-message">
+              You have unsaved information in this business form. If you close now, your changes will be lost.
+            </p>
+            <div class="discard-actions">
+              <button type="button" class="btn-secondary discard-cancel-btn" id="discard-cancel-btn">Cancel</button>
+              <button type="button" class="btn-danger discard-discard-btn" id="discard-discard-btn">Discard &amp;
+                Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SIGN UP MODAL END -->
+
+  <!-- SUCCESS MODAL -->
+  <div class="success-overlay" id="success-overlay">
+    <div class="success-container">
+      <button class="success-close-btn" id="success-close-btn" title="Close">
+        <i class="fa fa-times"></i>
+      </button>
+      <div class="success-icon-wrapper">
+        <div class="success-icon-circle">
+          <div class="success-checkmark">
+            <i class="fa fa-check"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="success-card">
+        <h2 class="success-title">Welcome to BillEntri!</h2>
+        <h3 class="success-company-name" id="success-company-name">ABCXYZ</h3>
+        <p class="success-message">Your company has been registered successfully! You're now ready to manage your
+          billing and transactions efficiently.</p>
+      </div>
+
+      <button class="success-button" id="get-start-btn">
+        <span>→ Let's Start</span>
+      </button>
+    </div>
+  </div>
+  <!-- SUCCESS MODAL END -->
+
+  <!--WELCOME TEXT AREA-->
+  <div class="welcome-text-area font16 white">
+    <div class="area-bg"></div>
+    <div class="welcome-area section-padding">
+      <div class="container">
+        <div class="row flex-v-center">
+          <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12">
+            <div class="welcome-text">
+              <h4 class="wow fadeInUp" data-wow-delay="0.3s">
+                Easiest Billing App
+              </h4>
+              <h1 class="wow fadeInUp" data-wow-delay="0.6s">
+                Billing Made Simple<span>for small and Medium Business</span>
+              </h1>
+              <p class="wow fadeInUp" data-wow-delay="0.9s">
+                Create GST bills, manage customers, track payments, <br />and
+                control your business— all from one powerful app.
+              </p>
+              <div class="home-button mt40 xs-mt40 wow fadeInUp" data-wow-delay="1.2s">
+                <a class="xs-mb20" href="https://billentri.com/download">download</a>
+                <a href="#">get started <i class="fa fa-long-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="welcome-layer-3 hidden-sm hidden-xs">
+        <div class="home3-layer-1 wow fadeInRight" data-wow-delay="0.5s">
+          <img src="assets/img/screenshots/screenshot-1.png" alt="" />
+        </div>
+        <div class="home3-layer-2 wow fadeInUp" data-wow-delay="1s">
+          <img src="assets/img/screenshots/screenshot-2.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--WELCOME TEXT AREA END-->
+
+  <!--ABOUT AREA-->
+  <section class="about-area section-padding" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12">
+          <div class="area-image-content sm-mb50 xs-mb50 wow fadeInRight" data-wow-delay="0.3s">
+            <img src="assets/img/about/green-about-mockup.png" alt="" />
+          </div>
+        </div>
+        <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
+          <div class="area-content">
+            <h4 class="subtitle">working progress</h4>
+            <h3 class="wow fadeInRight" data-wow-delay="0.3s">
+              How Does BillEntri Apps Works
+            </h3>
+            <div class="text-icon-box about-process-box wow fadeInUp mb40" data-wow-delay="0.3s">
+              <div class="box-icon"><i class="dripicons-user"></i></div>
+              <h4 class="font20">Create Your Account</h4>
+              <p>
+                Sign up in seconds using your mobile number or email. Set up
+                your business details and GST information easily—no accounting
+                knowledge required.
+              </p>
+            </div>
+            <div class="text-icon-box about-process-box wow fadeInUp mb40 hidden-md" data-wow-delay="0.6s">
+              <div class="box-icon">
+                <i class="dripicons-cloud-download"></i>
+              </div>
+              <h4 class="font20">Download the BillEntri App</h4>
+              <p>
+                Install the BillEntri app from the Play Store or App Store and
+                log in securely. Access your billing system anytime, anywhere.
+              </p>
+            </div>
+            <div class="text-icon-box about-process-box wow fadeInUp" data-wow-delay="0.9s">
+              <div class="box-icon"><i class="dripicons-trophy"></i></div>
+              <h4 class="font20">Start Billing & Get Results</h4>
+              <p>
+                Create professional invoices, manage customers, track
+                payments, and generate reports instantly. Run your billing
+                smoothly and focus on growing your business.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--ABOUT AREA END-->
+
+  <!--GOAL AREA-->
+  <section class="goal-area section-padding gray-bg" id="goal">
+    <div class="container">
+      <div class="row flex-v-center">
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+          <div class="area-content wow fadeInLeft" data-wow-delay="0.3s">
+            <h3>Smarter Billing Starts Here</h3>
+            <p>
+              Create invoices, manage customers, track payments, and generate
+              reports—all in one simple app.
+            </p>
+            <ul class="features-list">
+              <li>
+                <i class="dripicons-checkmark"></i> Professional Interface
+              </li>
+              <li>
+                <i class="dripicons-checkmark"></i> Cost-Effective Solution
+              </li>
+              <li><i class="dripicons-checkmark"></i> Beginner-Friendly</li>
+              <li>
+                <i class="dripicons-checkmark"></i> Customizable & Scalable
+              </li>
+            </ul>
+            <a href="#" class="read-more active">get started</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+          <div class="area-image-content hidden-sm hidden-xs wow fadeInRight" data-wow-delay="0.6s">
+            <div class="features-screenshot-slider">
+              <div class="single-screen">
+                <img src="assets/img/screenshots/screenshot-1.png" alt="" />
+              </div>
+              <div class="single-screen">
+                <img src="assets/img/screenshots/screenshot-2.png" alt="" />
+              </div>
+              <div class="single-screen">
+                <img src="assets/img/screenshots/screenshot-3.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--GOAL AREA END-->
+
+  <!--PROCESS AREA-->
+  <section class="process-two-area padding-100-50" id="process">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
+          <div class="area-title center">
+            <h4 class="subtitle">Business-Ready Solution</h4>
+            <h2>What Makes BillEntri Differents</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="single-process-box-two text-icon-box mb50 mt40 wow fadeInLeft" data-wow-delay="0.3s">
+            <div class="process-icon-two">
+              <i class="dripicons-lock-open"></i>
+            </div>
+            <h3>Built for Daily Billing</h3>
+            <p>
+              BillEntri is designed for real business usage, helping you
+              create bills faster and manage transactions without
+              interruptions.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="single-process-box-two text-icon-box mb50 mt40 wow fadeInLeft active" data-wow-delay="0.6s">
+            <div class="process-icon-two">
+              <i class="dripicons-pulse"></i>
+            </div>
+            <h3>Accuracy You Can Trust</h3>
+            <p>
+              Every bill, payment, and report is calculated precisely to avoid
+              errors and ensure reliable records.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="single-process-box-two text-icon-box hidden-sm wow fadeInLeft mb50 mt40" data-wow-delay="0.9s">
+            <div class="process-icon-two">
+              <i class="dripicons-basket"></i>
+            </div>
+            <h3>Grows With Your Business</h3>
+            <p>
+              Whether you issue a few bills or hundreds daily, BillEntri
+              scales smoothly as your business expands.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--PROCESS AREA END-->
+
+  <!--VIDEO PROMO AREA-->
+  <section class="video-promo-area section-padding white" id="video">
+    <div class="area-bg"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 col-sm-12 col-xs-12">
+          <div class="area-content center wow fadeInUp">
+            <div class="video-button mb40">
+              <button class="video-popup" data-video-id="wdaDLCFW6Os">
+                <i class="fa fa-play"></i>
+              </button>
+            </div>
+            <h3>Watch BillEntri Tour</h3>
+            <p>Watch Videos In Few Languages</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--VIDEO PROMO AREA END-->
+
+  <!--SCREENSHOT AREA-->
+  <section class="screenshot-area fix section-padding" id="screenshots">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="area-content xs-center xs-mb50">
+            <h4 class="subtitle">Clean & Professional Interface</h4>
+            <h3>BillEntri Screenshots</h3>
+            <p>
+              BillEntri features a simple and distraction-free design that
+              makes billing faster and easier. Every screen is carefully
+              structured to help you create invoices, manage customers, and
+              track payments without confusion. The clean layout ensures
+              smooth navigation and a better billing experience for daily
+              business use.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <div class="screenshot-slider">
+            <div class="single-screenshot">
+              <img src="assets/img/screenshots/screenshot-1.png" alt="" />
+            </div>
+            <div class="single-screenshot">
+              <img src="assets/img/screenshots/screenshot-2.png" alt="" />
+            </div>
+            <div class="single-screenshot">
+              <img src="assets/img/screenshots/screenshot-3.png" alt="" />
+            </div>
+            <div class="single-screenshot">
+              <img src="assets/img/screenshots/screenshot-1.png" alt="" />
+            </div>
+            <div class="single-screenshot">
+              <img src="assets/img/screenshots/screenshot-2.png" alt="" />
+            </div>
+            <div class="single-screenshot">
+              <img src="assets/img/screenshots/screenshot-3.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--SCREENSHOT AREA END-->
+
+  <section class="testmonial-area section-padding gray-bg fix" id="process">
+    <div class="testmonial-layers">
+      <div class="testmonial-layer-1" data-parallax='{"y": 200, "smoothness": 100}'>
+        <img src="assets/img/bg-layers/layers-1.png" alt="" />
+      </div>
+      <div class="testmonial-layer-2" data-parallax='{"x": 80}'>
+        <img src="assets/img/bg-layers/layers-2.png" alt="" />
+      </div>
+      <div class="testmonial-layer-3" data-parallax='{"x": -200, "smoothness": 100}'>
+        <img src="assets/img/bg-layers/layers-3.png" alt="" />
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
+          <div class="area-title center">
+            <h4 class="subtitle">Testimonials</h4>
+            <h2>What Our Customers Say About BillEntri</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="testmonial-slider">
+            <div class="single-testmonial">
+              <div class="author-content">
+                <p>
+                  BillEntri made our daily billing very easy. Even new staff
+                  members learned it quickly and we save a lot of time every
+                  day.
+                </p>
+              </div>
+              <div class="author-name-and-thumb">
+                <h4>Suresh Kumar</h4>
+                <p>Retail Store Owner, Kerala</p>
+              </div>
+            </div>
+
+            <div class="single-testmonial">
+              <div class="author-content">
+                <p>
+                  The app is simple, fast, and reliable. We generate GST bills
+                  smoothly and track payments without confusion.
+                </p>
+              </div>
+              <div class="author-name-and-thumb">
+                <h4>Priya Nair</h4>
+                <p>Wholesale Trader</p>
+              </div>
+            </div>
+
+            <div class="single-testmonial">
+              <div class="author-content">
+                <p>
+                  BillEntri helped us organize customers and sales properly.
+                  Reports are clear and very useful for business decisions.
+                </p>
+              </div>
+              <div class="author-name-and-thumb">
+                <h4>Arun Raj</h4>
+                <p>Distributor</p>
+              </div>
+            </div>
+
+            <div class="single-testmonial">
+              <div class="author-content">
+                <p>
+                  Compared to other billing apps, BillEntri feels clean and
+                  practical. It works exactly the way a business needs.
+                </p>
+              </div>
+              <div class="author-name-and-thumb">
+                <h4>Meena Krishnan</h4>
+                <p>Service Business Owner</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- TESTMONIAL AREA END -->
+
+  <!-- PRICING AREA -->
+  <section class="pricing-area padding-100-50" id="pricing">
+    <div class="container">
+      <div class="row flex-v-center">
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+          <div class="area-title sm-center xs-center">
+            <h4 class="subtitle">pricing plan</h4>
+            <h2>Choose the Right Plan for Your Business</h2>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+          <div class="right price-right-menu sm-mb50 xs-mb50 sm-center xs-center">
+            <ul class="price-menu">
+              <li class="active">
+                <a data-toggle="tab" href="#india">India</a>
+              </li>
+              <li><a data-toggle="tab" href="#overseas">Overseas</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tab-content">
+            <!-- INDIA PLANS -->
+            <div id="india" class="tab-pane fade in active">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="single-price mb50">
+                    <div class="price-header">
+                      <div class="price-thumb-hidding">
+                        <img src="assets/img/icons/mobile.png" alt="" />
+                        <div class="price-rate">
+                          <span class="currency">₹</span>1,499<span class="duration">
+                            / year</span>
+                        </div>
+                        <div class="price-title">Go Plan (3 Users)</div>
+                      </div>
+                    </div>
+                    <div class="price-details">
+                      <ul>
+                        <li>
+                          <i class="dripicons-checkmark"></i> Mobile App
+                          Access
+                        </li>
+                        <li>
+                          <i class="dripicons-checkmark"></i> GST Billing
+                        </li>
+                        <li>
+                          <i class="dripicons-checkmark"></i> Customer & Item
+                          Management
+                        </li>
+                        <li>
+                          <i class="dripicons-checkmark"></i> Sales & Payment
+                          Tracking
+                        </li>
+                        <li>
+                          <i class="dripicons-cross"></i> Web Application
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="price-footer">
+                      <a href="#" class="purchase-button">Get Started</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="single-price mb50 active">
+                    <div class="sale-promo">Best Value</div>
+                    <div class="price-header">
+                      <div class="price-thumb-hidding">
+                        <img src="assets/img/icons/desktop.png" alt="" />
+                        <div class="price-rate">
+                          <span class="currency">₹</span>2,999<span class="duration">
+                            / year</span>
+                        </div>
+                        <div class="price-title">Prime Plan (3 Users)</div>
+                      </div>
+                    </div>
+                    <div class="price-details">
+                      <ul>
+                        <li>
+                          <i class="dripicons-checkmark"></i> Mobile App
+                          Access
+                        </li>
+                        <li>
+                          <i class="dripicons-checkmark"></i> Web Application
+                          Access
+                        </li>
+                        <li>
+                          <i class="dripicons-checkmark"></i> GST Billing &
+                          Reports
+                        </li>
+                        <li>
+                          <i class="dripicons-checkmark"></i> Advanced Sales
+                          Reports
+                        </li>
+                        <li>
+                          <i class="dripicons-checkmark"></i> Priority Support
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="price-footer">
+                      <a href="#" class="purchase-button">Get Started</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- OVERSEAS PLANS -->
+            <div id="overseas" class="tab-pane fade">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="single-price mb50">
+                    <div class="price-header">
+                      <div class="price-thumb-hidding">
+                        <img src="assets/img/icons/mobile.png" alt="" />
+                        <div class="price-rate">
+                          <span class="currency">₹</span>5,999<span class="duration">
+                            / year</span>
+                        </div>
+                        <div class="price-title">Go Plan (3 users)</div>
+                      </div>
+                    </div>
+                    <div class="price-details">
+                      <ul>
+                        <li>
+                          <i class="dripicons-checkmark"></i> Mobile App
+                          Access
+                        </li>
+                        <li>
+                          <i class="dripicons-checkmark"></i> VAT / GST
+                          Billing
+                        </li>
+                        <li>
+                          <i class="dripicons-checkmark"></i> Customer & Item
+                          Management
+                        </li>
+                        <li>
+                          <i class="dripicons-checkmark"></i> Sales & Payment
+                          Tracking
+                        </li>
+                        <li>
+                          <i class="dripicons-cross"></i> Web Application
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="price-footer">
+                      <a href="#" class="purchase-button">Get Started</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="single-price mb50 active">
+                    <div class="sale-promo">Best Value</div>
+                    <div class="price-header">
+                      <div class="price-thumb-hidding">
+                        <img src="assets/img/icons/desktop.png" alt="" />
+                        <div class="price-rate">
+                          <span class="currency">₹</span>9,999<span class="duration">
+                            / year</span>
+                        </div>
+                        <div class="price-title">Prime Plan (3 Users)</div>
+                      </div>
+                    </div>
+                    <div class="price-details">
+                      <ul>
+                        <li>
+                          <i class="dripicons-checkmark"></i> Mobile App
+                          Access
+                        </li>
+                        <li>
+                          <i class="dripicons-checkmark"></i> Web Application
+                          Access
+                        </li>
+                        <li>
+                          <i class="dripicons-checkmark"></i> VAT / GST
+                          Reports
+                        </li>
+                        <li>
+                          <i class="dripicons-checkmark"></i> Advanced
+                          Business Reports
+                        </li>
+                        <li>
+                          <i class="dripicons-checkmark"></i> Priority Support
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="price-footer">
+                      <a href="#" class="purchase-button">Get Started</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- PRICING AREA END -->
+
+  <!--FAQS AREA-->
+  <section class="faqs-area padding-top gray-bg" id="faqs">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-6 col-xs-12">
+          <div class="area-image-content hidden-sm hidden-xs">
+            <div class="faqs-mockup-1" data-parallax='{"y": 150, "smoothness": 100}'>
+              <img src="assets/img/faqs/faqs-mockup.png" alt="" />
+            </div>
+            <div class="faqs-mockup-2">
+              <img src="assets/img/faqs/faqs-question.png" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-xs-12">
+          <div class="area-content sm-mb80 xs-mb50">
+            <h4 class="subtitle font500 alt-font uppercase">need help?</h4>
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="panel-group sm-mt50 xs-mt50" id="accordion-main">
+              <!-- FAQ 01 -->
+              <div class="panel panel-default active">
+                <div class="panel-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-main" href="#collapseOne">
+                    <div class="panel-title">
+                      <span>01</span>
+                      <span>What is BillEntri?</span>
+                      <i class="pull-right fa fa-angle-down"></i>
+                    </div>
+                  </a>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    BillEntri is a smart billing and accounting app designed
+                    for small businesses. It helps you create invoices, manage
+                    customers, track payments, and monitor business
+                    performance easily.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 02 -->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-main" href="#collapseTwo">
+                    <div class="panel-title">
+                      <span>02</span>
+                      <span>Who can use BillEntri?</span>
+                      <i class="pull-right fa fa-angle-down"></i>
+                    </div>
+                  </a>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    BillEntri is ideal for retailers, wholesalers, service
+                    providers, freelancers, and small business owners who want
+                    simple and reliable billing without accounting complexity.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 03 -->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-main"
+                    href="#collapseThree">
+                    <div class="panel-title">
+                      <span>03</span>
+                      <span>Does BillEntri support GST billing?</span>
+                      <i class="pull-right fa fa-angle-down"></i>
+                    </div>
+                  </a>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    Yes. BillEntri supports GST-compliant invoices with tax
+                    breakup, proper invoice numbering, and professional
+                    formats suitable for business and accounting needs.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 04 -->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-main" href="#collapseFour">
+                    <div class="panel-title">
+                      <span>04</span>
+                      <span>Can I track payments and dues?</span>
+                      <i class="pull-right fa fa-angle-down"></i>
+                    </div>
+                  </a>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    Absolutely. BillEntri lets you track paid, unpaid, and
+                    pending invoices so you always know your outstanding
+                    balances and cash flow status.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 05 -->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-main" href="#collapseFive">
+                    <div class="panel-title">
+                      <span>05</span>
+                      <span>Is BillEntri easy to use?</span>
+                      <i class="pull-right fa fa-angle-down"></i>
+                    </div>
+                  </a>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    Yes. BillEntri is built with a clean and user-friendly
+                    interface, making billing and accounting easy even for
+                    users with no accounting background.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 06 -->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-main" href="#collapseSix">
+                    <div class="panel-title">
+                      <span>06</span>
+                      <span>Is my business data secure?</span>
+                      <i class="pull-right fa fa-angle-down"></i>
+                    </div>
+                  </a>
+                </div>
+                <div id="collapseSix" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    Your data is securely stored in the cloud with encryption
+                    and regular backups, ensuring complete safety and access
+                    anytime, anywhere.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--FAQS AREA END-->
+
+  <!--BLOG AREA-->
+  <section class="blog-area padding-100-50" id="blog">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
+          <div class="area-title center">
+            <h4 class="subtitle">Updates & Insights</h4>
+            <h2>Latest Billing Tips & Business Updates</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Blog 1 -->
+        <div class="col-md-6 col-lg-4 col-sm-6 col-xs-12">
+          <div class="single-blog-item mb50 wow fadeInLeft" data-wow-delay="0.3s">
+            <div class="post-media mb40">
+              <a href="#"><img src="assets/img/blog/blog-small-thumb-1.jpg" alt="" /></a>
+            </div>
+            <div class="blog-post-details">
+              <h3>
+                <a href="#">Why Digital Billing Is Essential for Small Businesses</a>
+              </h3>
+              <p>
+                Discover how digital billing helps save time, reduce errors,
+                and improve cash flow for growing businesses.
+              </p>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog 2 -->
+        <div class="col-md-6 col-lg-4 col-sm-6 col-xs-12">
+          <div class="single-blog-item mb50 wow fadeInLeft" data-wow-delay="0.6s">
+            <div class="post-media mb40">
+              <a href="#"><img src="assets/img/blog/blog-small-thumb-2.jpg" alt="" /></a>
+            </div>
+            <div class="blog-post-details">
+              <h3><a href="#">How BillEntri Simplifies GST Billing</a></h3>
+              <p>
+                Learn how GST-compliant invoices and tax calculations become
+                effortless using BillEntri.
+              </p>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog List -->
+        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 hidden-md hidden-sm wow fadeInLeft" data-wow-delay="0.9s">
+          <div class="single-blog-item mb50">
+            <div class="blog-post-details">
+              <h3>
+                <a href="#">5 Common Billing Mistakes Businesses Make</a>
+              </h3>
+              <p>
+                Avoid frequent billing errors that can affect customer trust
+                and revenue.
+              </p>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+          </div>
+
+          <hr class="mb50" />
+
+          <div class="single-blog-item mb50">
+            <div class="blog-post-details">
+              <h3><a href="#">Track Payments & Dues the Smart Way</a></h3>
+              <p>
+                Understand how proper payment tracking improves financial
+                visibility.
+              </p>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--BLOG AREA END-->
+
+  <!--CONTACT AREA-->
+  <section class="contact-area padding-100-50 gray-bg" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
+          <div class="area-title center">
+            <h4 class="subtitle">Contact Us</h4>
+            <h2>Call Us Or Started To Talk With Us</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
+          <div class="contact-content padding50 mb50">
+            <div class="single-contact">
+              <div class="contact-icon">
+                <i class="dripicons-location"></i>
+              </div>
+              <h3>Location</h3>
+              <p>Kochi <br />Perinthalmanna</p>
+            </div>
+            <div class="single-contact">
+              <div class="contact-icon"><i class="dripicons-mail"></i></div>
+              <h3>Contact</h3>
+              <p>
+                <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                  data-cfemail="b4c7c1c4c4dbc6c0f4d3d9d5ddd89ad7dbd9">&#160;</a>
+              </p>
+              <p>info@billentri.com</p>
+            </div>
+            <div class="single-contact">
+              <div class="contact-icon"><i class="dripicons-phone"></i></div>
+              <h3>Contact</h3>
+              <p>+91-8943 993 001</p>
+              <p>+91-8943 993 002</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-lg-5 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">
+          <div class="contact-form mb50">
+            <form action="process.php" id="contact-form" method="post">
+              <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                  <div class="form-group" id="name-field">
+                    <div class="form-input">
+                      <label for="form-name">Your Name</label>
+                      <input type="text" class="form-control" id="form-name" name="form-name"
+                        placeholder="Jhonathan Doe" required="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                  <div class="form-group" id="email-field">
+                    <div class="form-input">
+                      <label for="form-email">Your Mail</label>
+                      <input type="email" class="form-control" id="form-email" name="form-email"
+                        placeholder="support@mail.com" required="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                  <div class="form-group" id="phone-field">
+                    <div class="form-input">
+                      <label for="form-phone">Your Subject</label>
+                      <input type="text" class="form-control" id="form-phone" name="form-phone"
+                        placeholder="Subject.." />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                  <div class="form-group" id="message-field">
+                    <div class="form-input">
+                      <label for="form-message">Your Message</label>
+                      <textarea class="form-control" rows="6" id="form-message" name="form-message"
+                        placeholder="Your Your Message" required=""></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                  <div class="form-group mb0">
+                    <button class="read-more active" type="submit">
+                      Send Message
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--CONTACT AREA END-->
+
+  <!--FOOER AREA-->
+  <footer class="footer-area white relative">
+    <div class="area-bg"></div>
+    <div class="footer-top-area section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-12 col-xs-12 sm-center xs-center sm-mb50 xs-mb50">
+            <div class="single-widgets">
+              <div class="footer-logo">
+                <a href="#"><img src="assets/img/logo.png" alt="" /></a>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet conse ctetur adipisicing elit sed
+                do eiusm od tempor incididunt ut labore et dolore magna
+                aliqua.
+              </p>
+              <div class="footer-search-form">
+                <form action="#">
+                  <input type="text" name="footer_search" id="footer_search" placeholder="Search Here." />
+                  <button type="submit">
+                    <i class="dripicons-search"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-offset-1 col-md-2 col-sm-4 col-xs-12">
+            <div class="single-widgets xs-mb50">
+              <h3>Quick Links</h3>
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Project</a></li>
+                <li><a href="#">Our Team</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4 col-xs-12">
+            <div class="single-widgets xs-mb50">
+              <h3>Other Links</h3>
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Project</a></li>
+                <li><a href="#">Our Team</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4 col-xs-12">
+            <div class="single-widgets">
+              <h3>Newsletter</h3>
+              <p>
+                Lorem ipsum dolor sit amet consec tetur adipisicing elit sed
+                modo
+              </p>
+              <div class="footer-subscriber-form">
+                <form action="#">
+                  <input type="email" name="email" id="email" placeholder="mail@example.com" />
+                  <button type="submit">subscribe</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <div class="footer-copyright text-center">
+              <p>
+                Copyright &copy;
+                <a href="http://themeforest.net/user/QuomodoTheme">
+                  QuomodoTheme</a>
+                All Right Reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--FOOER AREA END-->
+
+  <!--====== SCRIPTS JS ======-->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+  <script src="assets/js/vendor/bootstrap.min.js"></script>
+
+  <!--====== PLUGINS JS ======-->
+  <script src="assets/js/vendor/jquery.easing.1.3.js"></script>
+  <script src="assets/js/vendor/jquery-migrate-1.2.1.min.js"></script>
+  <script src="assets/js/vendor/jquery.appear.js"></script>
+
+  <script src="assets/js/owl.carousel.min.js"></script>
+  <script src="assets/js/isotope.pkgd.min.js"></script>
+  <script src="assets/js/stellar.js"></script>
+  <script src="assets/js/jquery.parallax-layer-scroll.js"></script>
+  <script src="assets/js/chaffle.min.js"></script>
+  <script src="assets/js/anime.min.js"></script>
+  <script src="assets/js/jquery-modal-video.min.js"></script>
+  <script src="assets/js/venobox.min.js"></script>
+  <script src="assets/js/stellarnav.min.js"></script>
+  <script src="assets/js/jquery.sticky.js"></script>
+  <script src="assets/js/wow.min.js"></script>
+  <script src="assets/js/placeholdem.min.js"></script>
+  <script src="assets/js/odometer.min.js"></script>
+  <script src="assets/js/contact-form.js"></script>
+  <script src="assets/js/footer-reveal.min.js"></script>
+  <script src="assets/js/ResizeSensor.min.js"></script>
+  <script src="assets/js/theia-sticky-sidebar.min.js"></script>
+
+  <!--===== ACTIVE JS=====-->
+  <script src="assets/js/main.js"></script>
+
+  <!--===== HAMBURGER MENU FIX JS=====-->
+  <script>
+    jQuery(document).ready(function ($) {
+      if (!$('.menu-backdrop').length) {
+        $('body').append('<div class="menu-backdrop"></div>');
+      }
+
+      var $hamburger = $('.ham');
+      var $mainNav = $('#main-nav');
+      var $stellarNav = $('.stellarnav');
+      var $menuToggle = $mainNav.find('.menu-toggle');
+      var $backdrop = $('.menu-backdrop');
+      var $body = $('body');
+
+      function updateBackdropFromNav() {
+        if ($mainNav.hasClass('active')) {
+          $hamburger.addClass('active');
+          $backdrop.addClass('active');
+          $body.css('overflow', 'hidden');
+        } else {
+          $hamburger.removeClass('active');
+          $backdrop.removeClass('active');
+          $body.css('overflow', '');
+        }
+      }
+
+      $hamburger.on('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if ($menuToggle.length) {
+          $menuToggle[0].click();
+          setTimeout(updateBackdropFromNav, 320);
+        } else {
+          var wasActive = $mainNav.hasClass('active');
+          $mainNav.toggleClass('active');
+          $mainNav.find('ul:first').stop(true, true).slideToggle(250);
+          setTimeout(updateBackdropFromNav, 260);
+        }
+      });
+
+      $backdrop.on('click', function () {
+        if ($mainNav.hasClass('active')) {
+          if ($menuToggle.length) $menuToggle[0].click();
+          else {
+            $mainNav.removeClass('active');
+            $mainNav.find('ul:first').stop(true, true).slideUp(250);
+          }
+          setTimeout(updateBackdropFromNav, 260);
+        }
+      });
+
+      $mainNav.find('ul li a').on('click', function () {
+        if ($(this).attr('href') && $(this).attr('href').indexOf('#') === 0) {
+          if ($mainNav.hasClass('active')) {
+            if ($menuToggle.length) $menuToggle[0].click();
+            else {
+              $mainNav.removeClass('active');
+              $mainNav.find('ul:first').stop(true, true).slideUp(250);
+            }
+            updateBackdropFromNav();
+          }
+        }
+      });
+
+      $(window).on('resize', function () {
+        if ($(window).width() > 991) {
+          $hamburger.removeClass('active');
+          $backdrop.removeClass('active');
+          $body.css('overflow', '');
+        }
+      });
+
+      $(document).on('keydown', function (e) {
+        if (e.key === 'Escape' && $mainNav.hasClass('active')) {
+          if ($menuToggle.length) $menuToggle[0].click();
+          else {
+            $mainNav.removeClass('active');
+            $mainNav.find('ul:first').stop(true, true).slideUp(250);
+          }
+          setTimeout(updateBackdropFromNav, 260);
+        }
+      });
+    });
+  </script>
+
+  <!--===== SIGN UP MODAL JS=====-->
+  <script>
+    jQuery(document).ready(function ($) {
+      // Open sign up modal with smooth animation
+      $('#signup-btn').on('click', function (e) {
+        e.preventDefault();
+
+        // Always reset to the first step when opening the modal
+        $('#add-business-form').hide();
+        $('.signup-container:first').show();
+        // Clear any password mismatch error state
+        $('#confirmPasswordError').hide();
+        $('#confirmPassword').removeClass('input-error');
+
+        $('body').css('overflow', 'hidden');
+        $('#signup-overlay').css('display', 'flex');
+
+        // Trigger reflow for animation
+        $('#signup-overlay')[0].offsetHeight;
+
+        setTimeout(function () {
+          $('#signup-overlay').addClass('active');
+        }, 10);
+      });
+
+      // Close sign up modal with smooth animation
+      function closeSignupModal() {
+        $('#signup-overlay').removeClass('active');
+
+        setTimeout(function () {
+          $('#signup-overlay').css('display', 'none');
+          $('body').css('overflow', '');
+        }, 400);
+      }
+
+      // Back button
+      $('#signup-back-btn').on('click', function (e) {
+        e.preventDefault();
+        closeSignupModal();
+      });
+
+      // Close button
+      $('#signup-close-btn').on('click', function (e) {
+        e.preventDefault();
+        closeSignupModal();
+      });
+
+      // Close on ESC key
+      $(document).on('keydown', function (e) {
+        if (e.key === 'Escape' || e.keyCode === 27) {
+          if ($('#signup-overlay').hasClass('active')) {
+            closeSignupModal();
+          }
+        }
+      });
+
+      // Select business type option with smooth animation
+      $('.signup-option-card').on('click', function () {
+        var $this = $(this);
+
+        // Don't do anything if already active
+        if ($this.hasClass('active')) {
+          return;
+        }
+
+        // Remove active state from all cards
+        $('.signup-option-card').removeClass('active');
+        $('.signup-check-circle').removeClass('active').html('');
+
+        // Add active state to clicked card
+        $this.addClass('active');
+
+        // Animate checkmark
+        var $checkCircle = $this.find('.signup-check-circle');
+        $checkCircle.addClass('active');
+
+        // Add checkmark with delay for animation
+        setTimeout(function () {
+          $checkCircle.html('<i class="fa fa-check"></i>');
+        }, 150);
+      });
+
+      // Continue button - show form
+      $('#signup-continue-btn').on('click', function (e) {
+        e.preventDefault();
+        var selectedType = $('.signup-option-card.active').data('type');
+
+        if (selectedType) {
+          // Set business type value
+          $('#businessType').val(selectedType);
+
+          // Hide business type selection
+          $('.signup-container:first').fadeOut(300, function () {
+            // Show add business form
+            $('#add-business-form').fadeIn(300);
+          });
+        } else {
+          // Shake animation if no option selected
+          $('.signup-options').css('animation', 'shake 0.5s');
+          setTimeout(function () {
+            $('.signup-options').css('animation', '');
+          }, 500);
+        }
+      });
+
+      // Back button from form - go back to business type selection
+      $('#form-back-btn').on('click', function (e) {
+        e.preventDefault();
+        $('#add-business-form').fadeOut(300, function () {
+          $('.signup-container:first').fadeIn(300);
+        });
+      });
+
+      // Track if Add Business form has unsaved changes
+      var businessFormDirty = false;
+      $('#business-form').on('input change', 'input, textarea, select', function () {
+        businessFormDirty = true;
+      });
+
+      // Store country meta from API (currency_code, TaxRule, etc.)
+      var countryMetaByName = {};
+
+      // Custom country dropdown – open/close and selection
+      var $countryDropdown = $('#country-dropdown');
+      var $countryTrigger = $('#country-trigger');
+      var $countryList = $('#country-list');
+      var $countryInput = $('#country');
+      function closeCountryDropdown() {
+        $countryDropdown.removeClass('open');
+        $countryTrigger.attr('aria-expanded', 'false');
+        $countryList.attr('aria-hidden', 'true');
+      }
+      function openCountryDropdown() {
+        $countryDropdown.addClass('open');
+        $countryTrigger.attr('aria-expanded', 'true');
+        $countryList.attr('aria-hidden', 'false');
+      }
+      function setCountryValue(value, label) {
+        $countryInput.val(value || '');
+        $countryTrigger.find('.country-dropdown-value').text(label || 'Select country');
+        $countryList.find('.country-dropdown-option').removeClass('selected').each(function () {
+          if ($(this).data('value') === value) $(this).addClass('selected');
+        });
+
+        // Auto-fill Currency Code and Tax Rule from API meta (if available)
+        if (value && countryMetaByName[value]) {
+          var meta = countryMetaByName[value];
+          if (meta.currency_code) {
+            $('#currency').val(meta.currency_code);
+          }
+          if (meta.TaxRule) {
+            $('#taxRule').val(meta.TaxRule);
+          } else {
+            $('#taxRule').val('');
+          }
+        } else {
+          // Fallback defaults when no country selected or meta not found
+          $('#currency').val('INR');
+          $('#taxRule').val('');
+        }
+      }
+      $countryTrigger.on('click', function (e) {
+        e.preventDefault();
+        if ($countryDropdown.hasClass('open')) closeCountryDropdown(); else openCountryDropdown();
+      });
+      $countryList.on('click', '.country-dropdown-option', function (e) {
+        e.preventDefault();
+        var val = $(this).data('value');
+        var label = $(this).text();
+        setCountryValue(val, label);
+        closeCountryDropdown();
+      });
+      $(document).on('click', function (e) {
+        if ($countryDropdown.hasClass('open') && !$countryDropdown[0].contains(e.target)) closeCountryDropdown();
+      });
+      $countryDropdown.on('click', function (e) { e.stopPropagation(); });
+
+      // Load countries from API and populate dropdown
+      function loadCountriesFromApi() {
+        $.ajax({
+          url: 'https://api.billentri.com/index.php/Master/get_Allcountry',
+          type: 'GET',
+          dataType: 'json',
+          success: function (data) {
+            if (!Array.isArray(data)) {
+              return;
+            }
+
+            countryMetaByName = {};
+            $countryList.empty();
+
+            // Default "Select country" option
+            $countryList.append(
+              '<div class="country-dropdown-option" data-value="" role="option">Select country</div>'
+            );
+
+            var defaultCountryName = '';
+
+            data.forEach(function (item) {
+              if (!item || !item.country) return;
+
+              // Normalize country name display
+              var countryName = item.country;
+
+              countryMetaByName[countryName] = {
+                id: item.id,
+                currency_code: item.currency_code,
+                country_code: item.country_code,
+                decimal_point: item.decimal_point,
+                TaxRule: item.TaxRule
+              };
+
+              $countryList.append(
+                '<div class="country-dropdown-option" data-value="' +
+                countryName +
+                '" role="option">' +
+                countryName +
+                '</div>'
+              );
+
+              // Prefer India as default if present in list
+              if (!defaultCountryName || countryName.toLowerCase() === 'india') {
+                defaultCountryName = countryName;
+              }
+            });
+
+            // Set default country selection and auto-fill fields
+            if (defaultCountryName) {
+              setCountryValue(defaultCountryName, defaultCountryName);
+              $countryList
+                .find('.country-dropdown-option[data-value="' + defaultCountryName + '"]')
+                .addClass('selected');
+            }
+          },
+          error: function () {
+            // If API fails, keep existing static list and default values
+            // Ensure INR and empty Tax Rule as safe defaults
+            $('#currency').val('INR');
+            $('#taxRule').val('');
+          }
+        });
+      }
+
+      // Initialize country list from API on modal script load
+      loadCountriesFromApi();
+
+      function showDiscardDialog() {
+        $('#discard-dialog').fadeIn(150);
+      }
+
+      function hideDiscardDialog() {
+        $('#discard-dialog').fadeOut(150);
+      }
+
+      function resetBusinessFormState() {
+        businessFormDirty = false;
+        $('#business-form')[0].reset();
+        $('#fileName').text('');
+        $('#confirmPasswordError').hide();
+        $('#confirmPassword').removeClass('input-error');
+        // Sync country dropdown display after reset (hidden input resets to India)
+        var countryVal = $('#country').val();
+        var countryLabel = countryVal || 'Select country';
+        $('#country-trigger .country-dropdown-value').text(countryLabel);
+        $('#country-list .country-dropdown-option').removeClass('selected');
+        $('#country-list .country-dropdown-option[data-value="' + (countryVal || '') + '"]').addClass('selected');
+        if ($('#country-dropdown').hasClass('open')) closeCountryDropdown();
+      }
+
+      // Close button from form - if dirty, show discard dialog, else close
+      $('#form-close-btn').on('click', function (e) {
+        e.preventDefault();
+        if (businessFormDirty) {
+          showDiscardDialog();
+        } else {
+          closeSignupModal();
+        }
+      });
+
+      // Discard dialog actions
+      $('#discard-cancel-btn').on('click', function () {
+        hideDiscardDialog();
+      });
+
+      $('#discard-discard-btn').on('click', function () {
+        hideDiscardDialog();
+        resetBusinessFormState();
+        closeSignupModal();
+      });
+
+      // Collapsible sections
+      $('.collapsible-header').on('click', function () {
+        var $section = $(this).closest('.collapsible-section');
+        $section.toggleClass('collapsed');
+      });
+
+      // Tax applicable toggle
+      $('#taxApplicable').on('change', function () {
+        if ($(this).is(':checked')) {
+          $('#taxRegNoGroup').slideDown(300);
+        } else {
+          $('#taxRegNoGroup').slideUp(300);
+        }
+      });
+
+      // Enable logo toggle
+      $('#enableLogo').on('change', function () {
+        if ($(this).is(':checked')) {
+          $('#logoUploadGroup').slideDown(300);
+        } else {
+          $('#logoUploadGroup').slideUp(300);
+        }
+      });
+
+      // File upload display
+      $('#logoUpload').on('change', function () {
+        var fileName = $(this).val().split('\\').pop();
+        if (fileName) {
+          $('#fileName').text(fileName);
+        } else {
+          $('#fileName').text('');
+        }
+      });
+
+      // Inline confirm-password mismatch indicator (no alert)
+      $('#password, #confirmPassword').on('input', function () {
+        var password = $('#password').val() || '';
+        var confirmPassword = $('#confirmPassword').val() || '';
+        if (!confirmPassword) {
+          $('#confirmPasswordError').hide();
+          $('#confirmPassword').removeClass('input-error');
+          return;
+        }
+        if (password !== confirmPassword) {
+          $('#confirmPasswordError').show();
+          $('#confirmPassword').addClass('input-error');
+        } else {
+          $('#confirmPasswordError').hide();
+          $('#confirmPassword').removeClass('input-error');
+        }
+      });
+
+      // Dynamic required logic for mobile and email
+      function updateContactRequirement() {
+        var mobileVal = $('#mobile').val() || '';
+        var emailVal = $('#email').val() || '';
+        if (mobileVal.trim() !== '') {
+          $('#email-req').hide();
+          $('#mobile-req').show();
+        } else if (emailVal.trim() !== '') {
+          $('#mobile-req').hide();
+          $('#email-req').show();
+        } else {
+          $('#mobile-req').show();
+          $('#email-req').show();
+        }
+      }
+      $('#mobile, #email').on('input', updateContactRequirement);
+      // Trigger once on init
+      setTimeout(updateContactRequirement, 100);
+
+      // Helper to avoid sending placeholder text as actual value
+      function getCleanValue($el, fallback) {
+        var val = ($el.val() || '').trim();
+        var placeholder = ($el.attr('placeholder') || '').trim();
+
+        // Check if value matches placeholder (case insensitive)
+        if (placeholder && val.toLowerCase() === placeholder.toLowerCase()) {
+          val = '';
+        }
+
+        // Also explicitly check for common placeholder patterns if attr check failed
+        // This handles cases where value is populated with placeholder text by browser/plugins
+        if (val.match(/^Enter (address|province|district|place|pin code)$/i)) {
+          val = '';
+        }
+
+        if (typeof fallback !== 'undefined' && (val === '' || val === null)) {
+          return fallback;
+        }
+        return val;
+      }
+
+      // Form submission
+      $('#business-form').on('submit', function (e) {
+        e.preventDefault();
+
+        // Validate Business Name
+        var companyName = $('#companyName').val().trim();
+        if (!companyName) {
+          alert('Business Name is required!');
+          $('#companyName').focus();
+          return;
+        }
+
+        // Validate password match
+        var password = $('#password').val();
+        var confirmPassword = $('#confirmPassword').val();
+        $('#confirmPasswordError').hide();
+        $('#confirmPassword').removeClass('input-error');
+
+        if (!password) {
+          alert('Password is required!');
+          $('#password').focus();
+          return;
+        }
+
+        if (password !== confirmPassword) {
+          $('#confirmPasswordError').show();
+          $('#confirmPassword').addClass('input-error');
+          $('#confirmPassword').focus();
+          return;
+        }
+
+        // Validate at least one contact method
+        var mobile = $('#mobile').val().trim();
+        var email = $('#email').val().trim();
+
+        if (!mobile && !email) {
+          alert('At least one contact method (Mobile or Email) is required.');
+          return;
+        }
+
+        // Get form values
+        var companyAddress = getCleanValue($('#companyAddress'), '');
+        // Pass a dummy space if empty for the backend, in case it enforces both
+        var finalMobile = mobile ? mobile : ' ';
+        var finalEmail = email ? email : ' ';
+        var password = password;
+
+        // Get optional field values
+        var taxApplicable = $('#taxApplicable').is(':checked');
+        var taxRegNo = taxApplicable ? ($('#taxRegNo').val() || '') : '';
+        var taxRule = taxApplicable ? ($('#taxRule').val() || 'GST') : 'Unregistered';
+        var taxIncluded = $('#taxIncluded').is(':checked');
+
+        var yearStartDate = $('#yearStartDate').val();
+        var convertedString = '';
+        if (yearStartDate) {
+          var dateParts = yearStartDate.split('-');
+          if (dateParts.length === 3) {
+            convertedString = dateParts[2] + '-' + dateParts[1] + '-' + dateParts[0];
+          } else {
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = String(today.getMonth() + 1).padStart(2, '0');
+            var day = String(today.getDate()).padStart(2, '0');
+            convertedString = day + '-' + month + '-' + year;
+          }
+        } else {
+          var today = new Date();
+          var year = today.getFullYear();
+          var month = String(today.getMonth() + 1).padStart(2, '0');
+          var day = String(today.getDate()).padStart(2, '0');
+          convertedString = day + '-' + month + '-' + year;
+        }
+
+        var country = $('#country').val() || 'India';
+        var state = getCleanValue($('#state'), '');
+        var district = getCleanValue($('#district'), '');
+        var place = getCleanValue($('#place'), '');
+        var pincode = getCleanValue($('#pincode'), '');
+        var currency = $('#currency').val() || 'INR';
+        var defAccount = $('#defAccount').val() || 'CASH';
+        var autoRoundoff = $('#autoRoundoff').is(':checked');
+        var minuStockBilling = $('#minuStockBilling').is(':checked');
+
+        // Handle image upload
+        var image = '';
+        var logoFile = $('#logoUpload')[0].files[0];
+        if (logoFile && $('#enableLogo').is(':checked')) {
+          // Convert file to base64
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            image = e.target.result;
+            var params = {
+              "Type": $('#businessType').val(),
+              "CompanyName": companyName,
+              "BankAccount": defAccount,
+              "AutoRound": autoRoundoff ? "1" : "0",
+              "MinuStockBilling": minuStockBilling ? "1" : "0",
+              "SDate": convertedString,
+              "RegnNo": taxRegNo,
+              "Address": companyAddress,
+              "Country": country,
+              "State": state,
+              "Dist": district,
+              "Place": place,
+              "PinCode": pincode,
+              "TaxRule": taxRule,
+              "TaxIncluded": taxIncluded ? "1" : "0",
+              "Currency": currency,
+              "Mobile": finalMobile,
+              "Email": finalEmail,
+              "Password": password,
+              "Img": image || ""
+            };
+            submitForm(params, companyName);
+          };
+          reader.readAsDataURL(logoFile);
+        } else {
+          var params = {
+            "Type": $('#businessType').val(),
+            "CompanyName": companyName,
+            "BankAccount": defAccount,
+            "AutoRound": autoRoundoff ? "1" : "0",
+            "MinuStockBilling": minuStockBilling ? "1" : "0",
+            "SDate": convertedString,
+            "RegnNo": taxRegNo,
+            "Address": companyAddress,
+            "Country": country,
+            "State": state,
+            "Dist": district,
+            "Place": place,
+            "PinCode": pincode,
+            "TaxRule": taxRule,
+            "TaxIncluded": taxIncluded ? "1" : "0",
+            "Currency": currency,
+            "Mobile": finalMobile,
+            "Email": finalEmail,
+            "Password": password,
+            "Img": image || ""
+          };
+          submitForm(params, companyName);
+        }
+      });
+
+      // Submit form to API
+      function submitForm(params, companyName) {
+        var $btn = $('#submit-business-btn');
+        var originalText = $btn.html();
+
+        // Show loading state
+        $btn.prop('disabled', true);
+        $btn.html('<i class="fa fa-spinner fa-spin"></i> Adding Business...');
+
+        // Convert params to JSON string (matching Thunder Client format)
+        // Clear previous email error state
+        $('#emailError').hide().text('');
+        $('#email').removeClass('input-error');
+
+        // Clear previous mobile error state
+        $('#mobileError').hide().text('');
+        $('#mobile').removeClass('input-error');
+
+        // Clear general form error
+        $('#formError').hide().text('');
+
+        // Helper to show error message inside modal (no alert)
+        function showFormError(message) {
+          if (!message) return;
+          $('#formError').text(message).show();
+        }
+
+        // Send as form data with "data" field containing the JSON string
+        var jsonDataString = JSON.stringify(params);
+
+        // Validate JSON format
+        try {
+          var testParse = JSON.parse(jsonDataString);
+          console.log('=== Request Data (JSON String) ===');
+          console.log(jsonDataString);
+          console.log('=== Request Data (Parsed Object) ===');
+          console.log(testParse);
+        } catch (e) {
+          console.error('Invalid JSON format:', e);
+          showFormError('Error: Invalid data format. Please try again.');
+          $btn.prop('disabled', false);
+          $btn.html(originalText);
+          return;
+        }
+
+        // Send as form data with "data" field (matching Thunder Client working format)
+        $.ajax({
+          url: 'https://api.billentri.com/index.php/Master/add_company',
+          type: 'POST',
+          contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+          data: {
+            'data': jsonDataString
+          },
+          success: function (response) {
+            $btn.prop('disabled', false);
+            $btn.html(originalText);
+
+            try {
+              var result = typeof response === 'string' ? JSON.parse(response) : response;
+
+              // If response is an array, normalize to first element
+              if (Array.isArray(result) && result.length > 0) {
+                var item = result[0];
+                // Error case from array
+                if (item.status === false || item.CompanyID === 0) {
+                  var errorMsg = item.result || 'Failed to add business';
+                  if (errorMsg === 'null' || errorMsg === null) {
+                    errorMsg = 'An error occurred while adding the business. Please try again.';
+                  }
+
+                  // Show field-specific or general error
+                  if (errorMsg && typeof errorMsg === 'string') {
+                    var lowerMsg = errorMsg.toLowerCase();
+                    if (lowerMsg.indexOf('email') !== -1) {
+                      $('#emailError').text(errorMsg).show();
+                      $('#email').addClass('input-error').focus();
+                    } else if (lowerMsg.indexOf('mobile') !== -1 || lowerMsg.indexOf('phone') !== -1) {
+                      $('#mobileError').text(errorMsg).show();
+                      $('#mobile').addClass('input-error').focus();
+                    } else {
+                      showFormError('Error: ' + errorMsg);
+                    }
+                  }
+
+                  console.error('API Error:', item);
+                  return;
+                }
+
+                // Success case from array (e.g. [{"status":true,"result":"OK","CompanyID":"144"}])
+                if (item.status === true || (item.CompanyID && item.CompanyID !== '0')) {
+                  $('#success-company-name').text(companyName);
+                  closeSignupModal();
+                  $('#success-overlay').addClass('active');
+                  $('body').css('overflow', 'hidden');
+                  return;
+                }
+
+                // Fallback: treat first item as normalized object for remaining checks
+                result = item;
+              }
+
+              // Check if response has status and result properties (error format)
+              if (result.status === false) {
+                var errorMsg = result.result || 'Failed to add business';
+                if (errorMsg === 'null' || errorMsg === null) {
+                  errorMsg = 'An error occurred while adding the business. Please try again.';
+                }
+                showFormError('Error: ' + errorMsg);
+                console.error('API Error:', result);
+                return;
+              }
+
+              // Check if CompanyID is 0 (error indicator)
+              if (result.CompanyID === 0 && result.status !== true) {
+                var errorMsg = result.result || 'Failed to add business';
+                if (errorMsg === 'null' || errorMsg === null) {
+                  errorMsg = 'An error occurred while adding the business. Please try again.';
+                }
+                showFormError('Error: ' + errorMsg);
+                console.error('API Error:', result);
+                return;
+              }
+
+              // Success case
+              if (result.status === true || result.CompanyID > 0 || result.data) {
+                // Show success modal
+                $('#success-company-name').text(companyName);
+                closeSignupModal();
+                $('#success-overlay').addClass('active');
+                $('body').css('overflow', 'hidden');
+              } else {
+                // Unknown response format, treat as error
+                showFormError('Error: Unexpected response format. Please try again.');
+                console.error('Unexpected response:', result);
+              }
+            } catch (e) {
+              // Even if parsing fails, check if response contains error indicators
+              if (response && typeof response === 'string') {
+                // Check for error patterns in string response
+                if (response.indexOf('"status":false') !== -1 ||
+                  response.indexOf('"result":"null"') !== -1 ||
+                  (response.indexOf('CompanyID') !== -1 && response.indexOf('"CompanyID":0') !== -1)) {
+                  showFormError('Error: Failed to add business. Please check your information and try again.');
+                  console.error('Response parsing error:', e, response);
+                  return;
+                }
+
+                // Check for success indicators
+                if (response.indexOf('CompanyID') !== -1 && response.indexOf('"CompanyID":0') === -1) {
+                  $('#success-company-name').text(companyName);
+                  closeSignupModal();
+                  $('#success-overlay').addClass('active');
+                  $('body').css('overflow', 'hidden');
+                } else {
+                  showFormError('Error processing response. Please try again.');
+                  console.error('Response error:', e, response);
+                }
+              } else {
+                showFormError('Error processing response. Please try again.');
+                console.error('Response error:', e, response);
+              }
+            }
+          },
+          error: function (xhr, status, error) {
+            $btn.prop('disabled', false);
+            $btn.html(originalText);
+            showFormError('Error: ' + (error || 'Failed to connect to server. Please try again.'));
+            console.error('AJAX error:', error, xhr);
+          }
+        });
+      }
+
+      // Get Start Now button - redirect to login
+      $('#get-start-btn').on('click', function (e) {
+        e.preventDefault();
+        window.location.href = 'https://dashboard.billentri.com/login';
+      });
+
+      // Close success modal
+      function closeSuccessModal() {
+        $('#success-overlay').removeClass('active');
+        setTimeout(function () {
+          $('#success-overlay').css('display', 'none');
+          $('body').css('overflow', '');
+        }, 400);
+      }
+
+      // Success modal close button
+      $('#success-close-btn').on('click', function (e) {
+        e.preventDefault();
+        closeSuccessModal();
+      });
+
+      // Close success modal on ESC key
+      $(document).on('keydown', function (e) {
+        if (e.key === 'Escape' || e.keyCode === 27) {
+          if ($('#success-overlay').hasClass('active')) {
+            closeSuccessModal();
+          }
+        }
+      });
+
+      // Add shake animation for CSS
+      if (!$('#signup-shake-style').length) {
+        $('head').append('<style id="signup-shake-style">@keyframes shake { 0%, 100% { transform: translateX(0); } 10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); } 20%, 40%, 60%, 80% { transform: translateX(5px); } }</style>');
+      }
+
+      // Initialize form - set default date if not set
+      if (!$('#yearStartDate').val()) {
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = String(today.getMonth() + 1).padStart(2, '0');
+        var day = String(today.getDate()).padStart(2, '0');
+        $('#yearStartDate').val(year + '-' + month + '-' + day);
+      }
+
+      // Initialize advanced options as collapsed
+      $('.collapsible-section').addClass('collapsed');
+    });
+  </script>
+
+  <script defer="" src="../../../beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+    integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
+    data-cf-beacon='{"version":"2024.11.0","token":"05c60afabf3e4b64ba091c1c292eafc9","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Serve the index.html file for any request (React SPA routing)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
+# Set X-Robots-Tag header for SEO
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "index, follow"
+</IfModule>
+
+# Enable CORS (if needed)
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "POST, GET"
+Header set Access-Control-Max-Age "1000"
+Header set Access-Control-Allow-Headers "Content-Type, Content-Range, Content-Disposition, Content-Description"
+Header set Access-Control-Allow-Credentials true
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php81” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php81 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

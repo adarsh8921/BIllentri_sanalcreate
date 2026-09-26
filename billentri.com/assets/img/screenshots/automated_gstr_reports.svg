@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="gstrBg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#053e30"/>
+      <stop offset="50%" stop-color="#022119"/>
+      <stop offset="100%" stop-color="#01130e"/>
+    </radialGradient>
+    
+    <radialGradient id="emeraldAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.4"/>
+      <stop offset="70%" stop-color="#059669" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#01130e" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Glass Gradients -->
+    <linearGradient id="glassPanel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03"/>
+    </linearGradient>
+
+    <linearGradient id="glassBorderGstr" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.12"/>
+    </linearGradient>
+
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+
+    <linearGradient id="chartFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Filter Shadows -->
+    <filter id="shadowGstr" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.65"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#10b981" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="600" fill="url(#gstrBg)"/>
+  
+  <!-- Glowing Orbs -->
+  <circle cx="400" cy="300" r="300" fill="url(#emeraldAura)"/>
+  <circle cx="650" cy="150" r="180" fill="url(#emeraldAura)" opacity="0.6"/>
+
+  <!-- Geometric Tech Grid -->
+  <g opacity="0.06" stroke="#34d399" stroke-width="1">
+    <path d="M0 100 H800 M0 200 H800 M0 300 H800 M0 400 H800 M0 500 H800"/>
+    <path d="M100 0 V600 M200 0 V600 M300 0 V600 M400 0 V600 M500 0 V600 M600 0 V600 M700 0 V600"/>
+  </g>
+
+  <!-- ==========================================
+       1. MAIN GSTR & FINANCIAL REPORT DASHBOARD
+       ========================================== -->
+  <g filter="url(#shadowGstr)" transform="translate(60, 50)">
+    <!-- Dashboard Base Glass Card -->
+    <rect x="0" y="0" width="460" height="490" rx="22" fill="#03251c" stroke="url(#glassBorderGstr)" stroke-width="2.5"/>
+    
+    <!-- Top Header -->
+    <rect x="0" y="0" width="460" height="60" rx="22" fill="#053325"/>
+    <circle cx="28" cy="30" r="5" fill="#ef4444"/>
+    <circle cx="44" cy="30" r="5" fill="#f59e0b"/>
+    <circle cx="60" cy="30" r="5" fill="#10b981"/>
+    
+    <text x="84" y="36" fill="#ffffff" font-family="Inter, sans-serif" font-size="14" font-weight="800">GST Compliance &amp; Tax Portal</text>
+    
+    <!-- Ready to File Pill -->
+    <rect x="330" y="18" width="112" height="24" rx="12" fill="#10b981" fill-opacity="0.2" stroke="#34d399" stroke-width="1"/>
+    <text x="342" y="34" fill="#34d399" font-family="Inter, sans-serif" font-size="10" font-weight="800">✓ 100% READY</text>
+
+    <!-- 3 Tax Tier Cards (GSTR-1, GSTR-3B, P&L) -->
+    <g transform="translate(20, 80)">
+      <!-- GSTR-1 Card -->
+      <rect x="0" y="0" width="132" height="84" rx="12" fill="#042a1f" stroke="#10b981" stroke-width="1.2"/>
+      <rect x="12" y="12" width="56" height="18" rx="9" fill="#10b981" fill-opacity="0.25"/>
+      <text x="20" y="24" fill="#34d399" font-family="Inter, sans-serif" font-size="9" font-weight="700">GSTR-1</text>
+      <text x="12" y="52" fill="#ffffff" font-family="Inter, sans-serif" font-size="16" font-weight="800">₹1,42,800</text>
+      <text x="12" y="70" fill="#94a3b8" font-family="Inter, sans-serif" font-size="9">Outward Tax</text>
+
+      <!-- GSTR-3B Card -->
+      <rect x="144" y="0" width="132" height="84" rx="12" fill="#042a1f" stroke="#10b981" stroke-width="1.2"/>
+      <rect x="156" y="12" width="62" height="18" rx="9" fill="#38bdf8" fill-opacity="0.25"/>
+      <text x="164" y="24" fill="#38bdf8" font-family="Inter, sans-serif" font-size="9" font-weight="700">GSTR-3B</text>
+      <text x="156" y="52" fill="#ffffff" font-family="Inter, sans-serif" font-size="16" font-weight="800">₹36,400</text>
+      <text x="156" y="70" fill="#94a3b8" font-family="Inter, sans-serif" font-size="9">ITC Balance</text>
+
+      <!-- Net Profit Card -->
+      <rect x="288" y="0" width="132" height="84" rx="12" fill="#042a1f" stroke="#fbbf24" stroke-width="1.2"/>
+      <rect x="300" y="12" width="60" height="18" rx="9" fill="#fbbf24" fill-opacity="0.25"/>
+      <text x="308" y="24" fill="#fbbf24" font-family="Inter, sans-serif" font-size="9" font-weight="700">Net Profit</text>
+      <text x="300" y="52" fill="#ffffff" font-family="Inter, sans-serif" font-size="16" font-weight="800">₹3,84,500</text>
+      <text x="300" y="70" fill="#34d399" font-family="Inter, sans-serif" font-size="9">+24.8% MoM</text>
+    </g>
+
+    <!-- Revenue & Tax Trend Chart -->
+    <g transform="translate(20, 184)">
+      <rect x="0" y="0" width="420" height="190" rx="14" fill="#021d15" stroke="#10b981" stroke-opacity="0.3" stroke-width="1"/>
+      <text x="18" y="26" fill="#ffffff" font-family="Inter, sans-serif" font-size="12" font-weight="800">Financial Growth &amp; Tax Trends</text>
+      
+      <!-- Chart Y-Axis Markers -->
+      <text x="18" y="60" fill="#64748b" font-family="Inter, sans-serif" font-size="9">₹5L</text>
+      <line x1="42" y1="56" x2="400" y2="56" stroke="#ffffff" stroke-opacity="0.06"/>
+      <text x="18" y="100" fill="#64748b" font-family="Inter, sans-serif" font-size="9">₹3L</text>
+      <line x1="42" y1="96" x2="400" y2="96" stroke="#ffffff" stroke-opacity="0.06"/>
+      <text x="18" y="140" fill="#64748b" font-family="Inter, sans-serif" font-size="9">₹1L</text>
+      <line x1="42" y1="136" x2="400" y2="136" stroke="#ffffff" stroke-opacity="0.06"/>
+
+      <!-- Smooth Area Chart Path -->
+      <path d="M44 140 Q100 120 160 130 T280 80 T390 48" fill="none" stroke="url(#emeraldGrad)" stroke-width="3.5"/>
+      <path d="M44 140 Q100 120 160 130 T280 80 T390 48 L390 170 L44 170 Z" fill="url(#chartFill)"/>
+      
+      <!-- Chart Point Callout -->
+      <circle cx="390" cy="48" r="6" fill="#34d399"/>
+      <circle cx="390" cy="48" r="10" fill="#34d399" fill-opacity="0.3"/>
+    </g>
+
+    <!-- Bottom 1-Click Export Actions -->
+    <g transform="translate(20, 394)">
+      <rect x="0" y="0" width="202" height="42" rx="10" fill="url(#emeraldGrad)"/>
+      <text x="36" y="26" fill="#022119" font-family="Inter, sans-serif" font-size="11" font-weight="800">📊 Download GSTR Excel</text>
+
+      <rect x="218" y="0" width="202" height="42" rx="10" fill="#063d2d" stroke="#34d399" stroke-width="1.2"/>
+      <text x="254" y="26" fill="#34d399" font-family="Inter, sans-serif" font-size="11" font-weight="800">📄 Generate PDF Summary</text>
+    </g>
+  </g>
+
+  <!-- ==========================================
+       2. FLOATING DIGITAL KHATA LEDGER CARD (RIGHT)
+       ========================================== -->
+  <g filter="url(#shadowGstr)" transform="translate(540, 110)">
+    <rect x="0" y="0" width="215" height="390" rx="18" fill="#03261c" stroke="url(#glassBorderGstr)" stroke-width="2"/>
+    
+    <!-- Khata Header -->
+    <rect x="0" y="0" width="215" height="48" rx="18" fill="#053325"/>
+    <text x="18" y="28" fill="#ffffff" font-family="Inter, sans-serif" font-size="11" font-weight="800">Digital Customer Khata</text>
+    
+    <!-- Balance Summary -->
+    <rect x="14" y="60" width="187" height="62" rx="10" fill="#053627" stroke="#10b981" stroke-width="1"/>
+    <text x="24" y="78" fill="#94a3b8" font-family="Inter, sans-serif" font-size="9">Total Credit Due</text>
+    <text x="24" y="104" fill="#ef4444" font-family="Inter, sans-serif" font-size="16" font-weight="900">₹24,500</text>
+    <text x="120" y="104" fill="#34d399" font-family="Inter, sans-serif" font-size="10" font-weight="700">12 Parties</text>
+
+    <!-- Customer Ledger Rows -->
+    <g transform="translate(14, 134)">
+      <!-- Customer 1 -->
+      <rect x="0" y="0" width="187" height="52" rx="8" fill="#021d15"/>
+      <circle cx="18" cy="26" r="10" fill="#10b981" fill-opacity="0.3"/>
+      <text x="13" y="30" fill="#34d399" font-family="Inter, sans-serif" font-size="10" font-weight="800">R</text>
+      <text x="36" y="22" fill="#ffffff" font-family="Inter, sans-serif" font-size="10" font-weight="700">Rajesh Supermart</text>
+      <text x="36" y="38" fill="#94a3b8" font-family="Inter, sans-serif" font-size="8">Due: 2 Days ago</text>
+      <text x="140" y="30" fill="#ef4444" font-family="Inter, sans-serif" font-size="11" font-weight="800">₹8,400</text>
+
+      <!-- Customer 2 -->
+      <rect x="0" y="60" width="187" height="52" rx="8" fill="#021d15"/>
+      <circle cx="18" cy="86" r="10" fill="#38bdf8" fill-opacity="0.3"/>
+      <text x="13" y="90" fill="#38bdf8" font-family="Inter, sans-serif" font-size="10" font-weight="800">K</text>
+      <text x="36" y="82" fill="#ffffff" font-family="Inter, sans-serif" font-size="10" font-weight="700">Krishna Traders</text>
+      <text x="36" y="98" fill="#94a3b8" font-family="Inter, sans-serif" font-size="8">Due: Today</text>
+      <text x="140" y="90" fill="#ef4444" font-family="Inter, sans-serif" font-size="11" font-weight="800">₹16,100</text>
+    </g>
+
+    <!-- 1-Click WhatsApp Payment Link -->
+    <rect x="14" y="270" width="187" height="44" rx="10" fill="#10b981" fill-opacity="0.25" stroke="#34d399" stroke-width="1.2"/>
+    <text x="28" y="296" fill="#34d399" font-family="Inter, sans-serif" font-size="11" font-weight="800">💬 Share WhatsApp Link</text>
+
+    <!-- Auto Sync Stamp -->
+    <rect x="14" y="326" width="187" height="42" rx="10" fill="#021f17"/>
+    <text x="32" y="352" fill="#a7f3d0" font-family="Inter, sans-serif" font-size="10" font-weight="700">🔒 Encrypted Ledger</text>
+  </g>
+
+  <!-- Floating Badge: 100% Tax Compliant -->
+  <g filter="url(#shadowGstr)" transform="translate(60, 480)">
+    <rect x="0" y="0" width="220" height="42" rx="21" fill="#022119" stroke="#34d399" stroke-width="1.5"/>
+    <circle cx="20" cy="21" r="7" fill="#10b981"/>
+    <text x="36" y="26" fill="#34d399" font-family="Inter, sans-serif" font-size="11" font-weight="800">GST, VAT &amp; e-Way Compliant</text>
+  </g>
+</svg>
