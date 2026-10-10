@@ -2498,6 +2498,51 @@ img {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Restaurant Red Theme Pricing */
+.pricing-switch-btn[data-tab="restaurant"].active {
+  background: rgba(239, 68, 68, 0.25);
+  color: #ffffff;
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  box-shadow: 0 2px 10px rgba(239, 68, 68, 0.25);
+}
+
+.price-card.theme-red:hover {
+  border-color: rgba(248, 113, 113, 0.45);
+}
+
+.price-card.theme-red.featured {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1.5px solid rgba(248, 113, 113, 0.5);
+  box-shadow: 0 16px 45px rgba(239, 68, 68, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.price-card.theme-red .featured-ribbon {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border-color: rgba(248, 113, 113, 0.4);
+}
+
+.price-card.theme-red .btn-primary, .price-card.theme-red .btn-secondary:hover {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border-color: #ef4444;
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.35);
+  color: #ffffff;
+}
+
+.price-card.theme-red .btn-primary:hover {
+  box-shadow: 0 10px 25px rgba(239, 68, 68, 0.5);
+}
+
+.price-card.theme-red .plan-features-list i.fa-check {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.15);
+}
+
+.plan-logo-badge.theme-red {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
 .plan-logo-badge {
   width: 52px;
   height: 52px;
@@ -2647,9 +2692,18 @@ img {
   font-weight: 700;
 }
 
+.comparison-table.theme-red .highlight-col {
+  background: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+}
+
 .status-check {
   color: #34d399;
   font-weight: 700;
+}
+
+.comparison-table.theme-red .status-check {
+  color: #ef4444;
 }
 
 .status-cross {
