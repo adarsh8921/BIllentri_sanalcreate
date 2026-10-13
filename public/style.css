@@ -712,20 +712,6 @@ img {
   box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
 }
 
-.btn-primary::after,
-.hero-btn-primary::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -70%;
-  width: 45%;
-  height: 200%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-  transform: rotate(25deg);
-  animation: btnSheenSweep 5s infinite;
-  pointer-events: none;
-}
-
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(16, 185, 129, 0.45);
@@ -816,15 +802,6 @@ img {
   50% {
     transform: scale(1.15);
     box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
-  }
-}
-
-@keyframes btnSheenSweep {
-  0%, 80% {
-    left: -70%;
-  }
-  95%, 100% {
-    left: 150%;
   }
 }
 
