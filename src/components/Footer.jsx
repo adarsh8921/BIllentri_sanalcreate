@@ -37,7 +37,7 @@ export default function Footer({ onOpenSignup, onOpenVideo, onNavigateDrivers, o
             <li><a href="/download/BillEntri.dmg" download><i className="fa fa-apple"></i> macOS App (.dmg)</a></li>
             <li><a href="https://play.google.com/store/apps/details?id=com.billentri.svimers" target="_blank" rel="noopener noreferrer"><i className="fa fa-android"></i> Android Play Store</a></li>
             <li><a href="https://apps.apple.com/in/app/bill-entri-billing-made-simple/id6758664706" target="_blank" rel="noopener noreferrer"><i className="fa fa-apple"></i> iOS App Store</a></li>
-            <li><a href="#drivers" onClick={(e) => { e.preventDefault(); onNavigateDrivers && onNavigateDrivers(); }}><i className="fa fa-wrench"></i> Drivers &amp; Manuals</a></li>
+            <li><a href="/drivers-and-manuals" onClick={(e) => { e.preventDefault(); onNavigateDrivers && onNavigateDrivers(); }}><i className="fa fa-wrench"></i> Drivers &amp; Manuals</a></li>
             <li><a href="/download/Barcode%20Printer%20Setup.exe" download><i className="fa fa-barcode"></i> Barcode Setup (.exe)</a></li>
             <li><a href="https://dashboard.billentri.com/login" target="_blank" rel="noopener noreferrer"><i className="fa fa-globe"></i> Web Cloud Dashboard</a></li>
           </ul>

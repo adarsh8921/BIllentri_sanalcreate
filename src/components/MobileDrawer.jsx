@@ -54,7 +54,7 @@ export default function MobileDrawer({ isOpen, onClose, onOpenSignup, onNavigate
           <li><a href="#testimonials" className="drawer-link" onClick={(e) => handleLinkClick(e, '#testimonials')}>Customer Reviews</a></li>
           <li><a href="#faqs" className="drawer-link" onClick={(e) => handleLinkClick(e, '#faqs')}>FAQs</a></li>
           <li><a href="#contact" className="drawer-link" onClick={(e) => handleLinkClick(e, '#contact')}>Contact Us</a></li>
-          <li><a href="#drivers" className="drawer-link" onClick={(e) => { e.preventDefault(); onClose(); onNavigateDrivers && onNavigateDrivers(); }}>Drivers &amp; Manuals</a></li>
+          <li><a href="/drivers-and-manuals" className="drawer-link" onClick={(e) => { e.preventDefault(); onClose(); onNavigateDrivers && onNavigateDrivers(); }}>Drivers &amp; Manuals</a></li>
         </ul>
         <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", gap: "10px" }}>
           <a href="https://play.google.com/store/apps/details?id=com.billentri.svimers" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ width: "100%", textAlign: "center" }}>

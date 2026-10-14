@@ -99,8 +99,11 @@ export default function Header({ onOpenSignup, onToggleMobileMenu, onNavigateDri
   const handleDriversClick = (e) => {
     e.preventDefault();
     document.querySelectorAll('.nav-menu .nav-link').forEach((link) => {
-      if (link.getAttribute('href') === '#drivers') link.classList.add('active');
-      else if (link.getAttribute('href')?.startsWith('#')) link.classList.remove('active');
+      if (link.getAttribute('href') === '/drivers-and-manuals' || link.getAttribute('href') === '#drivers') {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
     });
     updateIndicator();
     if (onNavigateDrivers) onNavigateDrivers();
@@ -111,7 +114,7 @@ export default function Header({ onOpenSignup, onToggleMobileMenu, onNavigateDri
       <div className="container">
         <div className="header-inner">
           {/* Brand Logo */}
-          <a href="#home" className="brand-logo custom-logo-link" title="BillEntri" onClick={(e) => { handleLogoClick(); handleNavClick(e, '#home'); }}>
+          <a href="/" className="brand-logo custom-logo-link" title="BillEntri" onClick={(e) => { handleLogoClick(); handleNavClick(e, '#home'); }}>
             <img src="/assets/img/logo.png" alt="BillEntri Logo" className="default-logo" />
             <img src="/assets/img/sticky_logo.png" alt="BillEntri Logo" className="sticky-logo" />
           </a>
@@ -130,7 +133,7 @@ export default function Header({ onOpenSignup, onToggleMobileMenu, onNavigateDri
               <li><a href="#testimonials" className="nav-link" onClick={(e) => handleNavClick(e, '#testimonials')}>Testimonials</a></li>
               <li><a href="#faqs" className="nav-link" onClick={(e) => handleNavClick(e, '#faqs')}>FAQs</a></li>
               <li><a href="#contact" className="nav-link" onClick={(e) => handleNavClick(e, '#contact')}>Contact</a></li>
-              <li><a href="#drivers" className="nav-link" onClick={handleDriversClick}>Drivers &amp; Manuals</a></li>
+              <li><a href="/drivers-and-manuals" className="nav-link" onClick={handleDriversClick}>Drivers &amp; Manuals</a></li>
             </ul>
           </nav>
 

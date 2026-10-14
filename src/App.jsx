@@ -29,17 +29,19 @@ export default function App() {
   const [registeredCompany, setRegisteredCompany] = useState('');
   const [createdCompanyId, setCreatedCompanyId] = useState(1);
 
-  // 1. Initial Page Route & Curtain Dismissal
+  // 1. Clean HTML5 Path Routing & Initial Curtain Dismissal
   useEffect(() => {
-    const checkHash = () => {
-      if (window.location.hash === '#drivers' || window.location.pathname.includes('drivers-and-manuals')) {
+    const checkRoute = () => {
+      const isDrivers = window.location.pathname.includes('drivers') || window.location.hash === '#drivers';
+      if (isDrivers) {
         setCurrentPage('drivers');
       } else {
         setCurrentPage('home');
       }
     };
-    checkHash();
-    window.addEventListener('hashchange', checkHash);
+    checkRoute();
+    window.addEventListener('popstate', checkRoute);
+    window.addEventListener('hashchange', checkRoute);
 
     // Dismiss transition curtain smoothly on page ready
     const curtain = document.getElementById('page-transition-curtain');
@@ -49,7 +51,10 @@ export default function App() {
       }, 150);
     }
 
-    return () => window.removeEventListener('hashchange', checkHash);
+    return () => {
+      window.removeEventListener('popstate', checkRoute);
+      window.removeEventListener('hashchange', checkRoute);
+    };
   }, []);
 
   // 2. High-Performance Scroll, Reveal & Spotlight Engine (Zero React re-renders on scroll)
@@ -321,15 +326,21 @@ export default function App() {
     };
   }, [currentPage]);
 
-  // Instant SPA Navigation
+  // Clean SPA Path Navigation
   const navigateToDrivers = () => {
     setCurrentPage('drivers');
+    if (window.location.pathname !== '/drivers-and-manuals') {
+      window.history.pushState({ page: 'drivers' }, '', '/drivers-and-manuals');
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const navigateToHome = (callback) => {
     if (currentPage !== 'home') {
       setCurrentPage('home');
+      if (window.location.pathname !== '/') {
+        window.history.pushState({ page: 'home' }, '', '/');
+      }
       if (callback) {
         requestAnimationFrame(() => {
           setTimeout(callback, 50);
