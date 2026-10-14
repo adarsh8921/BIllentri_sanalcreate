@@ -17,18 +17,93 @@ export default function Header({ onOpenSignup, onToggleMobileMenu, onNavigateDri
     }
   };
 
-  const handleNavClick = (e, hash) => {
-    e.preventDefault();
-    if (onNavigateHome) onNavigateHome();
-    const target = document.querySelector(hash);
-    if (target) {
-      const top = target.getBoundingClientRect().top + window.scrollY - 70;
-      window.scrollTo({ top, behavior: 'smooth' });
-      document.querySelectorAll('.nav-menu .nav-link').forEach((link) => {
-        if (link.getAttribute('href') === hash) link.classList.add('active');
-        else if (link.getAttribute('href')?.startsWith('#')) link.classList.remove('active');
+  const updateIndicator = () => {
+    const navMenu = document.getElementById('nav-menu');
+    const indicator = document.getElementById('nav-indicator-pill');
+    if (!navMenu || !indicator) return;
+    const activeLink = navMenu.querySelector('.nav-link.active');
+    if (activeLink) {
+      const linkRect = activeLink.getBoundingClientRect();
+      const menuRect = navMenu.getBoundingClientRect();
+      const left = linkRect.left - menuRect.left;
+      const width = linkRect.width;
+      indicator.style.transform = `translateX(${left}px)`;
+      indicator.style.width = `${width}px`;
+      indicator.style.opacity = '1';
+    } else {
+      indicator.style.opacity = '0';
+    }
+  };
+
+  React.useEffect(() => {
+    updateIndicator();
+    window.addEventListener('resize', updateIndicator);
+
+    // Observer to update pill whenever active class changes during manual scroll
+    const navMenu = document.getElementById('nav-menu');
+    let observer;
+    if (navMenu) {
+      observer = new MutationObserver(() => {
+        if (!window.__isNavClickScrolling) {
+          updateIndicator();
+        }
+      });
+      observer.observe(navMenu, {
+        attributes: true,
+        subtree: true,
+        attributeFilter: ['class'],
       });
     }
+
+    return () => {
+      window.removeEventListener('resize', updateIndicator);
+      if (observer) observer.disconnect();
+    };
+  }, []);
+
+  const handleNavClick = (e, hash) => {
+    e.preventDefault();
+    const scrollToSection = () => {
+      const target = document.querySelector(hash);
+      if (target) {
+        // Lock scrollspy during smooth scroll so the pill doesn't jump through sections
+        window.__isNavClickScrolling = true;
+        if (window.__navScrollTimer) clearTimeout(window.__navScrollTimer);
+
+        document.querySelectorAll('.nav-menu .nav-link').forEach((link) => {
+          if (link.getAttribute('href') === hash) link.classList.add('active');
+          else if (link.getAttribute('href')?.startsWith('#')) link.classList.remove('active');
+        });
+        updateIndicator();
+
+        const top = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top, behavior: 'smooth' });
+
+        const endScroll = () => {
+          window.__isNavClickScrolling = false;
+          window.removeEventListener('scrollend', endScroll);
+          if (window.__navScrollTimer) clearTimeout(window.__navScrollTimer);
+        };
+        window.addEventListener('scrollend', endScroll, { once: true });
+        window.__navScrollTimer = setTimeout(endScroll, 850);
+      }
+    };
+
+    if (onNavigateHome) {
+      onNavigateHome(scrollToSection);
+    } else {
+      scrollToSection();
+    }
+  };
+
+  const handleDriversClick = (e) => {
+    e.preventDefault();
+    document.querySelectorAll('.nav-menu .nav-link').forEach((link) => {
+      if (link.getAttribute('href') === '#drivers') link.classList.add('active');
+      else if (link.getAttribute('href')?.startsWith('#')) link.classList.remove('active');
+    });
+    updateIndicator();
+    if (onNavigateDrivers) onNavigateDrivers();
   };
 
   return (
@@ -44,6 +119,7 @@ export default function Header({ onOpenSignup, onToggleMobileMenu, onNavigateDri
           {/* Desktop Navigation Menu */}
           <nav>
             <ul className="nav-menu" id="nav-menu">
+              <span className="nav-indicator-pill" id="nav-indicator-pill" aria-hidden="true" />
               <li><a href="#home" className="nav-link active" onClick={(e) => handleNavClick(e, '#home')}>Home</a></li>
               <li><a href="#showcase" className="nav-link" onClick={(e) => handleNavClick(e, '#showcase')}>POS Live</a></li>
               <li><a href="#downloads" className="nav-link" onClick={(e) => handleNavClick(e, '#downloads')}>Downloads</a></li>
@@ -54,7 +130,7 @@ export default function Header({ onOpenSignup, onToggleMobileMenu, onNavigateDri
               <li><a href="#testimonials" className="nav-link" onClick={(e) => handleNavClick(e, '#testimonials')}>Testimonials</a></li>
               <li><a href="#faqs" className="nav-link" onClick={(e) => handleNavClick(e, '#faqs')}>FAQs</a></li>
               <li><a href="#contact" className="nav-link" onClick={(e) => handleNavClick(e, '#contact')}>Contact</a></li>
-              <li><a href="#drivers" className="nav-link" onClick={(e) => { e.preventDefault(); onNavigateDrivers && onNavigateDrivers(); }}>Drivers &amp; Manuals</a></li>
+              <li><a href="#drivers" className="nav-link" onClick={handleDriversClick}>Drivers &amp; Manuals</a></li>
             </ul>
           </nav>
 

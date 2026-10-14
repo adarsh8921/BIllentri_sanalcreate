@@ -11,11 +11,18 @@ export default function MobileDrawer({ isOpen, onClose, onOpenSignup, onNavigate
   const handleLinkClick = (e, hash) => {
     e.preventDefault();
     onClose();
-    if (onNavigateHome) onNavigateHome();
-    const target = document.querySelector(hash);
-    if (target) {
-      const top = target.getBoundingClientRect().top + window.scrollY - 70;
-      window.scrollTo({ top, behavior: 'smooth' });
+    const scrollToSection = () => {
+      const target = document.querySelector(hash);
+      if (target) {
+        const top = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    };
+
+    if (onNavigateHome) {
+      onNavigateHome(scrollToSection);
+    } else {
+      scrollToSection();
     }
   };
 

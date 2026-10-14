@@ -60,8 +60,6 @@ export default function Showcase() {
       <section 
         className="showcase-hero-section" 
         id="showcase"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
       >
         <div className="container">
           <div className="hero-grid" style={{ alignItems: 'center' }}>

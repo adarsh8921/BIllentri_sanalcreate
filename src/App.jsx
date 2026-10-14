@@ -215,33 +215,35 @@ export default function App() {
           });
         }
 
-        // 4. Scrollspy Active Navigation
-        const windowBottom = scrollY + window.innerHeight;
-        const totalHeight = document.documentElement.scrollHeight;
-        let activeId = null;
+        // 4. Scrollspy Active Navigation (disabled during programmatic nav click scroll)
+        if (!window.__isNavClickScrolling) {
+          const windowBottom = scrollY + window.innerHeight;
+          const totalHeight = document.documentElement.scrollHeight;
+          let activeId = null;
 
-        if (windowBottom >= totalHeight - 80) {
-          activeId = 'contact';
-        } else {
-          const scrollPos = scrollY + 160;
-          for (let i = 0; i < sectionOffsets.length; i++) {
-            const sec = sectionOffsets[i];
-            if (scrollPos >= sec.top && scrollPos < sec.bottom) {
-              activeId = sec.id;
-              break;
+          if (windowBottom >= totalHeight - 80) {
+            activeId = 'contact';
+          } else {
+            const scrollPos = scrollY + 160;
+            for (let i = 0; i < sectionOffsets.length; i++) {
+              const sec = sectionOffsets[i];
+              if (scrollPos >= sec.top && scrollPos < sec.bottom) {
+                activeId = sec.id;
+                break;
+              }
             }
           }
-        }
 
-        if (activeId) {
-          navLinks.forEach((link) => {
-            const href = link.getAttribute('href');
-            if (href === `#${activeId}`) {
-              link.classList.add('active');
-            } else if (href && href.startsWith('#')) {
-              link.classList.remove('active');
-            }
-          });
+          if (activeId) {
+            navLinks.forEach((link) => {
+              const href = link.getAttribute('href');
+              if (href === `#${activeId}`) {
+                link.classList.add('active');
+              } else if (href && href.startsWith('#')) {
+                link.classList.remove('active');
+              }
+            });
+          }
         }
 
         ticking = false;
@@ -319,30 +321,24 @@ export default function App() {
     };
   }, [currentPage]);
 
-  // Page Transition Curtain Transitions
-  const navigateWithCurtain = (targetPage, hash) => {
-    const curtain = document.getElementById('page-transition-curtain');
-    if (curtain) {
-      curtain.classList.remove('page-loaded');
-      curtain.classList.add('page-exiting');
-      setTimeout(() => {
-        setCurrentPage(targetPage);
-        window.location.hash = hash;
-        window.scrollTo({ top: 0 });
-        setTimeout(() => {
-          curtain.classList.remove('page-exiting');
-          curtain.classList.add('page-loaded');
-        }, 100);
-      }, 360);
-    } else {
-      setCurrentPage(targetPage);
-      window.location.hash = hash;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+  // Instant SPA Navigation
+  const navigateToDrivers = () => {
+    setCurrentPage('drivers');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const navigateToDrivers = () => navigateWithCurtain('drivers', 'drivers');
-  const navigateToHome = () => navigateWithCurtain('home', 'home');
+  const navigateToHome = (callback) => {
+    if (currentPage !== 'home') {
+      setCurrentPage('home');
+      if (callback) {
+        requestAnimationFrame(() => {
+          setTimeout(callback, 50);
+        });
+      }
+    } else if (callback) {
+      callback();
+    }
+  };
 
   const handleOpenSignup = () => setSignupOpen(true);
   const handleCloseSignup = () => setSignupOpen(false);
