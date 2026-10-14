@@ -4,6 +4,10 @@ import '../drivers.css';
 export default function DriversAndManualsPage({ onNavigateHome }) {
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.body.classList.add('page-drivers-light');
+    return () => {
+      document.body.classList.remove('page-drivers-light');
+    };
   }, []);
 
   return (

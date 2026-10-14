@@ -8,7 +8,6 @@ import Features from './components/Features';
 import Workflow from './components/Workflow';
 import StatsBanner from './components/StatsBanner';
 import Pricing from './components/Pricing';
-import Testimonials from './components/Testimonials';
 import Blog from './components/Blog';
 import FAQ from './components/FAQ';
 import AppDownloadCTA from './components/AppDownloadCTA';
@@ -214,9 +213,26 @@ export default function App() {
 
     window.addEventListener('scroll', onScroll, { passive: true });
 
+    // 4. Global Smooth Scroll for all internal anchor links across the entire page
+    const handleGlobalAnchorClick = (e) => {
+      const anchor = e.target.closest('a[href^="#"]');
+      if (!anchor) return;
+      const href = anchor.getAttribute('href');
+      if (!href || href === '#' || href === '#!') return;
+
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    };
+    document.addEventListener('click', handleGlobalAnchorClick);
+
     return () => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', measureLayout);
+      document.removeEventListener('click', handleGlobalAnchorClick);
       revealObserver.disconnect();
     };
   }, [currentPage]);
@@ -313,7 +329,6 @@ export default function App() {
             <Features themeMode={themeMode} />
             <StatsBanner onOpenVideo={handleOpenVideo} />
             <Pricing onOpenSignup={handleOpenSignup} themeMode={themeMode} />
-            <Testimonials />
             <Blog />
             <FAQ />
             <AppDownloadCTA />

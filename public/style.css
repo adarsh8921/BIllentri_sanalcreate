@@ -57,8 +57,13 @@
   height: 0 !important;
 }
 
+html,
+body,
+:root {
+  scroll-behavior: smooth !important;
+}
+
 html {
-  scroll-behavior: smooth;
   font-size: 16px;
   overflow-x: hidden;
   width: 100%;
@@ -191,7 +196,7 @@ img {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: rgba(15, 23, 42, 0.92);
+  background: #01100B;
   color: #f8fafc;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 9999px;
@@ -1108,7 +1113,9 @@ img {
 
 .hero-tablet-screen {
   width: 100%;
+  aspect-ratio: 1366 / 768;
   height: auto;
+  object-fit: cover;
   display: block;
   border-radius: 15px;
 }
@@ -2773,69 +2780,128 @@ img {
   margin: 0 auto;
 }
 
-.workflow-modern-grid {
+.workflow-timeline-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.workflow-timeline-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
+  gap: 36px;
+  position: relative;
   align-items: stretch;
 }
 
-.workflow-modern-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  padding: 38px 30px 34px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+.workflow-timeline-card-wrapper {
   position: relative;
+  display: flex;
 }
 
-.workflow-modern-card:hover {
-  border-color: #10b981;
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+/* Horizontal Dashed Connector Line with Circle Node (Desktop) */
+.workflow-connector-line {
+  position: absolute;
+  top: 50%;
+  left: -36px;
+  width: 36px;
+  height: 0;
+  border-top: 2px dashed rgba(16, 185, 129, 0.5);
+  transform: translateY(-50%);
+  z-index: 3;
+  pointer-events: none;
 }
 
-.workflow-modern-card.active-featured {
+.workflow-connector-dot {
+  position: absolute;
+  right: -7px;
+  top: -7px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #10b981;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 1.5px #10b981;
+  display: inline-block;
+}
+
+/* Card Design Matching Reference */
+.workflow-timeline-card {
+  background: #ffffff;
   border: 1.5px solid #10b981;
-  box-shadow: 0 8px 26px rgba(16, 185, 129, 0.12);
+  border-radius: 16px;
+  padding: 30px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.08);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  z-index: 1;
 }
 
-.workflow-card-icon {
-  width: 50px;
-  height: 50px;
+.workflow-timeline-card:hover {
+  border-color: #059669;
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(16, 185, 129, 0.16);
+}
+
+.workflow-card-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(16, 185, 129, 0.08);
+  color: #10b981;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  font-size: 34px;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.workflow-timeline-card:hover .workflow-card-icon-box {
+  background: #10b981;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.workflow-card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.workflow-step-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: #10b981;
-  margin-bottom: 24px;
-  transition: color 0.2s ease;
+  margin-bottom: 6px;
 }
 
 .workflow-card-title {
-  font-size: 19px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 800;
   color: #0f172a;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   line-height: 1.35;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 .workflow-card-desc {
-  font-size: 14px;
-  line-height: 1.65;
+  font-size: 13.5px;
   color: #64748b;
-  margin: 0 0 24px;
+  line-height: 1.6;
+  margin: 0 0 16px;
   flex-grow: 1;
 }
 
 .workflow-card-link {
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -2843,14 +2909,39 @@ img {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   margin-top: auto;
   transition: color 0.15s ease, transform 0.15s ease;
 }
 
 .workflow-card-link:hover {
   color: #059669;
-  transform: translateX(2px);
+  transform: translateX(3px);
+}
+
+/* Responsive Connecting Lines (Mobile & Tablet) */
+@media (max-width: 991px) {
+  .workflow-timeline-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .workflow-connector-line {
+    top: -40px;
+    left: 48px;
+    width: 0;
+    height: 40px;
+    border-top: none;
+    border-left: 2px dashed rgba(16, 185, 129, 0.5);
+    transform: none;
+  }
+
+  .workflow-connector-dot {
+    top: auto;
+    bottom: -7px;
+    right: auto;
+    left: -8px;
+  }
 }
 
 /* Restaurant Mode Red Accents */
@@ -2858,17 +2949,42 @@ body.theme-restaurant .workflow-eyebrow {
   color: #ef4444;
 }
 
-body.theme-restaurant .workflow-modern-card:hover {
-  border-color: #ef4444;
-  box-shadow: 0 12px 30px rgba(239, 68, 68, 0.1);
+body.theme-restaurant .workflow-connector-line {
+  border-top-color: rgba(239, 68, 68, 0.5);
 }
 
-body.theme-restaurant .workflow-modern-card.active-featured {
-  border-color: #ef4444;
-  box-shadow: 0 8px 26px rgba(239, 68, 68, 0.14);
+@media (max-width: 991px) {
+  body.theme-restaurant .workflow-connector-line {
+    border-left-color: rgba(239, 68, 68, 0.5);
+  }
 }
 
-body.theme-restaurant .workflow-card-icon {
+body.theme-restaurant .workflow-connector-dot {
+  background: #ef4444;
+  box-shadow: 0 0 0 1.5px #ef4444;
+}
+
+body.theme-restaurant .workflow-timeline-card {
+  border-color: #ef4444;
+  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.08);
+}
+
+body.theme-restaurant .workflow-timeline-card:hover {
+  border-color: #dc2626;
+  box-shadow: 0 14px 34px rgba(239, 68, 68, 0.16);
+}
+
+body.theme-restaurant .workflow-card-icon-box {
+  background: rgba(239, 68, 68, 0.08);
+  color: #ef4444;
+}
+
+body.theme-restaurant .workflow-timeline-card:hover .workflow-card-icon-box {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+body.theme-restaurant .workflow-step-tag {
   color: #ef4444;
 }
 

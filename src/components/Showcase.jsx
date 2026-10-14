@@ -193,20 +193,6 @@ export default function Showcase({ onOpenSignup, onOpenVideo }) {
           </div>
         </div>
       </section>
-
-      <div className="clients-bar-section">
-        <div className="container">
-          <div className="clients-bar-inner">
-            <div className="clients-bar-title">Trusted By Leading Merchants &amp; Wholesalers</div>
-            <div className="clients-logos-wrap">
-              <img src="/assets/img/client/sponsor-1.png" alt="Partner Sponsor 1" />
-              <img src="/assets/img/client/sponsor-2.png" alt="Partner Sponsor 2" />
-              <img src="/assets/img/client/sponsor-3.png" alt="Partner Sponsor 3" />
-              <img src="/assets/img/client/sponsor-1.png" alt="Partner Sponsor 4" />
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   );
 }

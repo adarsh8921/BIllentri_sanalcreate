@@ -157,7 +157,6 @@ export default function Header({
               <li><a href="#downloads" className="nav-link" onClick={(e) => handleNavClick(e, '#downloads')}>Downloads</a></li>
               <li><a href="#features" className="nav-link" onClick={(e) => handleNavClick(e, '#features')}>Features</a></li>
               <li><a href="#pricing" className="nav-link" onClick={(e) => handleNavClick(e, '#pricing')}>Pricing</a></li>
-              <li><a href="#testimonials" className="nav-link" onClick={(e) => handleNavClick(e, '#testimonials')}>Reviews</a></li>
               <li><a href="/drivers-and-manuals" className={`nav-link ${currentPage === 'drivers' ? 'active' : ''}`} onClick={handleDriversClick}>Drivers</a></li>
               <li className="nav-divider" aria-hidden="true"></li>
               <li>

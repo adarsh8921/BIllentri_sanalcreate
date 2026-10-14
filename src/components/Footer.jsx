@@ -1,13 +1,30 @@
 import React from 'react';
 
 export default function Footer({ onOpenSignup, onOpenVideo, onNavigateDrivers, onNavigateHome }) {
+  const handleFooterLinkClick = (e, hash) => {
+    e.preventDefault();
+    const scrollToSection = () => {
+      const target = document.querySelector(hash);
+      if (target) {
+        const top = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    };
+
+    if (onNavigateHome) {
+      onNavigateHome(scrollToSection);
+    } else {
+      scrollToSection();
+    }
+  };
+
   return (
     <>
 <footer className="site-footer">
     <div className="container-fluid">
       <div className="footer-grid">
         <div className="footer-brand reveal-item stagger-1">
-          <a href="#home" onClick={(e) => { e.preventDefault(); onNavigateHome && onNavigateHome(); }}>
+          <a href="#home" onClick={(e) => handleFooterLinkClick(e, '#home')}>
             <img src="/assets/img/logo.png" alt="BillEntri Logo" style={{ height: "36px", width: "auto" }} />
           </a>
           <p>
@@ -18,12 +35,11 @@ export default function Footer({ onOpenSignup, onOpenVideo, onNavigateDrivers, o
         <div className="footer-column reveal-item stagger-2">
           <h3>Quick Links</h3>
           <ul className="footer-links">
-            <li><a href="#home" onClick={() => onNavigateHome && onNavigateHome()}>Home</a></li>
-            <li><a href="#downloads" onClick={() => onNavigateHome && onNavigateHome()}>Downloads</a></li>
-            <li><a href="#features" onClick={() => onNavigateHome && onNavigateHome()}>Features</a></li>
-            <li><a href="#pricing" onClick={() => onNavigateHome && onNavigateHome()}>Pricing Plans</a></li>
-            <li><a href="#testimonials" onClick={() => onNavigateHome && onNavigateHome()}>Reviews</a></li>
-            <li><a href="#faqs" onClick={() => onNavigateHome && onNavigateHome()}>FAQs</a></li>
+            <li><a href="#home" onClick={(e) => handleFooterLinkClick(e, '#home')}>Home</a></li>
+            <li><a href="#downloads" onClick={(e) => handleFooterLinkClick(e, '#downloads')}>Downloads</a></li>
+            <li><a href="#features" onClick={(e) => handleFooterLinkClick(e, '#features')}>Features</a></li>
+            <li><a href="#pricing" onClick={(e) => handleFooterLinkClick(e, '#pricing')}>Pricing Plans</a></li>
+            <li><a href="#faqs" onClick={(e) => handleFooterLinkClick(e, '#faqs')}>FAQs</a></li>
             <li><a href="https://wa.me/918943993001" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
           </ul>
         </div>

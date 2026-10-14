@@ -1,333 +1,357 @@
-body {
-      background-color: #01130e;
-      background-image: 
-        radial-gradient(circle at 50% 0%, rgba(6, 78, 59, 0.9) 0%, rgba(3, 43, 33, 0.65) 35%, rgba(2, 26, 20, 0.85) 70%, #01130e 100%),
-        radial-gradient(rgba(52, 211, 153, 0.12) 1px, transparent 1px),
-        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-      background-size: 100% 100%, 28px 28px, 56px 56px, 56px 56px;
-      background-position: center top, 0 0, 0 0, 0 0;
-      background-attachment: fixed !important;
-      color: #ffffff;
-    }
+/* --------------------------------------------------------------------------
+   DRIVERS & MANUALS PAGE - MODERN LIGHT THEME
+   -------------------------------------------------------------------------- */
 
-    .drivers-hero-section {
-      background: transparent;
-      padding: 140px 0 60px;
-      color: #ffffff;
-      position: relative;
-      overflow: hidden;
-    }
+body.page-drivers-light {
+  background-color: #f8fafc !important;
+  background-image: none !important;
+  color: #0f172a !important;
+}
 
-    .drivers-hero-section::before {
-      content: '';
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
-      top: -150px;
-      right: -100px;
-      pointer-events: none;
-    }
+.drivers-page-wrapper {
+  background-color: #f8fafc;
+  color: #0f172a;
+  min-height: 100vh;
+}
 
-    .drivers-hero-content h1 {
-      font-size: 40px;
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 15px;
-      letter-spacing: -0.5px;
-    }
+.drivers-hero-section {
+  background: linear-gradient(180deg, #ecfdf5 0%, #f8fafc 100%);
+  padding: 135px 0 55px;
+  color: #0f172a;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #e2e8f0;
+}
 
-    .drivers-hero-content p {
-      font-size: 17px;
-      color: #cbd5e1;
-      max-width: 650px;
-      line-height: 1.6;
-    }
+.drivers-hero-section::before {
+  content: '';
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+  top: -120px;
+  right: -80px;
+  pointer-events: none;
+}
 
-    .breadcrumb-nav {
-      margin-top: 20px;
-    }
+.drivers-hero-content h1 {
+  font-size: 38px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 12px;
+  letter-spacing: -0.025em;
+}
 
-    .breadcrumb-nav a {
-      color: #34d399;
-      font-weight: 500;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+.drivers-hero-content p {
+  font-size: 16px;
+  color: #475569;
+  max-width: 650px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
 
-    .breadcrumb-nav a:hover {
-      color: #ffffff;
-    }
+.breadcrumb-nav {
+  margin-top: 18px;
+  font-size: 14px;
+}
 
-    .breadcrumb-nav span {
-      color: #64748b;
-      margin: 0 8px;
-    }
+.breadcrumb-nav a {
+  color: #059669;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
 
-    .breadcrumb-nav .active {
-      color: #ffffff;
-      font-weight: 600;
-    }
+.breadcrumb-nav a:hover {
+  color: #047857;
+  text-decoration: underline;
+}
 
-    .drivers-content-area {
-      padding: 60px 0 100px;
-      background: transparent;
-    }
+.breadcrumb-nav span {
+  color: #94a3b8;
+  margin: 0 8px;
+}
 
-    .driver-card {
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 40px;
-      margin-bottom: 40px;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-      overflow: hidden;
-    }
+.breadcrumb-nav .active {
+  color: #0f172a;
+  font-weight: 700;
+}
 
-    .driver-card:hover {
-      transform: translateY(-4px);
-      background: rgba(255, 255, 255, 0.07);
-      border-color: rgba(16, 185, 129, 0.35);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 25px rgba(16, 185, 129, 0.15);
-    }
+.drivers-content-area {
+  padding: 60px 0 100px;
+  background: #f8fafc;
+}
 
-    .driver-card-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(16, 185, 129, 0.15);
-      color: #34d399;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: 30px;
-      margin-bottom: 20px;
-      border: 1px solid rgba(16, 185, 129, 0.3);
-    }
+/* Download Cards */
+.driver-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+  border: 1px solid #e2e8f0;
+  padding: 40px;
+  margin-bottom: 40px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
 
-    .driver-card-badge.app-badge {
-      background: rgba(56, 189, 248, 0.15);
-      color: #38bdf8;
-      border-color: rgba(56, 189, 248, 0.3);
-    }
+.driver-card:hover {
+  transform: translateY(-4px);
+  border-color: #10b981;
+  box-shadow: 0 16px 36px rgba(16, 185, 129, 0.12);
+}
 
-    .driver-card-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 25px;
-      margin-bottom: 30px;
-      padding-bottom: 25px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
+.driver-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ecfdf5;
+  color: #059669;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 30px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
 
-    .driver-card-icon {
-      width: 70px;
-      height: 70px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      flex-shrink: 0;
-      box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
-    }
+.driver-card-badge.app-badge {
+  background: #f0fdf4;
+  color: #15803d;
+  border-color: rgba(22, 163, 74, 0.25);
+}
 
-    .driver-card-icon.app-icon {
-      background: linear-gradient(135deg, #059669 0%, #34d399 100%);
-      box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
-    }
+.driver-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #f1f5f9;
+}
 
-    .driver-card-title h3 {
-      font-size: 24px;
-      font-weight: 700;
-      color: #ffffff;
-      margin: 0 0 8px 0;
-    }
+.driver-card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+  box-shadow: 0 8px 18px rgba(16, 185, 129, 0.25);
+}
 
-    .driver-card-title p {
-      font-size: 15px;
-      color: #94a3b8;
-      margin: 0;
-      line-height: 1.5;
-    }
+.driver-card-icon.app-icon {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  box-shadow: 0 8px 18px rgba(16, 185, 129, 0.25);
+}
 
-    .driver-meta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 18px;
-      margin-bottom: 35px;
-      background: rgba(255, 255, 255, 0.03);
-      padding: 20px;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
+.driver-card-title h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
+}
 
-    .meta-item {
-      display: flex;
-      flex-direction: column;
-    }
+.driver-card-title p {
+  font-size: 14.5px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.55;
+}
 
-    .meta-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: #94a3b8;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
-    }
+.driver-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+}
 
-    .meta-value {
-      font-size: 15px;
-      font-weight: 700;
-      color: #ffffff;
-    }
+.meta-item {
+  display: flex;
+  flex-direction: column;
+}
 
-    .driver-features-title {
-      font-size: 17px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 15px;
-    }
+.meta-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
 
-    .driver-features-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 35px 0;
-    }
+.meta-value {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
 
-    .driver-features-list li {
-      position: relative;
-      padding-left: 26px;
-      margin-bottom: 12px;
-      font-size: 14.5px;
-      color: #cbd5e1;
-      line-height: 1.5;
-    }
+.driver-features-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 14px;
+}
 
-    .driver-features-list li::before {
-      content: "✔";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: #34d399;
-      font-weight: bold;
-      font-size: 14px;
-    }
+.driver-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+}
 
-    .driver-download-action {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.driver-features-list li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #334155;
+  line-height: 1.55;
+}
 
-    .btn-download-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      color: #ffffff !important;
-      font-size: 16px;
-      font-weight: 700;
-      padding: 15px 35px;
-      border-radius: 12px;
-      text-decoration: none;
-      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35);
-      transition: all 0.3s ease;
-    }
+.driver-features-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #10b981;
+  font-weight: bold;
+  font-size: 14px;
+}
 
-    .btn-download-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 30px rgba(16, 185, 129, 0.5);
-      color: #ffffff !important;
-    }
+.driver-download-action {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
 
-    .instructions-card {
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 35px;
-    }
+.btn-download-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff !important;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 13px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.28);
+  transition: all 0.2s ease;
+}
 
-    .instructions-card h3 {
-      font-size: 20px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+.btn-download-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(16, 185, 129, 0.4);
+  color: #ffffff !important;
+}
 
-    .step-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+/* Sidebar Instructions Card */
+.instructions-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+  border: 1px solid #e2e8f0;
+  padding: 35px;
+  margin-bottom: 30px;
+}
 
-    .step-item {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 22px;
-    }
+.instructions-card h3 {
+  font-size: 19px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-    .step-item:last-child {
-      margin-bottom: 0;
-    }
+.instructions-card h3 i {
+  color: #10b981;
+}
 
-    .step-number {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: rgba(16, 185, 129, 0.15);
-      color: #34d399;
-      font-weight: 700;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      border: 1px solid rgba(16, 185, 129, 0.3);
-    }
+.step-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-    .step-text h4 {
-      font-size: 15px;
-      font-weight: 700;
-      color: #ffffff;
-      margin: 0 0 4px 0;
-    }
+.step-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 22px;
+}
 
-    .step-text p {
-      font-size: 13.5px;
-      color: #94a3b8;
-      margin: 0;
-      line-height: 1.5;
-    }
+.step-item:last-child {
+  margin-bottom: 0;
+}
 
-    @media (max-width: 767px) {
-      .driver-card {
-        padding: 25px 20px;
-      }
-      .driver-card-header {
-        flex-direction: column;
-        gap: 15px;
-      }
-      .driver-download-action {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .btn-download-primary {
-        justify-content: center;
-      }
-    }
+.step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ecfdf5;
+  color: #059669;
+  font-weight: 800;
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.step-text h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 5px 0;
+}
+
+.step-text p {
+  font-size: 13.5px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.step-text code {
+  background: #f1f5f9;
+  color: #0f172a;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  font-size: 12px;
+  font-family: inherit;
+}
+
+.step-text strong {
+  color: #0f172a;
+}
+
+@media (max-width: 767px) {
+  .driver-card {
+    padding: 26px 20px;
+  }
+  .driver-card-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .driver-download-action {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-download-primary {
+    justify-content: center;
+  }
+}

@@ -64,14 +64,16 @@ export default function Hero({ themeMode = 'retail', onOpenSignup, onOpenVideo }
               </div>
             </div>
 
-            {/* Right Column: Angled Tablet with assets/images/hero.jpeg */}
+            {/* Right Column: Angled Tablet with hero.jpeg / restaurant_terminal.jpeg */}
             <div className="hero-tablet-wrapper reveal-item reveal-right is-visible">
               <div className="hero-tablet-frame">
                 <div className="hero-tablet-camera"></div>
                 <img
-                  src="/assets/images/hero.jpeg"
-                  alt="BillEntri Tablet POS Application Screen"
+                  src={isRestaurant ? '/assets/images/restaurant_terminal.jpeg' : '/assets/images/hero.jpeg'}
+                  alt={isRestaurant ? 'BillEntri Restaurant POS Screen' : 'BillEntri Tablet POS Application Screen'}
                   className="hero-tablet-screen"
+                  width="1366"
+                  height="768"
                 />
               </div>
             </div>

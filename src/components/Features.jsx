@@ -207,13 +207,15 @@ export default function Features({ themeMode = 'retail' }) {
                 <i className="fa fa-shopping-bag"></i> Complete Store Management
               </button>
             )}
-            <button
-              type="button"
-              className={`features-cat-btn ${isRestaurantView || activeCategory === 'restaurant' ? 'active' : ''}`}
-              onClick={() => handleCategoryChange('restaurant')}
-            >
-              <i className="fa fa-cutlery"></i> Food &amp; Restaurants
-            </button>
+            {isRestaurantView && (
+              <button
+                type="button"
+                className={`features-cat-btn ${isRestaurantView || activeCategory === 'restaurant' ? 'active' : ''}`}
+                onClick={() => handleCategoryChange('restaurant')}
+              >
+                <i className="fa fa-cutlery"></i> Food &amp; Restaurants
+              </button>
+            )}
           </div>
         </div>
 

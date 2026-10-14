@@ -73,7 +73,6 @@ export default function MobileDrawer({
           <li><a href="#downloads" className="drawer-link" onClick={(e) => handleLinkClick(e, '#downloads')}>Download Apps</a></li>
           <li><a href="#features" className="drawer-link" onClick={(e) => handleLinkClick(e, '#features')}>Features</a></li>
           <li><a href="#pricing" className="drawer-link" onClick={(e) => handleLinkClick(e, '#pricing')}>Pricing Plans</a></li>
-          <li><a href="#testimonials" className="drawer-link" onClick={(e) => handleLinkClick(e, '#testimonials')}>Customer Reviews</a></li>
           <li><a href="#faqs" className="drawer-link" onClick={(e) => handleLinkClick(e, '#faqs')}>FAQs</a></li>
           <li><a href="/drivers-and-manuals" className={`drawer-link ${currentPage === 'drivers' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); onClose(); onNavigateDrivers && onNavigateDrivers(); }}>Drivers &amp; Manuals</a></li>
         </ul>
