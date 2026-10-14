@@ -32,7 +32,7 @@ export default function Hero({ onOpenSignup, onOpenVideo }) {
                   className="hero-btn-glass-pill open-video-modal"
                   onClick={onOpenVideo}
                 >
-                  <i className="fa fa-play-circle" style={{ color: '#34d399', fontSize: '18px', marginRight: '8px' }}></i>
+                  <i className="fa fa-play-circle" style={{ fontSize: '18px', marginRight: '8px' }}></i>
                   Watch Live Demo
                 </button>
               </div>
@@ -41,19 +41,19 @@ export default function Hero({ onOpenSignup, onOpenVideo }) {
               <div className="hero-platform-row">
                 <span className="hero-platform-label">AVAILABLE ON:</span>
                 <div className="hero-platform-pill">
-                  <i className="fa fa-windows" style={{ color: '#34d399' }}></i> Windows
+                  <i className="fa fa-windows"></i> Windows
                 </div>
                 <div className="hero-platform-pill">
-                  <i className="fa fa-apple" style={{ color: '#34d399' }}></i> macOS
+                  <i className="fa fa-apple"></i> macOS
                 </div>
                 <div className="hero-platform-pill">
-                  <i className="fa fa-android" style={{ color: '#34d399' }}></i> Android
+                  <i className="fa fa-android"></i> Android
                 </div>
                 <div className="hero-platform-pill">
-                  <i className="fa fa-apple" style={{ color: '#34d399' }}></i> iOS
+                  <i className="fa fa-apple"></i> iOS
                 </div>
                 <div className="hero-platform-pill">
-                  <i className="fa fa-globe" style={{ color: '#34d399' }}></i> Web Cloud
+                  <i className="fa fa-globe"></i> Web Cloud
                 </div>
               </div>
             </div>

@@ -215,9 +215,9 @@ export default function Features({ themeMode = 'retail' }) {
               : 'Everything you need to run dine-in, takeaway, and cloud kitchens flawlessly.'}
           </p>
 
-          {/* Interactive Category Segmented Tabs (hidden if Restaurant View is active) */}
-          {!isRestaurantView && (
-            <div className="features-category-toggle-wrap">
+          {/* Interactive Category Segmented Tabs */}
+          <div className="features-category-toggle-wrap">
+            {!isRestaurantView && (
               <button
                 type="button"
                 className={`features-cat-btn ${activeCategory === 'store' ? 'active' : ''}`}
@@ -225,15 +225,15 @@ export default function Features({ themeMode = 'retail' }) {
               >
                 <i className="fa fa-shopping-bag"></i> Complete Store Management
               </button>
-              <button
-                type="button"
-                className={`features-cat-btn ${activeCategory === 'restaurant' ? 'active' : ''}`}
-                onClick={() => handleCategoryChange('restaurant')}
-              >
-                <i className="fa fa-cutlery"></i> Food &amp; Restaurants
-              </button>
-            </div>
-          )}
+            )}
+            <button
+              type="button"
+              className={`features-cat-btn ${isRestaurantView || activeCategory === 'restaurant' ? 'active' : ''}`}
+              onClick={() => handleCategoryChange('restaurant')}
+            >
+              <i className="fa fa-cutlery"></i> Food &amp; Restaurants
+            </button>
+          </div>
         </div>
 
         {/* 3-Column Interactive Switcher (Matching Reference Design) */}

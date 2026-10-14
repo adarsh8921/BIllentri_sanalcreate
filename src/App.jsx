@@ -413,13 +413,13 @@ export default function App() {
         ) : (
           <>
             <Hero themeMode={themeMode} onOpenSignup={handleOpenSignup} onOpenVideo={handleOpenVideo} />
+            <Workflow />
             <Showcase onOpenSignup={handleOpenSignup} onOpenVideo={handleOpenVideo} />
             <Downloads />
-            <WhyBillEntri />
-            <Features />
-            <Workflow />
+            {themeMode !== 'restaurant' && <WhyBillEntri />}
+            <Features themeMode={themeMode} />
             <StatsBanner onOpenVideo={handleOpenVideo} />
-            <Pricing onOpenSignup={handleOpenSignup} />
+            <Pricing onOpenSignup={handleOpenSignup} themeMode={themeMode} />
             <Testimonials />
             <Blog />
             <FAQ />

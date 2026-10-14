@@ -2,11 +2,19 @@ import React, { useState, useEffect } from 'react';
 
 let cachedCountriesData = null;
 
-export default function Pricing({ onOpenSignup }) {
-  const [activeTab, setActiveTab] = useState('india');
+export default function Pricing({ onOpenSignup, themeMode = 'retail' }) {
+  const [activeTab, setActiveTab] = useState(themeMode === 'restaurant' ? 'restaurant' : 'india');
   const [billingCycle, setBillingCycle] = useState('monthly'); // 'monthly' | 'annual'
   const [countries, setCountries] = useState(cachedCountriesData || []);
   const [selectedCountry, setSelectedCountry] = useState('UAE');
+
+  useEffect(() => {
+    if (themeMode === 'restaurant') {
+      setActiveTab((prev) => (prev === 'overseas' || prev === 'restaurant-overseas' ? 'restaurant-overseas' : 'restaurant'));
+    } else {
+      setActiveTab((prev) => (prev === 'restaurant-overseas' || prev === 'overseas' ? 'overseas' : 'india'));
+    }
+  }, [themeMode]);
 
   useEffect(() => {
     if (cachedCountriesData) {
@@ -47,10 +55,17 @@ export default function Pricing({ onOpenSignup }) {
       {/* Currency Switcher */}
       <div className="pricing-tabs-nav reveal-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
         <div className="pricing-switch">
-          <button type="button" className={`pricing-switch-btn ${activeTab === 'india' ? 'active' : ''}`} onClick={() => setActiveTab('india')}>India (₹ INR)</button>
-          <button type="button" className={`pricing-switch-btn ${activeTab === 'overseas' ? 'active' : ''}`} onClick={() => setActiveTab('overseas')}>Overseas ({overseasCurrencySymbol})</button>
-          <button type="button" className={`pricing-switch-btn ${activeTab === 'restaurant' ? 'active' : ''}`} onClick={() => setActiveTab('restaurant')}>Restaurant (India)</button>
-          <button type="button" className={`pricing-switch-btn ${activeTab === 'restaurant-overseas' ? 'active' : ''}`} onClick={() => setActiveTab('restaurant-overseas')}>Restaurant (Overseas)</button>
+          {themeMode === 'restaurant' ? (
+            <>
+              <button type="button" className={`pricing-switch-btn ${activeTab === 'restaurant' ? 'active' : ''}`} onClick={() => setActiveTab('restaurant')}>Restaurant (India)</button>
+              <button type="button" className={`pricing-switch-btn ${activeTab === 'restaurant-overseas' ? 'active' : ''}`} onClick={() => setActiveTab('restaurant-overseas')}>Restaurant (Overseas)</button>
+            </>
+          ) : (
+            <>
+              <button type="button" className={`pricing-switch-btn ${activeTab === 'india' ? 'active' : ''}`} onClick={() => setActiveTab('india')}>India (₹ INR)</button>
+              <button type="button" className={`pricing-switch-btn ${activeTab === 'overseas' ? 'active' : ''}`} onClick={() => setActiveTab('overseas')}>Overseas ({overseasCurrencySymbol})</button>
+            </>
+          )}
         </div>
 
         {/* Overseas Country Selector (Positioned below the switch bar) */}
@@ -63,14 +78,15 @@ export default function Pricing({ onOpenSignup }) {
               justifyContent: 'center', 
               gap: '12px', 
               fontSize: '14px',
-              padding: '6px 16px',
-              background: 'rgba(255, 255, 255, 0.04)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
+              padding: '6px 18px',
+              background: '#ffffff',
+              border: '1px solid #e2e8f0',
               borderRadius: '9999px',
-              marginTop: '4px'
+              marginTop: '4px',
+              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)'
             }}
           >
-            <label htmlFor="pricing-country-select" style={{ color: '#94a3b8', fontWeight: 500, margin: 0 }}>
+            <label htmlFor="pricing-country-select" style={{ color: '#64748b', fontWeight: 600, margin: 0, fontSize: '13.5px' }}>
               Select Overseas Country:
             </label>
             <select
@@ -80,17 +96,16 @@ export default function Pricing({ onOpenSignup }) {
               style={{
                 padding: '6px 14px',
                 borderRadius: '8px',
-                border: '1px solid rgba(52, 211, 153, 0.4)',
-                background: 'rgba(4, 30, 23, 0.9)',
-                fontWeight: 600,
-                color: '#34d399',
+                border: themeMode === 'restaurant' ? '1.5px solid #ef4444' : '1.5px solid #10b981',
+                background: themeMode === 'restaurant' ? 'rgba(239, 68, 68, 0.08)' : 'rgba(16, 185, 129, 0.08)',
+                fontWeight: 700,
+                color: themeMode === 'restaurant' ? '#dc2626' : '#059669',
                 cursor: 'pointer',
                 outline: 'none',
-                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)'
               }}
             >
               {countries.filter(c => c.country.toLowerCase() !== 'india').map((c) => (
-                <option key={c.id || c.country} value={c.country} style={{ background: '#041f17', color: '#ffffff' }}>
+                <option key={c.id || c.country} value={c.country} style={{ background: '#ffffff', color: '#0f172a' }}>
                   {c.country} ({c.Currency_symbol || c.currency_code})
                 </option>
               ))}
@@ -375,76 +390,79 @@ export default function Pricing({ onOpenSignup }) {
       </div>
 
       {/* Retail & Wholesale Comparison Table */}
-      <div className="comparison-wrapper reveal-item">
-        <div className="section-header" style={{ marginBottom: "30px" }}>
-          <h3 style={{ fontSize: "24px" }}>Retail &amp; Wholesale Plan Features</h3>
+      {themeMode !== 'restaurant' && (
+        <div className="comparison-wrapper reveal-item">
+          <div className="section-header" style={{ marginBottom: "30px" }}>
+            <h3 style={{ fontSize: "24px" }}>Retail &amp; Wholesale Plan Features</h3>
+          </div>
+          <div className="comparison-table-scroll">
+            <table className="comparison-table">
+              <thead>
+                <tr>
+                  <th>Features &amp; Capabilities</th>
+                  <th>Value Plan</th>
+                  <th>GO Plan</th>
+                  <th className="highlight-col">Prime Plan (Recommended)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Price (India)</strong></td>
+                  <td>₹499 / yr</td>
+                  <td>₹1,499 / yr</td>
+                  <td className="highlight-col"><strong>₹2,999 / yr</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Price (Overseas / {selectedCountry})</strong></td>
+                  <td>—</td>
+                  <td>{overseasCurrencySymbol} 5,999 / yr</td>
+                  <td className="highlight-col"><strong>{overseasCurrencySymbol} 9,999 / yr</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Desktop / Web App Access</strong></td>
+                  <td><span className="status-cross"><i className="fa fa-times"></i> Mobile Only</span></td>
+                  <td><span className="status-cross"><i className="fa fa-times"></i> Mobile Only</span></td>
+                  <td className="highlight-col"><span className="status-check"><i className="fa fa-check"></i> Yes (Full Web &amp; Desktop)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Multi-Device Cloud Sync</strong></td>
+                  <td><span className="status-cross"><i className="fa fa-times"></i> No</span></td>
+                  <td><span className="status-cross"><i className="fa fa-times"></i> No</span></td>
+                  <td className="highlight-col"><span className="status-check"><i className="fa fa-check"></i> Yes (Instant Sync)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Sales, Purchase &amp; Quotations</strong></td>
+                  <td><span className="status-check"><i className="fa fa-check"></i> Yes</span></td>
+                  <td><span className="status-check"><i className="fa fa-check"></i> Yes</span></td>
+                  <td className="highlight-col"><span className="status-check"><i className="fa fa-check"></i> Yes</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Inventory &amp; Barcode Management</strong></td>
+                  <td><span className="status-check"><i className="fa fa-check"></i> Basic</span></td>
+                  <td><span className="status-check"><i className="fa fa-check"></i> Advanced</span></td>
+                  <td className="highlight-col"><span className="status-check"><i className="fa fa-check"></i> Full Barcode Label Printing</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Reports &amp; Analytics</strong></td>
+                  <td>Basic Reports</td>
+                  <td>Business Analytics</td>
+                  <td className="highlight-col">Advanced P&amp;L + Excel/PDF Export</td>
+                </tr>
+                <tr>
+                  <td><strong>Customer Support</strong></td>
+                  <td>Email Support</td>
+                  <td>Standard Support</td>
+                  <td className="highlight-col"><strong>Priority 24/7 Phone &amp; WhatsApp</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div className="comparison-table-scroll">
-          <table className="comparison-table">
-            <thead>
-              <tr>
-                <th>Features &amp; Capabilities</th>
-                <th>Value Plan</th>
-                <th>GO Plan</th>
-                <th className="highlight-col">Prime Plan (Recommended)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Price (India)</strong></td>
-                <td>₹499 / yr</td>
-                <td>₹1,499 / yr</td>
-                <td className="highlight-col"><strong>₹2,999 / yr</strong></td>
-              </tr>
-              <tr>
-                <td><strong>Price (Overseas / {selectedCountry})</strong></td>
-                <td>—</td>
-                <td>{overseasCurrencySymbol} 5,999 / yr</td>
-                <td className="highlight-col"><strong>{overseasCurrencySymbol} 9,999 / yr</strong></td>
-              </tr>
-              <tr>
-                <td><strong>Desktop / Web App Access</strong></td>
-                <td><span className="status-cross"><i className="fa fa-times"></i> Mobile Only</span></td>
-                <td><span className="status-cross"><i className="fa fa-times"></i> Mobile Only</span></td>
-                <td className="highlight-col"><span className="status-check"><i className="fa fa-check"></i> Yes (Full Web &amp; Desktop)</span></td>
-              </tr>
-              <tr>
-                <td><strong>Multi-Device Cloud Sync</strong></td>
-                <td><span className="status-cross"><i className="fa fa-times"></i> No</span></td>
-                <td><span className="status-cross"><i className="fa fa-times"></i> No</span></td>
-                <td className="highlight-col"><span className="status-check"><i className="fa fa-check"></i> Yes (Instant Sync)</span></td>
-              </tr>
-              <tr>
-                <td><strong>Sales, Purchase &amp; Quotations</strong></td>
-                <td><span className="status-check"><i className="fa fa-check"></i> Yes</span></td>
-                <td><span className="status-check"><i className="fa fa-check"></i> Yes</span></td>
-                <td className="highlight-col"><span className="status-check"><i className="fa fa-check"></i> Yes</span></td>
-              </tr>
-              <tr>
-                <td><strong>Inventory &amp; Barcode Management</strong></td>
-                <td><span className="status-check"><i className="fa fa-check"></i> Basic</span></td>
-                <td><span className="status-check"><i className="fa fa-check"></i> Advanced</span></td>
-                <td className="highlight-col"><span className="status-check"><i className="fa fa-check"></i> Full Barcode Label Printing</span></td>
-              </tr>
-              <tr>
-                <td><strong>Reports &amp; Analytics</strong></td>
-                <td>Basic Reports</td>
-                <td>Business Analytics</td>
-                <td className="highlight-col">Advanced P&amp;L + Excel/PDF Export</td>
-              </tr>
-              <tr>
-                <td><strong>Customer Support</strong></td>
-                <td>Email Support</td>
-                <td>Standard Support</td>
-                <td className="highlight-col"><strong>Priority 24/7 Phone &amp; WhatsApp</strong></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      )}
 
       {/* Restaurant Comparison Table */}
-      <div className="comparison-wrapper reveal-item" style={{ marginTop: "50px" }}>
+      {themeMode === 'restaurant' && (
+        <div className="comparison-wrapper reveal-item" style={{ marginTop: "50px" }}>
         <div className="section-header" style={{ marginBottom: "30px" }}>
           <h3 style={{ fontSize: "24px" }}>Restaurant Plan Features</h3>
         </div>
@@ -502,6 +520,7 @@ export default function Pricing({ onOpenSignup }) {
           </table>
         </div>
       </div>
+      )}
     </div>
   </section>
 

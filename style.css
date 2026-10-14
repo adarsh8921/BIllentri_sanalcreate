@@ -964,6 +964,12 @@ img {
   transition: all 0.2s ease;
 }
 
+.hero-btn-glass-pill i,
+.hero-platform-pill i {
+  color: #34d399;
+  transition: color 0.2s ease;
+}
+
 .hero-platform-pill:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(52, 211, 153, 0.4);
@@ -4556,6 +4562,11 @@ body.theme-restaurant .hero-btn-white-pill {
 body.theme-restaurant .hero-platform-label {
   color: #f87171;
 }
+body.theme-restaurant .hero-btn-glass-pill i,
+body.theme-restaurant .hero-platform-pill i {
+  color: #f87171;
+}
+body.theme-restaurant .hero-btn-glass-pill:hover,
 body.theme-restaurant .hero-platform-pill:hover {
   border-color: rgba(248, 113, 113, 0.5);
 }
@@ -4642,8 +4653,10 @@ body.theme-restaurant .features-capsule-item.active .features-capsule-icon-wrap 
 }
 
 /* Workflow Steps */
-body.theme-restaurant .workflow-step-num {
+body.theme-restaurant .workflow-step-num,
+body.theme-restaurant .step-num-badge {
   background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.35);
 }
 
 /* Pricing Section */
