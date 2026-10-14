@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-export default function MobileDrawer({ isOpen, onClose, onOpenSignup, onNavigateDrivers, onNavigateHome }) {
+export default function MobileDrawer({ currentPage = 'home', isOpen, onClose, onOpenSignup, onNavigateDrivers, onNavigateHome }) {
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => {
@@ -44,7 +44,7 @@ export default function MobileDrawer({ isOpen, onClose, onOpenSignup, onNavigate
           <button type="button" className="mobile-drawer-close" id="mobile-drawer-close" onClick={onClose}>&times;</button>
         </div>
         <ul className="mobile-nav-links">
-          <li><a href="#home" className="drawer-link" onClick={(e) => handleLinkClick(e, '#home')}>Home</a></li>
+          <li><a href="#home" className={`drawer-link ${currentPage === 'home' ? 'active' : ''}`} onClick={(e) => handleLinkClick(e, '#home')}>Home</a></li>
           <li><a href="#showcase" className="drawer-link" onClick={(e) => handleLinkClick(e, '#showcase')}>POS Live Demo</a></li>
           <li><a href="#downloads" className="drawer-link" onClick={(e) => handleLinkClick(e, '#downloads')}>Download Apps</a></li>
           <li><a href="#stack-showcase" className="drawer-link" onClick={(e) => handleLinkClick(e, '#stack-showcase')}>Why BillEntri</a></li>
@@ -54,7 +54,7 @@ export default function MobileDrawer({ isOpen, onClose, onOpenSignup, onNavigate
           <li><a href="#testimonials" className="drawer-link" onClick={(e) => handleLinkClick(e, '#testimonials')}>Customer Reviews</a></li>
           <li><a href="#faqs" className="drawer-link" onClick={(e) => handleLinkClick(e, '#faqs')}>FAQs</a></li>
           <li><a href="#contact" className="drawer-link" onClick={(e) => handleLinkClick(e, '#contact')}>Contact Us</a></li>
-          <li><a href="/drivers-and-manuals" className="drawer-link" onClick={(e) => { e.preventDefault(); onClose(); onNavigateDrivers && onNavigateDrivers(); }}>Drivers &amp; Manuals</a></li>
+          <li><a href="/drivers-and-manuals" className={`drawer-link ${currentPage === 'drivers' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); onClose(); onNavigateDrivers && onNavigateDrivers(); }}>Drivers &amp; Manuals</a></li>
         </ul>
         <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", gap: "10px" }}>
           <a href="https://play.google.com/store/apps/details?id=com.billentri.svimers" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ width: "100%", textAlign: "center" }}>

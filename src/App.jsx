@@ -14,6 +14,7 @@ import Testimonials from './components/Testimonials';
 import Blog from './components/Blog';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
+import AppDownloadCTA from './components/AppDownloadCTA';
 import Footer from './components/Footer';
 import VideoModal from './components/VideoModal';
 import SignupModal from './components/SignupModal';
@@ -220,8 +221,8 @@ export default function App() {
           });
         }
 
-        // 4. Scrollspy Active Navigation (disabled during programmatic nav click scroll)
-        if (!window.__isNavClickScrolling) {
+        // 4. Scrollspy Active Navigation (only on home page and when not scrolling via click)
+        if (currentPage === 'home' && !window.__isNavClickScrolling) {
           const windowBottom = scrollY + window.innerHeight;
           const totalHeight = document.documentElement.scrollHeight;
           let activeId = null;
@@ -370,6 +371,7 @@ export default function App() {
       <div id="scroll-progress-bar" />
 
       <Header 
+        currentPage={currentPage}
         onOpenSignup={handleOpenSignup} 
         onToggleMobileMenu={() => setMobileMenuOpen(true)}
         onNavigateDrivers={navigateToDrivers}
@@ -377,6 +379,7 @@ export default function App() {
       />
 
       <MobileDrawer 
+        currentPage={currentPage}
         isOpen={mobileMenuOpen} 
         onClose={() => setMobileMenuOpen(false)} 
         onOpenSignup={() => {
@@ -393,7 +396,7 @@ export default function App() {
         ) : (
           <>
             <Hero onOpenSignup={handleOpenSignup} onOpenVideo={handleOpenVideo} />
-            <Showcase />
+            <Showcase onOpenSignup={handleOpenSignup} onOpenVideo={handleOpenVideo} />
             <Downloads />
             <WhyBillEntri />
             <Features />
@@ -405,6 +408,7 @@ export default function App() {
             <Blog />
             <FAQ />
             <Contact />
+            <AppDownloadCTA />
           </>
         )}
       </main>
