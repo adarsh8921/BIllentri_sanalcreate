@@ -4,7 +4,6 @@ import MobileDrawer from './components/MobileDrawer';
 import Hero from './components/Hero';
 import Showcase from './components/Showcase';
 import Downloads from './components/Downloads';
-import WhyBillEntri from './components/WhyBillEntri';
 import Features from './components/Features';
 import Workflow from './components/Workflow';
 import StatsBanner from './components/StatsBanner';
@@ -12,7 +11,6 @@ import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
 import Blog from './components/Blog';
 import FAQ from './components/FAQ';
-import Contact from './components/Contact';
 import AppDownloadCTA from './components/AppDownloadCTA';
 import Footer from './components/Footer';
 import VideoModal from './components/VideoModal';
@@ -62,7 +60,7 @@ export default function App() {
     if (curtain) {
       setTimeout(() => {
         curtain.classList.add('page-loaded');
-      }, 150);
+      }, 1600);
     }
 
     return () => {
@@ -73,10 +71,8 @@ export default function App() {
 
   // 2. High-Performance Scroll, Reveal & Spotlight Engine (Zero React re-renders on scroll)
   useEffect(() => {
-    const progressBar = document.getElementById('scroll-progress-bar');
+    const backToTopBtn = document.getElementById('back-to-top-btn');
     const header = document.getElementById('site-header');
-    const stackCards = Array.from(document.querySelectorAll('.stack-card'));
-    const pinPills = Array.from(document.querySelectorAll('.pin-nav-pill'));
     const sections = Array.from(document.querySelectorAll('section[id]'));
     const navLinks = Array.from(document.querySelectorAll('.nav-menu .nav-link'));
 
@@ -143,12 +139,9 @@ export default function App() {
     revealElements.forEach((el) => revealObserver.observe(el));
     setTimeout(animateCounters, 300);
 
-    // Cache layout positions on mount & resize to prevent forced reflow during scroll
-    let cardOffsets = [];
+    // Cache section layout positions on mount & resize to prevent forced reflow during scroll
     let sectionOffsets = [];
     const measureLayout = () => {
-      const scrollY = window.scrollY;
-      cardOffsets = stackCards.map((card) => card.getBoundingClientRect().top + scrollY);
       sectionOffsets = sections.map((sec) => ({
         id: sec.id,
         top: sec.offsetTop,
@@ -158,7 +151,6 @@ export default function App() {
     measureLayout();
     window.addEventListener('resize', measureLayout, { passive: true });
 
-    let activePinIndex = 1;
     let ticking = false;
 
     const onScroll = () => {
@@ -166,12 +158,14 @@ export default function App() {
       ticking = true;
       requestAnimationFrame(() => {
         const scrollY = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
 
-        // 1. Dynamic Scroll Progress Bar (Direct DOM update - 0 React re-renders)
-        if (progressBar && docHeight > 0) {
-          const progress = Math.min((scrollY / docHeight) * 100, 100);
-          progressBar.style.width = `${progress}%`;
+        // 1. Back To Top Button Visibility (Left side vertical label)
+        if (backToTopBtn) {
+          if (scrollY > 300) {
+            backToTopBtn.classList.add('is-visible');
+          } else {
+            backToTopBtn.classList.remove('is-visible');
+          }
         }
 
         // 2. Sticky Header Transitions
@@ -183,65 +177,14 @@ export default function App() {
           else header.classList.remove('scrolled');
         }
 
-        // 3. Pin-to-Pin Stack Cards scaling & pin dock (Desktop)
-        if (window.innerWidth > 1024 && stackCards.length) {
-          let currentTopCard = 1;
-
-          for (let index = 0; index < stackCards.length; index++) {
-            const card = stackCards[index];
-            const cardTop = cardOffsets[index] || 0;
-            const cardIndex = index + 1;
-            const nextCardTop = cardOffsets[index + 1];
-
-            if (scrollY >= cardTop - 220) {
-              currentTopCard = cardIndex;
-            }
-
-            if (nextCardTop !== undefined) {
-              const diff = nextCardTop - scrollY;
-              const triggerPoint = 190 + index * 25;
-              if (diff < triggerPoint + 180) {
-                const progress = Math.max(0, Math.min(1, (triggerPoint + 180 - diff) / 180));
-                const scale = 1 - progress * 0.055;
-                const brightness = 1 - progress * 0.08;
-                const blur = progress * 1.8;
-                card.style.transform = `scale(${scale})`;
-                card.style.filter = `brightness(${brightness}) blur(${blur}px)`;
-                card.style.opacity = `${1 - progress * 0.15}`;
-                card.classList.remove('is-pinned-active');
-              } else {
-                card.style.transform = 'scale(1)';
-                card.style.filter = 'none';
-                card.style.opacity = '1';
-                card.classList.add('is-pinned-active');
-              }
-            }
-          }
-
-          if (currentTopCard !== activePinIndex) {
-            activePinIndex = currentTopCard;
-            pinPills.forEach((pill) => {
-              const target = parseInt(pill.getAttribute('data-pin-target'));
-              if (target === currentTopCard) pill.classList.add('active');
-              else pill.classList.remove('active');
-            });
-          }
-        } else if (stackCards.length) {
-          stackCards.forEach((c) => {
-            c.style.transform = '';
-            c.style.filter = '';
-            c.style.opacity = '';
-          });
-        }
-
-        // 4. Scrollspy Active Navigation (only on home page and when not scrolling via click)
+        // 3. Scrollspy Active Navigation (only on home page and when not scrolling via click)
         if (currentPage === 'home' && !window.__isNavClickScrolling) {
           const windowBottom = scrollY + window.innerHeight;
           const totalHeight = document.documentElement.scrollHeight;
           let activeId = null;
 
           if (windowBottom >= totalHeight - 80) {
-            activeId = 'contact';
+            activeId = 'faqs';
           } else {
             const scrollPos = scrollY + 160;
             for (let i = 0; i < sectionOffsets.length; i++) {
@@ -271,72 +214,10 @@ export default function App() {
 
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // 5. Pin Nav Pill Click Interaction
-    const handlePinClick = (e) => {
-      const pill = e.currentTarget;
-      const targetIndex = pill.getAttribute('data-pin-target');
-      const targetCard = document.querySelector(`.stack-card.card-${targetIndex}`);
-      if (targetCard) {
-        const top = targetCard.getBoundingClientRect().top + window.scrollY - 120;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    };
-    pinPills.forEach((p) => p.addEventListener('click', handlePinClick));
-
-    // 6. Interactive 3D Card Hover & Magnetic Spotlight (Optimized coordinate caching)
-    const cleanupSpotlights = [];
-    if (window.innerWidth >= 768) {
-      const selector =
-        '.platform-download-card, .stack-card, .bento-card, .testimonial-card, .blog-card, .workflow-card, .pos-preview-box';
-      const spotlightCards = document.querySelectorAll(selector);
-
-      spotlightCards.forEach((card) => {
-        card.classList.add('spotlight-card');
-        let rect = null;
-
-        const onMouseEnter = () => {
-          rect = card.getBoundingClientRect();
-        };
-
-        const onMouseMove = (e) => {
-          if (!rect) rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-
-          card.style.setProperty('--mouse-x', `${x}px`);
-          card.style.setProperty('--mouse-y', `${y}px`);
-
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          const rotateX = ((y - centerY) / centerY) * -4.2;
-          const rotateY = ((x - centerX) / centerX) * 4.2;
-
-          card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px) scale3d(1.01, 1.01, 1.01)`;
-        };
-
-        const onMouseLeave = () => {
-          rect = null;
-          card.style.transform = '';
-        };
-
-        card.addEventListener('mouseenter', onMouseEnter, { passive: true });
-        card.addEventListener('mousemove', onMouseMove, { passive: true });
-        card.addEventListener('mouseleave', onMouseLeave, { passive: true });
-
-        cleanupSpotlights.push(() => {
-          card.removeEventListener('mouseenter', onMouseEnter);
-          card.removeEventListener('mousemove', onMouseMove);
-          card.removeEventListener('mouseleave', onMouseLeave);
-        });
-      });
-    }
-
     return () => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', measureLayout);
       revealObserver.disconnect();
-      pinPills.forEach((p) => p.removeEventListener('click', handlePinClick));
-      cleanupSpotlights.forEach((fn) => fn());
     };
   }, [currentPage]);
 
@@ -378,10 +259,23 @@ export default function App() {
     setSuccessOpen(true);
   };
 
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="billentri-app">
-      {/* Scroll Progress Bar (width animated via direct DOM styling) */}
-      <div id="scroll-progress-bar" />
+      {/* Left-side Vertical Back To Top Button */}
+      <button
+        type="button"
+        id="back-to-top-btn"
+        className="back-to-top-btn"
+        onClick={handleScrollToTop}
+        aria-label="Back to top"
+      >
+        <span className="back-to-top-arrow">↑</span>
+        <span>Back To Top</span>
+      </button>
 
       <Header 
         currentPage={currentPage}
@@ -416,14 +310,12 @@ export default function App() {
             <Workflow />
             <Showcase onOpenSignup={handleOpenSignup} onOpenVideo={handleOpenVideo} />
             <Downloads />
-            {themeMode !== 'restaurant' && <WhyBillEntri />}
             <Features themeMode={themeMode} />
             <StatsBanner onOpenVideo={handleOpenVideo} />
             <Pricing onOpenSignup={handleOpenSignup} themeMode={themeMode} />
             <Testimonials />
             <Blog />
             <FAQ />
-            <Contact />
             <AppDownloadCTA />
           </>
         )}

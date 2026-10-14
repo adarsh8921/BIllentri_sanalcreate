@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default function Hero({ onOpenSignup, onOpenVideo }) {
+export default function Hero({ themeMode = 'retail', onOpenSignup, onOpenVideo }) {
+  const isRestaurant = themeMode === 'restaurant';
+
   return (
     <>
       <section className="hero-kashir-section" id="home">
@@ -11,11 +13,15 @@ export default function Hero({ onOpenSignup, onOpenVideo }) {
             {/* Left Content Column */}
             <div className="hero-kashir-content reveal-item reveal-left is-visible">
               <h1 className="hero-kashir-title">
-                One App For All Types Of Business
+                {isRestaurant
+                  ? 'Smart POS Built For Modern Restaurants'
+                  : 'One App For All Types Of Business'}
               </h1>
 
               <p className="hero-kashir-subtitle">
-                A cloud-based online cashier application that can take your business potential to the highest level, both online and offline.
+                {isRestaurant
+                  ? 'A cloud-based restaurant POS application with fast KOT management, table ordering, dynamic menus, and live kitchen tracking.'
+                  : 'A cloud-based online cashier application that can take your business potential to the highest level, both online and offline.'}
               </p>
 
               <div className="hero-kashir-cta-group">

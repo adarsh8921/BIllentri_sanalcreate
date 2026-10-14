@@ -42,11 +42,7 @@ const faqList = [
 export default function FAQ() {
   const scrollToContact = (e) => {
     e.preventDefault();
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      const top = contactSection.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
+    window.open('https://wa.me/918943993001?text=Hi%20BillEntri%2C%20I%20have%20an%20inquiry', '_blank');
   };
 
   return (
@@ -83,7 +79,12 @@ export default function FAQ() {
               Still Unsure and Have Questions? Don't worry, we are always here for you!
             </span>
           </div>
-          <a href="#contact" className="faq-bottom-banner-btn" onClick={scrollToContact}>
+          <a 
+            href="https://wa.me/918943993001?text=Hi%20BillEntri%2C%20I%20have%20an%20inquiry" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="faq-bottom-banner-btn"
+          >
             Contact
           </a>
         </div>

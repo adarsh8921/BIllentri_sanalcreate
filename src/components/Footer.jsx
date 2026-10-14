@@ -20,12 +20,11 @@ export default function Footer({ onOpenSignup, onOpenVideo, onNavigateDrivers, o
           <ul className="footer-links">
             <li><a href="#home" onClick={() => onNavigateHome && onNavigateHome()}>Home</a></li>
             <li><a href="#downloads" onClick={() => onNavigateHome && onNavigateHome()}>Downloads</a></li>
-            <li><a href="#stack-showcase" onClick={() => onNavigateHome && onNavigateHome()}>Why BillEntri</a></li>
             <li><a href="#features" onClick={() => onNavigateHome && onNavigateHome()}>Features</a></li>
             <li><a href="#pricing" onClick={() => onNavigateHome && onNavigateHome()}>Pricing Plans</a></li>
             <li><a href="#testimonials" onClick={() => onNavigateHome && onNavigateHome()}>Reviews</a></li>
             <li><a href="#faqs" onClick={() => onNavigateHome && onNavigateHome()}>FAQs</a></li>
-            <li><a href="#contact" onClick={() => onNavigateHome && onNavigateHome()}>Contact Support</a></li>
+            <li><a href="https://wa.me/918943993001" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
           </ul>
         </div>
 

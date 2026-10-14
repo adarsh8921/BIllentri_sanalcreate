@@ -145,7 +145,6 @@ export default function Features({ themeMode = 'retail' }) {
   const isRestaurantView = themeMode === 'restaurant';
   const [activeCategory, setActiveCategory] = useState(isRestaurantView ? 'restaurant' : 'store'); // 'store' | 'restaurant'
   const [activeTab, setActiveTab] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const [fade, setFade] = useState(true);
 
   // Sync category with themeMode
@@ -159,18 +158,6 @@ export default function Features({ themeMode = 'retail' }) {
   const currentCategory = isRestaurantView ? 'restaurant' : activeCategory;
   const currentList = currentCategory === 'store' ? storeFeatures : restaurantFeatures;
 
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      setFade(false);
-      setTimeout(() => {
-        setActiveTab((prev) => (prev + 1) % currentList.length);
-        setFade(true);
-      }, 160);
-    }, 4500);
-    return () => clearInterval(timer);
-  }, [isPaused, currentList.length]);
-
   const handleCategoryChange = (cat) => {
     if (cat === activeCategory) return;
     setFade(false);
@@ -181,7 +168,6 @@ export default function Features({ themeMode = 'retail' }) {
 
   const handleTabSelect = (idx) => {
     if (idx === activeTab) return;
-    setIsPaused(true);
     setFade(false);
     setTimeout(() => {
       setActiveTab(idx);
@@ -192,12 +178,7 @@ export default function Features({ themeMode = 'retail' }) {
   const current = currentList[activeTab] || currentList[0];
 
   return (
-    <section 
-      className="features-switcher-section" 
-      id="features"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+    <section className="features-switcher-section" id="features">
       <div className="container">
         {/* Top Header & Category Switcher */}
         <div className="features-switcher-header">

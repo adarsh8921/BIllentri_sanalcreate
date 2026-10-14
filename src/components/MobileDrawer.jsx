@@ -71,12 +71,10 @@ export default function MobileDrawer({
           <li><a href="#home" className={`drawer-link ${currentPage === 'home' ? 'active' : ''}`} onClick={(e) => handleLinkClick(e, '#home')}>Home</a></li>
           <li><a href="#showcase" className="drawer-link" onClick={(e) => handleLinkClick(e, '#showcase')}>POS Live Demo</a></li>
           <li><a href="#downloads" className="drawer-link" onClick={(e) => handleLinkClick(e, '#downloads')}>Download Apps</a></li>
-          <li><a href="#stack-showcase" className="drawer-link" onClick={(e) => handleLinkClick(e, '#stack-showcase')}>Why BillEntri</a></li>
           <li><a href="#features" className="drawer-link" onClick={(e) => handleLinkClick(e, '#features')}>Features</a></li>
           <li><a href="#pricing" className="drawer-link" onClick={(e) => handleLinkClick(e, '#pricing')}>Pricing Plans</a></li>
           <li><a href="#testimonials" className="drawer-link" onClick={(e) => handleLinkClick(e, '#testimonials')}>Customer Reviews</a></li>
           <li><a href="#faqs" className="drawer-link" onClick={(e) => handleLinkClick(e, '#faqs')}>FAQs</a></li>
-          <li><a href="#contact" className="drawer-link" onClick={(e) => handleLinkClick(e, '#contact')}>Contact Us</a></li>
           <li><a href="/drivers-and-manuals" className={`drawer-link ${currentPage === 'drivers' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); onClose(); onNavigateDrivers && onNavigateDrivers(); }}>Drivers &amp; Manuals</a></li>
         </ul>
         <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", gap: "10px" }}>
