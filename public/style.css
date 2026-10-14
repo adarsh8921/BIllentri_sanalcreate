@@ -999,6 +999,30 @@ img {
   line-height: 1.35;
 }
 
+@media (max-width: 1440px) {
+  .hero-tablet-wrapper {
+    margin-top: -220px;
+    margin-bottom: -260px;
+    margin-right: -620px;
+  }
+  .hero-tablet-frame {
+    width: 1000px;
+    min-width: 1000px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .hero-tablet-wrapper {
+    margin-top: -180px;
+    margin-bottom: -200px;
+    margin-right: -500px;
+  }
+  .hero-tablet-frame {
+    width: 860px;
+    min-width: 860px;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero-kashir-grid,
   .hero-stats-banner-grid {
@@ -1010,17 +1034,19 @@ img {
     margin-right: auto;
   }
   .hero-kashir-cta-group,
-  .hero-brand-circles-row,
+  .hero-platform-row,
   .hero-stats-banner-row {
     justify-content: center;
   }
   .hero-tablet-wrapper {
+    margin-top: 0;
     margin-bottom: 30px;
     margin-right: 0;
     justify-content: center;
   }
   .hero-tablet-frame {
     width: 100%;
+    min-width: 0;
     max-width: 580px;
     transform: rotate(0deg);
   }
