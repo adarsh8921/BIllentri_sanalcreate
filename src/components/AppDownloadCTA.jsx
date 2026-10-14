@@ -3,7 +3,7 @@ import React from 'react';
 export default function AppDownloadCTA() {
   return (
     <section className="app-download-cta-section" id="download-cta">
-      <div className="container">
+      <div className="container-fluid">
         <div className="app-download-cta-content reveal-item reveal-left is-visible">
           <span className="app-download-cta-tag">Download Now</span>
           <h2 className="app-download-cta-title">

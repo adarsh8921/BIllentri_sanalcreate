@@ -1,6 +1,15 @@
 import React, { useEffect } from 'react';
 
-export default function MobileDrawer({ currentPage = 'home', isOpen, onClose, onOpenSignup, onNavigateDrivers, onNavigateHome }) {
+export default function MobileDrawer({ 
+  currentPage = 'home', 
+  themeMode = 'retail',
+  onToggleTheme,
+  isOpen, 
+  onClose, 
+  onOpenSignup, 
+  onNavigateDrivers, 
+  onNavigateHome 
+}) {
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => {
@@ -43,13 +52,27 @@ export default function MobileDrawer({ currentPage = 'home', isOpen, onClose, on
           />
           <button type="button" className="mobile-drawer-close" id="mobile-drawer-close" onClick={onClose}>&times;</button>
         </div>
+
+        {/* Mobile Theme / Industry Switcher */}
+        <div style={{ padding: "0 0 16px 0", borderBottom: "1px solid rgba(255, 255, 255, 0.1)", marginBottom: "16px" }}>
+          <button
+            type="button"
+            className={`nav-restaurant-pill ${themeMode === 'restaurant' ? 'active' : ''}`}
+            style={{ width: "100%", justifyContent: "center", padding: "10px 16px", fontSize: "14px", margin: 0 }}
+            onClick={() => {
+              if (onToggleTheme) onToggleTheme();
+            }}
+          >
+            <i className="fa fa-cutlery"></i>
+            <span>{themeMode === 'restaurant' ? 'Restaurant View (Active)' : 'Switch to Restaurant View'}</span>
+          </button>
+        </div>
         <ul className="mobile-nav-links">
           <li><a href="#home" className={`drawer-link ${currentPage === 'home' ? 'active' : ''}`} onClick={(e) => handleLinkClick(e, '#home')}>Home</a></li>
           <li><a href="#showcase" className="drawer-link" onClick={(e) => handleLinkClick(e, '#showcase')}>POS Live Demo</a></li>
           <li><a href="#downloads" className="drawer-link" onClick={(e) => handleLinkClick(e, '#downloads')}>Download Apps</a></li>
           <li><a href="#stack-showcase" className="drawer-link" onClick={(e) => handleLinkClick(e, '#stack-showcase')}>Why BillEntri</a></li>
           <li><a href="#features" className="drawer-link" onClick={(e) => handleLinkClick(e, '#features')}>Features</a></li>
-          <li><a href="#gallery" className="drawer-link" onClick={(e) => handleLinkClick(e, '#gallery')}>Screenshots</a></li>
           <li><a href="#pricing" className="drawer-link" onClick={(e) => handleLinkClick(e, '#pricing')}>Pricing Plans</a></li>
           <li><a href="#testimonials" className="drawer-link" onClick={(e) => handleLinkClick(e, '#testimonials')}>Customer Reviews</a></li>
           <li><a href="#faqs" className="drawer-link" onClick={(e) => handleLinkClick(e, '#faqs')}>FAQs</a></li>

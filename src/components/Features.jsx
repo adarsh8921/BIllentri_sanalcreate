@@ -141,13 +141,23 @@ const restaurantFeatures = [
   },
 ];
 
-export default function Features() {
-  const [activeCategory, setActiveCategory] = useState('store'); // 'store' | 'restaurant'
+export default function Features({ themeMode = 'retail' }) {
+  const isRestaurantView = themeMode === 'restaurant';
+  const [activeCategory, setActiveCategory] = useState(isRestaurantView ? 'restaurant' : 'store'); // 'store' | 'restaurant'
   const [activeTab, setActiveTab] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [fade, setFade] = useState(true);
 
-  const currentList = activeCategory === 'store' ? storeFeatures : restaurantFeatures;
+  // Sync category with themeMode
+  useEffect(() => {
+    if (isRestaurantView) {
+      setActiveCategory('restaurant');
+      setActiveTab(0);
+    }
+  }, [isRestaurantView]);
+
+  const currentCategory = isRestaurantView ? 'restaurant' : activeCategory;
+  const currentList = currentCategory === 'store' ? storeFeatures : restaurantFeatures;
 
   useEffect(() => {
     if (isPaused) return;
@@ -196,32 +206,34 @@ export default function Features() {
           </div>
 
           <h2 className="section-title" style={{ color: '#0f172a', marginBottom: '16px' }}>
-            {activeCategory === 'store' ? 'Built For Complete Store Management' : 'Powerful Tools For Food Businesses'}
+            {currentCategory === 'store' ? 'Built For Complete Store Management' : 'Powerful Tools For Food Businesses'}
           </h2>
 
           <p className="section-subtitle" style={{ color: '#64748b', marginBottom: '32px' }}>
-            {activeCategory === 'store'
+            {currentCategory === 'store'
               ? 'Everything your business requires to operate smoothly, minimize errors, and maximize daily profitability.'
               : 'Everything you need to run dine-in, takeaway, and cloud kitchens flawlessly.'}
           </p>
 
-          {/* Interactive Category Segmented Tabs */}
-          <div className="features-category-toggle-wrap">
-            <button
-              type="button"
-              className={`features-cat-btn ${activeCategory === 'store' ? 'active' : ''}`}
-              onClick={() => handleCategoryChange('store')}
-            >
-              <i className="fa fa-shopping-bag"></i> Complete Store Management
-            </button>
-            <button
-              type="button"
-              className={`features-cat-btn ${activeCategory === 'restaurant' ? 'active' : ''}`}
-              onClick={() => handleCategoryChange('restaurant')}
-            >
-              <i className="fa fa-cutlery"></i> Food &amp; Restaurants
-            </button>
-          </div>
+          {/* Interactive Category Segmented Tabs (hidden if Restaurant View is active) */}
+          {!isRestaurantView && (
+            <div className="features-category-toggle-wrap">
+              <button
+                type="button"
+                className={`features-cat-btn ${activeCategory === 'store' ? 'active' : ''}`}
+                onClick={() => handleCategoryChange('store')}
+              >
+                <i className="fa fa-shopping-bag"></i> Complete Store Management
+              </button>
+              <button
+                type="button"
+                className={`features-cat-btn ${activeCategory === 'restaurant' ? 'active' : ''}`}
+                onClick={() => handleCategoryChange('restaurant')}
+              >
+                <i className="fa fa-cutlery"></i> Food &amp; Restaurants
+              </button>
+            </div>
+          )}
         </div>
 
         {/* 3-Column Interactive Switcher (Matching Reference Design) */}

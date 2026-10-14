@@ -4,7 +4,7 @@ export default function Footer({ onOpenSignup, onOpenVideo, onNavigateDrivers, o
   return (
     <>
 <footer className="site-footer">
-    <div className="container">
+    <div className="container-fluid">
       <div className="footer-grid">
         <div className="footer-brand reveal-item stagger-1">
           <a href="#home" onClick={(e) => { e.preventDefault(); onNavigateHome && onNavigateHome(); }}>
@@ -22,7 +22,6 @@ export default function Footer({ onOpenSignup, onOpenVideo, onNavigateDrivers, o
             <li><a href="#downloads" onClick={() => onNavigateHome && onNavigateHome()}>Downloads</a></li>
             <li><a href="#stack-showcase" onClick={() => onNavigateHome && onNavigateHome()}>Why BillEntri</a></li>
             <li><a href="#features" onClick={() => onNavigateHome && onNavigateHome()}>Features</a></li>
-            <li><a href="#gallery" onClick={() => onNavigateHome && onNavigateHome()}>Screenshots</a></li>
             <li><a href="#pricing" onClick={() => onNavigateHome && onNavigateHome()}>Pricing Plans</a></li>
             <li><a href="#testimonials" onClick={() => onNavigateHome && onNavigateHome()}>Reviews</a></li>
             <li><a href="#faqs" onClick={() => onNavigateHome && onNavigateHome()}>FAQs</a></li>

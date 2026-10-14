@@ -4,6 +4,7 @@ let cachedCountriesData = null;
 
 export default function Pricing({ onOpenSignup }) {
   const [activeTab, setActiveTab] = useState('india');
+  const [billingCycle, setBillingCycle] = useState('monthly'); // 'monthly' | 'annual'
   const [countries, setCountries] = useState(cachedCountriesData || []);
   const [selectedCountry, setSelectedCountry] = useState('UAE');
 
@@ -35,16 +36,16 @@ export default function Pricing({ onOpenSignup }) {
 
   return (
     <>
-<section className="section-padding bg-subtle" id="pricing">
+<section className="section-padding pricing-modern-section" id="pricing">
     <div className="container">
-      <div className="section-header reveal-item">
+      <div className="section-header reveal-item" style={{ textAlign: 'center', marginBottom: '32px' }}>
         <div className="section-badge"><i className="fa fa-tag"></i> Transparent Pricing</div>
         <h2 className="section-title">Simple, Predictable Plans For Every Business</h2>
         <p className="section-subtitle">No hidden charges. 100% money-back guarantee within 3 days.</p>
       </div>
 
       {/* Currency Switcher */}
-      <div className="pricing-tabs-nav reveal-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px', marginBottom: '35px' }}>
+      <div className="pricing-tabs-nav reveal-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
         <div className="pricing-switch">
           <button type="button" className={`pricing-switch-btn ${activeTab === 'india' ? 'active' : ''}`} onClick={() => setActiveTab('india')}>India (₹ INR)</button>
           <button type="button" className={`pricing-switch-btn ${activeTab === 'overseas' ? 'active' : ''}`} onClick={() => setActiveTab('overseas')}>Overseas ({overseasCurrencySymbol})</button>
@@ -98,217 +99,278 @@ export default function Pricing({ onOpenSignup }) {
         )}
       </div>
 
-      {/* Pricing Cards Grid */}
-      <div className={`pricing-cards-grid ${activeTab !== 'india' ? 'two-cards' : ''}`} id="pricing-cards-container">
-        {/* India Value Plan */}
-        <div style={{ display: activeTab === "india" ? "flex" : "none" }}  className="price-card plan-item reveal-item stagger-1" data-country="india">
-          <div className="price-card-header">
-            <div className="plan-logo-badge plan-logo-value">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-              </svg>
+      {/* Monthly / Annual Pill Toggle (Matching Reference Image) */}
+      <div className="pricing-billing-cycle-toggle reveal-item">
+        <button
+          type="button"
+          className={`pricing-cycle-btn ${billingCycle === 'monthly' ? 'active' : ''}`}
+          onClick={() => setBillingCycle('monthly')}
+        >
+          Monthly
+        </button>
+        <button
+          type="button"
+          className={`pricing-cycle-btn ${billingCycle === 'annual' ? 'active' : ''}`}
+          onClick={() => setBillingCycle('annual')}
+        >
+          Annual
+        </button>
+      </div>
+
+      {/* Modern 3-Card Grid (Matching Reference Design) */}
+      <div className={`pricing-cards-grid modern-grid ${activeTab !== 'india' ? 'two-cards' : ''}`} id="pricing-cards-container">
+        {/* India Value Plan / Free Plan */}
+        <div style={{ display: activeTab === "india" ? "flex" : "none" }} className="price-card modern-card plan-item reveal-item stagger-1" data-country="india">
+          <div className="modern-card-header">
+            <h3 className="modern-plan-title">Value</h3>
+            <div className="modern-price-row">
+              <span className="modern-currency">₹</span>
+              <span className="modern-amount">{billingCycle === 'annual' ? '499' : '49'}</span>
+              <span className="modern-period">/{billingCycle === 'annual' ? 'yr' : 'mo'}</span>
             </div>
-            <h3 className="plan-name">Value Plan (1 User)</h3>
-            <div className="plan-price"><span className="currency">₹</span>499<span className="period">/ year</span></div>
+            <p className="modern-plan-desc">
+              Great for single cashier use or a first step to digital billing.
+            </p>
+            <button onClick={onOpenSignup} type="button" className="modern-plan-btn outline-btn open-signup-modal">
+              Get Started
+            </button>
           </div>
-          <ul className="plan-features-list">
-            <li><i className="fa fa-check"></i> Single User Access</li>
-            <li><i className="fa fa-check"></i> Mobile Application (Android/iOS)</li>
-            <li><i className="fa fa-check"></i> GST Sales &amp; Purchase Invoicing</li>
-            <li><i className="fa fa-check"></i> Product &amp; Stock Management</li>
-            <li><i className="fa fa-check"></i> Basic Sales Reports</li>
-          </ul>
-          <button onClick={onOpenSignup} type="button" className="btn btn-secondary open-signup-modal">Choose Value</button>
+
+          <div className="modern-card-body">
+            <span className="modern-included-label">What's included :</span>
+            <ul className="modern-features-list">
+              <li><i className="fa fa-check-circle"></i> Single User Access</li>
+              <li><i className="fa fa-check-circle"></i> Mobile App (Android/iOS)</li>
+              <li><i className="fa fa-check-circle"></i> GST Sales &amp; Purchase Invoicing</li>
+              <li><i className="fa fa-check-circle"></i> Product &amp; Stock Management</li>
+              <li><i className="fa fa-check-circle"></i> Basic Sales Reports</li>
+            </ul>
+          </div>
         </div>
 
-        {/* India GO Plan */}
-        <div style={{ display: activeTab === "india" ? "flex" : "none" }}  className="price-card plan-item reveal-item stagger-2" data-country="india">
-          <div className="price-card-header">
-            <div className="plan-logo-badge plan-logo-go">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
-                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
-                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
-                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
-              </svg>
+        {/* India GO Plan / Center Dark Card (Most Popular) */}
+        <div style={{ display: activeTab === "india" ? "flex" : "none" }} className="price-card modern-card modern-featured plan-item reveal-item stagger-2" data-country="india">
+          <div className="modern-featured-badge">Most Popular</div>
+          <div className="modern-card-header">
+            <h3 className="modern-plan-title">GO Pro</h3>
+            <div className="modern-price-row">
+              <span className="modern-currency">₹</span>
+              <span className="modern-amount">{billingCycle === 'annual' ? '1,499' : '149'}</span>
+              <span className="modern-period">/{billingCycle === 'annual' ? 'yr' : 'mo'}</span>
             </div>
-            <h3 className="plan-name">GO Plan (3 Users)</h3>
-            <div className="plan-price"><span className="currency">₹</span>1,499<span className="period">/ year</span></div>
+            <p className="modern-plan-desc">
+              Perfect for growing stores who want multi-user efficiency.
+            </p>
+            <button onClick={onOpenSignup} type="button" className="modern-plan-btn lime-btn open-signup-modal">
+              Try for 14 days
+            </button>
           </div>
-          <ul className="plan-features-list">
-            <li><i className="fa fa-check"></i> Up to 3 User Accounts</li>
-            <li><i className="fa fa-check"></i> Mobile Application (Android/iOS)</li>
-            <li><i className="fa fa-check"></i> GST &amp; Non-GST Billing</li>
-            <li><i className="fa fa-check"></i> Supplier &amp; Customer Ledger Khata</li>
-            <li><i className="fa fa-check"></i> Ad-Free Premium Experience</li>
-          </ul>
-          <button onClick={onOpenSignup} type="button" className="btn btn-secondary open-signup-modal">Choose GO</button>
+
+          <div className="modern-card-body">
+            <span className="modern-included-label">What's included :</span>
+            <ul className="modern-features-list">
+              <li><i className="fa fa-check-circle"></i> Up to 3 User Accounts</li>
+              <li><i className="fa fa-check-circle"></i> Mobile Application (Android/iOS)</li>
+              <li><i className="fa fa-check-circle"></i> GST &amp; Non-GST Quick Billing</li>
+              <li><i className="fa fa-check-circle"></i> Supplier &amp; Customer Ledger Khata</li>
+              <li><i className="fa fa-check-circle"></i> Ad-Free High-Speed Performance</li>
+            </ul>
+          </div>
         </div>
 
-        {/* India Prime Plan */}
-        <div style={{ display: activeTab === "india" ? "flex" : "none" }} className="price-card featured plan-item reveal-item stagger-3" data-country="india">
-          <div className="featured-ribbon">Most Popular</div>
-          <div className="price-card-header">
-            <div className="plan-logo-badge plan-logo-prime">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 3h12l4 6-10 12L2 9z"></path>
-                <path d="M11 3 8 9l4 12 4-12-3-6"></path>
-                <path d="M2 9h20"></path>
-              </svg>
+        {/* India Prime Plan / Extended Card */}
+        <div style={{ display: activeTab === "india" ? "flex" : "none" }} className="price-card modern-card plan-item reveal-item stagger-3" data-country="india">
+          <div className="modern-card-header">
+            <h3 className="modern-plan-title">Prime</h3>
+            <div className="modern-price-row">
+              <span className="modern-currency">₹</span>
+              <span className="modern-amount">{billingCycle === 'annual' ? '2,999' : '299'}</span>
+              <span className="modern-period">/{billingCycle === 'annual' ? 'yr' : 'mo'}</span>
             </div>
-            <h3 className="plan-name">Prime Plan (3 Users)</h3>
-            <div className="plan-price"><span className="currency">₹</span>2,999<span className="period">/ year</span></div>
+            <p className="modern-plan-desc">
+              Enhanced power with dedicated cloud sync &amp; desktop billing.
+            </p>
+            <button onClick={onOpenSignup} type="button" className="modern-plan-btn lime-btn open-signup-modal">
+              Try for 14 days
+            </button>
           </div>
-          <ul className="plan-features-list">
-            <li><i className="fa fa-check"></i> <strong>Full Web App (Desktop/Browser)</strong></li>
-            <li><i className="fa fa-check"></i> <strong>Real-time Multi-Device Sync</strong></li>
-            <li><i className="fa fa-check"></i> Advanced Analytics &amp; Excel Reports</li>
-            <li><i className="fa fa-check"></i> Barcode Printing &amp; Custom Invoices</li>
-            <li><i className="fa fa-check"></i> Priority 24/7 WhatsApp Support</li>
-          </ul>
-          <button onClick={onOpenSignup} type="button" className="btn btn-primary open-signup-modal">Choose Prime Plan</button>
+
+          <div className="modern-card-body">
+            <span className="modern-included-label">What's included :</span>
+            <ul className="modern-features-list">
+              <li><i className="fa fa-check-circle"></i> <strong>Full Web App (Desktop/Browser)</strong></li>
+              <li><i className="fa fa-check-circle"></i> <strong>Real-time Multi-Device Sync</strong></li>
+              <li><i className="fa fa-check-circle"></i> Advanced Analytics &amp; Excel Reports</li>
+              <li><i className="fa fa-check-circle"></i> Barcode Printing &amp; Custom Invoices</li>
+              <li><i className="fa fa-check-circle"></i> Priority 24/7 Dedicated Support</li>
+            </ul>
+          </div>
         </div>
 
         {/* Overseas GO Plan (Hidden by default) */}
-        <div style={{ display: activeTab === "overseas" ? "flex" : "none" }}  className="price-card plan-item" data-country="overseas" >
-          <div className="price-card-header">
-            <div className="plan-logo-badge plan-logo-go">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
-                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
-                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
-                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
-              </svg>
+        <div style={{ display: activeTab === "overseas" ? "flex" : "none" }} className="price-card modern-card plan-item" data-country="overseas">
+          <div className="modern-card-header">
+            <h3 className="modern-plan-title">GO Overseas</h3>
+            <div className="modern-price-row">
+              <span className="modern-currency">{overseasCurrencySymbol}</span>
+              <span className="modern-amount">{billingCycle === 'annual' ? '5,999' : '599'}</span>
+              <span className="modern-period">/{billingCycle === 'annual' ? 'yr' : 'mo'}</span>
             </div>
-            <h3 className="plan-name">GO Plan (Overseas)</h3>
-            <div className="plan-price"><span className="currency">{overseasCurrencySymbol}</span> 5,999<span className="period">/ year</span></div>
+            <p className="modern-plan-desc">
+              VAT-compliant international billing for stores and outlets.
+            </p>
+            <button onClick={onOpenSignup} type="button" className="modern-plan-btn lime-btn open-signup-modal">
+              Try for 14 days
+            </button>
           </div>
-          <ul className="plan-features-list">
-            <li><i className="fa fa-check"></i> VAT-Compliant Invoicing</li>
-            <li><i className="fa fa-check"></i> Up to 3 Users &bull; Mobile App</li>
-            <li><i className="fa fa-check"></i> Inventory &amp; Stock Tracking</li>
-            <li><i className="fa fa-check"></i> Customer Balance Ledger</li>
-          </ul>
-          <button onClick={onOpenSignup} type="button" className="btn btn-secondary open-signup-modal">Choose GO Overseas</button>
+          <div className="modern-card-body">
+            <span className="modern-included-label">What's included :</span>
+            <ul className="modern-features-list">
+              <li><i className="fa fa-check-circle"></i> VAT-Compliant Invoicing</li>
+              <li><i className="fa fa-check-circle"></i> Up to 3 Users &bull; Mobile App</li>
+              <li><i className="fa fa-check-circle"></i> Inventory &amp; Stock Tracking</li>
+              <li><i className="fa fa-check-circle"></i> Customer Balance Ledger</li>
+            </ul>
+          </div>
         </div>
 
         {/* Overseas Prime Plan (Hidden by default) */}
-        <div style={{ display: activeTab === "overseas" ? "flex" : "none" }} className="price-card featured plan-item" data-country="overseas" >
-          <div className="featured-ribbon">Best for UAE / GCC</div>
-          <div className="price-card-header">
-            <div className="plan-logo-badge plan-logo-prime">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 3h12l4 6-10 12L2 9z"></path>
-                <path d="M11 3 8 9l4 12 4-12-3-6"></path>
-                <path d="M2 9h20"></path>
-              </svg>
+        <div style={{ display: activeTab === "overseas" ? "flex" : "none" }} className="price-card modern-card modern-featured plan-item" data-country="overseas">
+          <div className="modern-featured-badge">Best for UAE / GCC</div>
+          <div className="modern-card-header">
+            <h3 className="modern-plan-title">Prime Overseas</h3>
+            <div className="modern-price-row">
+              <span className="modern-currency">{overseasCurrencySymbol}</span>
+              <span className="modern-amount">{billingCycle === 'annual' ? '9,999' : '999'}</span>
+              <span className="modern-period">/{billingCycle === 'annual' ? 'yr' : 'mo'}</span>
             </div>
-            <h3 className="plan-name">Prime Plan (Overseas)</h3>
-            <div className="plan-price"><span className="currency">{overseasCurrencySymbol}</span> 9,999<span className="period">/ year</span></div>
+            <p className="modern-plan-desc">
+              Multi-device realtime cloud access for international businesses.
+            </p>
+            <button onClick={onOpenSignup} type="button" className="modern-plan-btn lime-btn open-signup-modal">
+              Try for 14 days
+            </button>
           </div>
-          <ul className="plan-features-list">
-            <li><i className="fa fa-check"></i> <strong>Full Desktop Web Access</strong></li>
-            <li><i className="fa fa-check"></i> <strong>Multi-Device Realtime Cloud Sync</strong></li>
-            <li><i className="fa fa-check"></i> VAT Returns &amp; Export Reports</li>
-            <li><i className="fa fa-check"></i> Priority Dedicated Support</li>
-          </ul>
-          <button onClick={onOpenSignup} type="button" className="btn btn-primary open-signup-modal">Choose Prime Overseas</button>
+          <div className="modern-card-body">
+            <span className="modern-included-label">What's included :</span>
+            <ul className="modern-features-list">
+              <li><i className="fa fa-check-circle"></i> <strong>Full Desktop Web Access</strong></li>
+              <li><i className="fa fa-check-circle"></i> <strong>Multi-Device Realtime Cloud Sync</strong></li>
+              <li><i className="fa fa-check-circle"></i> VAT Returns &amp; Export Reports</li>
+              <li><i className="fa fa-check-circle"></i> Priority Dedicated Support</li>
+            </ul>
+          </div>
         </div>
 
         {/* Restaurant GO Plan (Hidden by default) */}
-        <div style={{ display: activeTab === "restaurant" ? "flex" : "none" }}  className="price-card plan-item theme-red" data-country="restaurant" >
-          <div className="price-card-header">
-            <div className="plan-logo-badge plan-logo-go theme-red">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
-                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
-                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
-                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
-              </svg>
+        <div style={{ display: activeTab === "restaurant" ? "flex" : "none" }} className="price-card modern-card plan-item theme-red" data-country="restaurant">
+          <div className="modern-card-header">
+            <h3 className="modern-plan-title">Restaurant GO</h3>
+            <div className="modern-price-row">
+              <span className="modern-currency">₹</span>
+              <span className="modern-amount">{billingCycle === 'annual' ? '999' : '99'}</span>
+              <span className="modern-period">/{billingCycle === 'annual' ? 'yr' : 'mo'}</span>
             </div>
-            <h3 className="plan-name">GO Plan</h3>
-            <div className="plan-price"><span className="currency">₹</span>999<span className="period">/ year</span></div>
+            <p className="modern-plan-desc">
+              Entry setup for small takeaway counters and food trucks.
+            </p>
+            <button onClick={onOpenSignup} type="button" className="modern-plan-btn lime-btn open-signup-modal">
+              Try for 14 days
+            </button>
           </div>
-          <ul className="plan-features-list">
-            <li><i className="fa fa-check"></i> Mobile Only &bull; 1 User</li>
-            <li><i className="fa fa-check"></i> Menu &amp; Menu Display</li>
-            <li><i className="fa fa-check"></i> KOT Management</li>
-            <li><i className="fa fa-check"></i> POS Billing (Delivery &amp; Dine)</li>
-          </ul>
-          <button onClick={onOpenSignup} type="button" className="btn btn-secondary open-signup-modal">Choose GO</button>
+          <div className="modern-card-body">
+            <span className="modern-included-label">What's included :</span>
+            <ul className="modern-features-list">
+              <li><i className="fa fa-check-circle"></i> Mobile Only &bull; 1 User</li>
+              <li><i className="fa fa-check-circle"></i> Menu &amp; Menu Display</li>
+              <li><i className="fa fa-check-circle"></i> KOT Management</li>
+              <li><i className="fa fa-check-circle"></i> POS Billing (Delivery &amp; Dine)</li>
+            </ul>
+          </div>
         </div>
 
         {/* Restaurant Prime Plan (Hidden by default) */}
-        <div style={{ display: activeTab === "restaurant" ? "flex" : "none" }} className="price-card featured plan-item theme-red" data-country="restaurant" >
-          <div className="featured-ribbon">Most Popular</div>
-          <div className="price-card-header">
-            <div className="plan-logo-badge plan-logo-prime theme-red">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 3h12l4 6-10 12L2 9z"></path>
-                <path d="M11 3 8 9l4 12 4-12-3-6"></path>
-                <path d="M2 9h20"></path>
-              </svg>
+        <div style={{ display: activeTab === "restaurant" ? "flex" : "none" }} className="price-card modern-card modern-featured plan-item theme-red" data-country="restaurant">
+          <div className="modern-featured-badge">Most Popular</div>
+          <div className="modern-card-header">
+            <h3 className="modern-plan-title">Restaurant Prime</h3>
+            <div className="modern-price-row">
+              <span className="modern-currency">₹</span>
+              <span className="modern-amount">{billingCycle === 'annual' ? '3,999' : '399'}</span>
+              <span className="modern-period">/{billingCycle === 'annual' ? 'yr' : 'mo'}</span>
             </div>
-            <h3 className="plan-name">Prime Plan</h3>
-            <div className="plan-price"><span className="currency">₹</span>3,999<span className="period">/ year</span></div>
+            <p className="modern-plan-desc">
+              Complete restaurant suite with table management &amp; waiter apps.
+            </p>
+            <button onClick={onOpenSignup} type="button" className="modern-plan-btn lime-btn open-signup-modal">
+              Try for 14 days
+            </button>
           </div>
-          <ul className="plan-features-list">
-            <li><i className="fa fa-check"></i> <strong>3 Users Included</strong></li>
-            <li><i className="fa fa-check"></i> Menu, Menu Display, KOT &amp; POS Billing</li>
-            <li><i className="fa fa-check"></i> Table, Floor &amp; Seat Management</li>
-            <li><i className="fa fa-check"></i> Dedicated Waiter User &amp; Performance</li>
-            <li><i className="fa fa-check"></i> Owner Dashboard</li>
-            <li><i className="fa fa-check"></i> Mobile, Website, POS, iOS &amp; Mac</li>
-          </ul>
-          <button onClick={onOpenSignup} type="button" className="btn btn-primary open-signup-modal">Choose Prime</button>
+          <div className="modern-card-body">
+            <span className="modern-included-label">What's included :</span>
+            <ul className="modern-features-list">
+              <li><i className="fa fa-check-circle"></i> <strong>3 Users Included</strong></li>
+              <li><i className="fa fa-check-circle"></i> Menu, Menu Display, KOT &amp; POS</li>
+              <li><i className="fa fa-check-circle"></i> Table, Floor &amp; Seat Management</li>
+              <li><i className="fa fa-check-circle"></i> Dedicated Waiter User App</li>
+              <li><i className="fa fa-check-circle"></i> Mobile, Website, POS, iOS &amp; Mac</li>
+            </ul>
+          </div>
         </div>
 
         {/* Restaurant Overseas GO Plan (Hidden by default) */}
-        <div style={{ display: activeTab === "restaurant-overseas" ? "flex" : "none" }}  className="price-card plan-item theme-red" data-country="restaurant-overseas" >
-          <div className="price-card-header">
-            <div className="plan-logo-badge plan-logo-go theme-red">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
-                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
-                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
-                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
-              </svg>
+        <div style={{ display: activeTab === "restaurant-overseas" ? "flex" : "none" }} className="price-card modern-card plan-item theme-red" data-country="restaurant-overseas">
+          <div className="modern-card-header">
+            <h3 className="modern-plan-title">Resto GO Overseas</h3>
+            <div className="modern-price-row">
+              <span className="modern-currency">{overseasCurrencySymbol}</span>
+              <span className="modern-amount">{billingCycle === 'annual' ? '6,999' : '699'}</span>
+              <span className="modern-period">/{billingCycle === 'annual' ? 'yr' : 'mo'}</span>
             </div>
-            <h3 className="plan-name">GO Plan (Overseas)</h3>
-            <div className="plan-price"><span className="currency">{overseasCurrencySymbol}</span> 6,999<span className="period">/ year</span></div>
+            <p className="modern-plan-desc">
+              International restaurant setup with multi-currency KOT.
+            </p>
+            <button onClick={onOpenSignup} type="button" className="modern-plan-btn lime-btn open-signup-modal">
+              Try for 14 days
+            </button>
           </div>
-          <ul className="plan-features-list">
-            <li><i className="fa fa-check"></i> Mobile Only &bull; 1 User</li>
-            <li><i className="fa fa-check"></i> Menu &amp; Menu Display</li>
-            <li><i className="fa fa-check"></i> KOT Management</li>
-            <li><i className="fa fa-check"></i> POS Billing (Delivery &amp; Dine)</li>
-          </ul>
-          <button onClick={onOpenSignup} type="button" className="btn btn-secondary open-signup-modal">Choose GO Overseas</button>
+          <div className="modern-card-body">
+            <span className="modern-included-label">What's included :</span>
+            <ul className="modern-features-list">
+              <li><i className="fa fa-check-circle"></i> Mobile Only &bull; 1 User</li>
+              <li><i className="fa fa-check-circle"></i> Menu &amp; Menu Display</li>
+              <li><i className="fa fa-check-circle"></i> KOT Management</li>
+              <li><i className="fa fa-check-circle"></i> POS Billing (Delivery &amp; Dine)</li>
+            </ul>
+          </div>
         </div>
 
         {/* Restaurant Overseas Prime Plan (Hidden by default) */}
-        <div style={{ display: activeTab === "restaurant-overseas" ? "flex" : "none" }} className="price-card featured plan-item theme-red" data-country="restaurant-overseas" >
-          <div className="featured-ribbon">Best for UAE / GCC</div>
-          <div className="price-card-header">
-            <div className="plan-logo-badge plan-logo-prime theme-red">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 3h12l4 6-10 12L2 9z"></path>
-                <path d="M11 3 8 9l4 12 4-12-3-6"></path>
-                <path d="M2 9h20"></path>
-              </svg>
+        <div style={{ display: activeTab === "restaurant-overseas" ? "flex" : "none" }} className="price-card modern-card modern-featured plan-item theme-red" data-country="restaurant-overseas">
+          <div className="modern-featured-badge">Best for UAE / GCC</div>
+          <div className="modern-card-header">
+            <h3 className="modern-plan-title">Resto Prime Overseas</h3>
+            <div className="modern-price-row">
+              <span className="modern-currency">{overseasCurrencySymbol}</span>
+              <span className="modern-amount">{billingCycle === 'annual' ? '12,999' : '1,299'}</span>
+              <span className="modern-period">/{billingCycle === 'annual' ? 'yr' : 'mo'}</span>
             </div>
-            <h3 className="plan-name">Prime Plan (Overseas)</h3>
-            <div className="plan-price"><span className="currency">{overseasCurrencySymbol}</span> 12,999<span className="period">/ year</span></div>
+            <p className="modern-plan-desc">
+              All-in-one dine-in &amp; delivery suite for global restaurants.
+            </p>
+            <button onClick={onOpenSignup} type="button" className="modern-plan-btn lime-btn open-signup-modal">
+              Try for 14 days
+            </button>
           </div>
-          <ul className="plan-features-list">
-            <li><i className="fa fa-check"></i> <strong>3 Users Included</strong></li>
-            <li><i className="fa fa-check"></i> Menu, Menu Display, KOT &amp; POS Billing</li>
-            <li><i className="fa fa-check"></i> Table, Floor &amp; Seat Management</li>
-            <li><i className="fa fa-check"></i> Dedicated Waiter User &amp; Performance</li>
-            <li><i className="fa fa-check"></i> Owner Dashboard</li>
-            <li><i className="fa fa-check"></i> Mobile, Website, POS, iOS &amp; Mac</li>
-          </ul>
-          <button onClick={onOpenSignup} type="button" className="btn btn-primary open-signup-modal">Choose Prime Overseas</button>
+          <div className="modern-card-body">
+            <span className="modern-included-label">What's included :</span>
+            <ul className="modern-features-list">
+              <li><i className="fa fa-check-circle"></i> <strong>3 Users Included</strong></li>
+              <li><i className="fa fa-check-circle"></i> Menu, KOT, POS &amp; Table Matrix</li>
+              <li><i className="fa fa-check-circle"></i> Dedicated Waiter App</li>
+              <li><i className="fa fa-check-circle"></i> Owner Dashboard (iOS, Mac &amp; Web)</li>
+            </ul>
+          </div>
         </div>
       </div>
 

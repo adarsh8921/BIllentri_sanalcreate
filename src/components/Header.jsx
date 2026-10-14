@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 
-export default function Header({ currentPage = 'home', onOpenSignup, onToggleMobileMenu, onNavigateDrivers, onNavigateHome }) {
+export default function Header({ 
+  currentPage = 'home', 
+  themeMode = 'retail',
+  onToggleTheme,
+  onOpenSignup, 
+  onToggleMobileMenu, 
+  onNavigateDrivers, 
+  onNavigateHome 
+}) {
   const [logoClicks, setLogoClicks] = useState(0);
 
   const handleLogoClick = () => {
@@ -132,7 +140,7 @@ export default function Header({ currentPage = 'home', onOpenSignup, onToggleMob
 
   return (
     <header className="site-header" id="site-header">
-      <div className="container">
+      <div className="container-fluid">
         <div className="header-inner">
           {/* Brand Logo */}
           <a href="/" className="brand-logo custom-logo-link" title="BillEntri" onClick={(e) => { handleLogoClick(); handleNavClick(e, '#home'); }}>
@@ -146,15 +154,24 @@ export default function Header({ currentPage = 'home', onOpenSignup, onToggleMob
               <span className="nav-indicator-pill" id="nav-indicator-pill" aria-hidden="true" />
               <li><a href="#home" className={`nav-link ${currentPage === 'home' ? 'active' : ''}`} onClick={(e) => handleNavClick(e, '#home')}>Home</a></li>
               <li><a href="#showcase" className="nav-link" onClick={(e) => handleNavClick(e, '#showcase')}>POS Live</a></li>
-              <li><a href="#downloads" className="nav-link" onClick={(e) => handleNavClick(e, '#downloads')}>Downloads</a></li>
-              <li><a href="#stack-showcase" className="nav-link" onClick={(e) => handleNavClick(e, '#stack-showcase')}>Why BillEntri</a></li>
               <li><a href="#features" className="nav-link" onClick={(e) => handleNavClick(e, '#features')}>Features</a></li>
-              <li><a href="#gallery" className="nav-link" onClick={(e) => handleNavClick(e, '#gallery')}>Screenshots</a></li>
+              <li><a href="#downloads" className="nav-link" onClick={(e) => handleNavClick(e, '#downloads')}>Downloads</a></li>
               <li><a href="#pricing" className="nav-link" onClick={(e) => handleNavClick(e, '#pricing')}>Pricing</a></li>
-              <li><a href="#testimonials" className="nav-link" onClick={(e) => handleNavClick(e, '#testimonials')}>Testimonials</a></li>
-              <li><a href="#faqs" className="nav-link" onClick={(e) => handleNavClick(e, '#faqs')}>FAQs</a></li>
+              <li><a href="#testimonials" className="nav-link" onClick={(e) => handleNavClick(e, '#testimonials')}>Reviews</a></li>
               <li><a href="#contact" className="nav-link" onClick={(e) => handleNavClick(e, '#contact')}>Contact</a></li>
-              <li><a href="/drivers-and-manuals" className={`nav-link ${currentPage === 'drivers' ? 'active' : ''}`} onClick={handleDriversClick}>Drivers &amp; Manuals</a></li>
+              <li><a href="/drivers-and-manuals" className={`nav-link ${currentPage === 'drivers' ? 'active' : ''}`} onClick={handleDriversClick}>Drivers</a></li>
+              <li className="nav-divider" aria-hidden="true"></li>
+              <li>
+                <button
+                  type="button"
+                  className={`nav-restaurant-pill ${themeMode === 'restaurant' ? 'active' : ''}`}
+                  onClick={() => onToggleTheme && onToggleTheme()}
+                  title={themeMode === 'restaurant' ? "Active: Restaurant View (Click to switch to Retail)" : "Click to switch to Restaurant View"}
+                >
+                  <i className="fa fa-cutlery"></i>
+                  <span>Restaurant</span>
+                </button>
+              </li>
             </ul>
           </nav>
 

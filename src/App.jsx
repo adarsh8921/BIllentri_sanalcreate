@@ -7,7 +7,6 @@ import Downloads from './components/Downloads';
 import WhyBillEntri from './components/WhyBillEntri';
 import Features from './components/Features';
 import Workflow from './components/Workflow';
-import Gallery from './components/Gallery';
 import StatsBanner from './components/StatsBanner';
 import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
@@ -23,12 +22,26 @@ import DriversAndManualsPage from './components/DriversAndManualsPage';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home'); // 'home' | 'drivers'
+  const [themeMode, setThemeMode] = useState('retail'); // 'retail' (green) | 'restaurant' (red)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [signupOpen, setSignupOpen] = useState(false);
   const [videoOpen, setVideoOpen] = useState(false);
   const [successOpen, setSuccessOpen] = useState(false);
   const [registeredCompany, setRegisteredCompany] = useState('');
   const [createdCompanyId, setCreatedCompanyId] = useState(1);
+
+  const toggleTheme = (mode) => {
+    const nextTheme = mode || (themeMode === 'retail' ? 'restaurant' : 'retail');
+    setThemeMode(nextTheme);
+  };
+
+  useEffect(() => {
+    if (themeMode === 'restaurant') {
+      document.body.classList.add('theme-restaurant');
+    } else {
+      document.body.classList.remove('theme-restaurant');
+    }
+  }, [themeMode]);
 
   // 1. Clean HTML5 Path Routing & Initial Curtain Dismissal
   useEffect(() => {
@@ -274,7 +287,7 @@ export default function App() {
     const cleanupSpotlights = [];
     if (window.innerWidth >= 768) {
       const selector =
-        '.platform-download-card, .stack-card, .bento-card, .price-card, .testimonial-card, .blog-card, .workflow-card, .pos-preview-box';
+        '.platform-download-card, .stack-card, .bento-card, .testimonial-card, .blog-card, .workflow-card, .pos-preview-box';
       const spotlightCards = document.querySelectorAll(selector);
 
       spotlightCards.forEach((card) => {
@@ -372,6 +385,8 @@ export default function App() {
 
       <Header 
         currentPage={currentPage}
+        themeMode={themeMode}
+        onToggleTheme={toggleTheme}
         onOpenSignup={handleOpenSignup} 
         onToggleMobileMenu={() => setMobileMenuOpen(true)}
         onNavigateDrivers={navigateToDrivers}
@@ -380,6 +395,8 @@ export default function App() {
 
       <MobileDrawer 
         currentPage={currentPage}
+        themeMode={themeMode}
+        onToggleTheme={toggleTheme}
         isOpen={mobileMenuOpen} 
         onClose={() => setMobileMenuOpen(false)} 
         onOpenSignup={() => {
@@ -395,13 +412,12 @@ export default function App() {
           <DriversAndManualsPage onNavigateHome={navigateToHome} />
         ) : (
           <>
-            <Hero onOpenSignup={handleOpenSignup} onOpenVideo={handleOpenVideo} />
+            <Hero themeMode={themeMode} onOpenSignup={handleOpenSignup} onOpenVideo={handleOpenVideo} />
             <Showcase onOpenSignup={handleOpenSignup} onOpenVideo={handleOpenVideo} />
             <Downloads />
             <WhyBillEntri />
             <Features />
             <Workflow />
-            <Gallery />
             <StatsBanner onOpenVideo={handleOpenVideo} />
             <Pricing onOpenSignup={handleOpenSignup} />
             <Testimonials />

@@ -11,7 +11,7 @@ export default function Hero({ onOpenSignup, onOpenVideo }) {
             {/* Left Content Column */}
             <div className="hero-kashir-content reveal-item reveal-left is-visible">
               <h1 className="hero-kashir-title">
-                One Cashier App For All Types Of Business
+                One App For All Types Of Business
               </h1>
 
               <p className="hero-kashir-subtitle">
